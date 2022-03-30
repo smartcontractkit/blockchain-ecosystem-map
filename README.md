@@ -1,1 +1,1 @@
-# chainlink-ecosystem-map
+# Blockchain Ecosystem Map
