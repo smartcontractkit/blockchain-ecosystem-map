@@ -10,3 +10,13 @@ module.exports = {
     return config;
   },
 };
+
+module.exports = (phase, { defaultConfig }) => {
+  if ('sassOptions' in defaultConfig) {
+    defaultConfig['sassOptions'] = {
+      includePaths: ['./src'],
+      prependData: `@import "./src/styles/variables.scss";`,
+    };
+  }
+  return defaultConfig;
+};

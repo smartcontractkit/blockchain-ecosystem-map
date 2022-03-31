@@ -1,0 +1,13 @@
+.box {
+  width: 100px;
+  height: 100px;
+  border-radius: 6px;
+    &.brand {
+      &_900 {
+        background-color: $brand-color-900;
+      }
+      &_800{
+        background-color: $brand-color-800;
+      }
+    }
+}
