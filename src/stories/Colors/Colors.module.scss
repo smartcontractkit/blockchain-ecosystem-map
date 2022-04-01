@@ -1,0 +1,59 @@
+@import '@/styles/colors.scss';
+
+.container {
+  display: grid;
+  grid-template-columns: repeat(6, 100px);
+  gap: 1rem;
+}
+
+.heading {
+  color: #FFF;
+  margin-top: 2rem;
+}
+
+.box {
+  border-radius: 6px;
+  height: 100px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.3);
+  &~small{
+    display: block;
+    color: white;
+    margin-top: 1rem;
+  }
+}
+
+  .brand {
+      &__900 {
+        background-color: $brand-900;
+      }
+      &__800{
+        background-color: $brand-800;
+      }
+      &__600{
+        background-color: $brand-600;
+      }
+      &__200{
+        background-color: $brand-200;
+      }
+      &__100{
+        background-color: $brand-100;
+      }
+      &__50{
+        background-color: $brand-50;
+      }
+    }
+
+    .neutral {
+      &__900 {
+        background-color: $neutral-900;
+      }
+      &__800{
+        background-color: $neutral-800;
+      }
+      &__700{
+        background-color: $neutral-700;
+      }
+      &__100{
+        background-color: $neutral-100;
+      }
+    }
