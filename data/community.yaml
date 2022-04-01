@@ -30,7 +30,6 @@
     - title: 'Cardano Forum'
       logo: '/logos/cardano.png'
       url: 'https://forum.cardano.org/c/developers/29'
-
     - title: 'Solidity Forum'
       logo: '/logos/solidity-forum.png'
       url: 'https://forum.soliditylang.org/'
