@@ -1,0 +1,66 @@
+.heading {
+  font-weight: 500;
+  &__600 {
+    font-size: 2.5rem;
+    line-height: 1.12;
+  }
+  &__200 {
+    font-size: 1.5rem;
+    line-height: 1.325;
+  }
+  &__100 {
+    font-size: 1.25rem;
+    line-height: 1.395;
+  }
+}
+
+.text {
+  &__short--lg,
+  &__long--lg,
+  &__short--sm,
+  &__long--sm {
+    font-weight: 500;
+    font-size: 1.125rem;
+  }
+
+  &__short--sm,
+  &__long--sm {
+    font-size: 0.875rem;
+  }
+
+  &__short--md,
+  &__long--md,
+  &__upper{
+    font-weight: 600;
+    font-size: 1rem;
+  }
+
+  &__short--lg {
+    line-height: 1.52;
+  }
+
+  &__short--md {
+    line-height: 1.48;
+  }
+
+  &__short--sm {
+    line-height: 1.44;
+  }
+
+  &__long--lg {
+    line-height: 1.76;
+  }
+
+  &__long--md {
+    line-height: 1.72;
+  }
+
+  &__long--sm {
+    line-height: 1.68;
+  }
+  
+  &__upper {
+    line-height: 1.32;
+    font-size: 0.75rem;
+  }
+}
