@@ -1,6 +1,5 @@
 import NavItem from './NavItem';
-// import LearnIcon from '@/components/Icons/LearnIcon';
-import LearnIcon from '@/icons/learn.svg';
+import Learn from '@/icons/learn.svg';
 
 export default {
   title: 'component/ Nav Item',
@@ -14,7 +13,7 @@ export default {
 
 const Template = (args) => (
   <NavItem {...args}>
-    <LearnIcon />
+    <Learn />
   </NavItem>
 );
 
