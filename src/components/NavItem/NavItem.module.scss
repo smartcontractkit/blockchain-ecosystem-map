@@ -1,0 +1,26 @@
+@import '@/styles/colors.scss';
+
+.navItem {
+  border: 1px solid $brand-200;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  color: $brand-800;
+  &:active {
+    background-color: $brand-200;
+  }
+  & > svg {
+    margin-right: 0.874375rem;
+  }
+  &:hover {
+    background-color: $brand-100;
+  }
+
+  &.active {
+    color: #FFFFFF;
+    background-color: $brand-600;
+    border: 1px solid $brand-600;
+  }
+}

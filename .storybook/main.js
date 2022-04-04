@@ -41,6 +41,12 @@ module.exports = {
       use: 'yaml-loader',
     });
 
+    config.module.rules.push({
+      test: /\.svg$/i,
+      issuer: /\.[jt]sx?$/,
+      use: ['@svgr/webpack'],
+    });
+
     config.resolve.alias = {
       ...config.resolve.alias,
       '@/components': path.resolve(__dirname, '../src/components'),
@@ -48,7 +54,7 @@ module.exports = {
       '@/pages': path.resolve(__dirname, '../src/pages'),
       '@/helpers': path.resolve(__dirname, '../src/helpers'),
       '@/styles': path.resolve(__dirname, '../src/styles'),
-      '/icons': path.resolve(__dirname, '../public/icons'),
+      '@/icons': path.resolve(__dirname, '../src/icons'),
       '/logos': path.resolve(__dirname, '../public/logos'),
     };
     return config;
