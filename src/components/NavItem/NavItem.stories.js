@@ -5,7 +5,7 @@ export default {
   title: 'component/ Nav Item',
   component: NavItem,
   argTypes: {
-    isActive: {
+    isSelected: {
       control: 'boolean',
     },
   },
@@ -22,5 +22,5 @@ export const Default = Template.bind({});
 Default.args = {
   text: 'Default',
   id: 'learn',
-  isActive: false,
+  isSelected: false,
 };
