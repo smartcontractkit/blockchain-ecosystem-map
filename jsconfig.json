@@ -6,7 +6,8 @@
       "@/data/*": ["data/*"],
       "@/pages/*": ["src/pages/*"],
       "@/helpers/*": ["src/helpers/*"],
-      "@/styles/*": ["src/styles/*"]
+      "@/styles/*": ["src/styles/*"],
+      "@/icons/*": ["src/icons/*"]
     }
   }
 }
