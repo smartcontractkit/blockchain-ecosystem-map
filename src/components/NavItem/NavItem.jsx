@@ -21,5 +21,5 @@ NavItem.propTypes = {
 };
 
 NavItem.defaultProps = {
-  isActive: false,
+  isSelected: false,
 };
