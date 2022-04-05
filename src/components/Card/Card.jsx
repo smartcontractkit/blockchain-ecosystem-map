@@ -4,11 +4,15 @@ import clsx from 'clsx';
 
 function Card({ title, size = 'large', imageSrc, url }) {
   return (
-    <a href={url} alt={`${title} website`} target="_blank" rel="noopener noreferrer">
-      <div className={clsx(styles.container, styles[`container__${size}`])}>
-        <img src={imageSrc} alt={title} />
-        {title}
-      </div>
+    <a
+      href={url}
+      alt={`${title} website`}
+      target="_blank"
+      rel="noopener noreferrer"
+      className={clsx(styles.container, styles[`container__${size}`])}
+    >
+      <img src={imageSrc} alt={title} />
+      {title}
     </a>
   );
 }
