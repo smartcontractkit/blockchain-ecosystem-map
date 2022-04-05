@@ -13,10 +13,5 @@ Default.args = {
   title: 'Angular',
   imageSrc: '/logos/angular.png',
   url: 'https://www.google.com',
-};
-
-Default.parameters = {
-  size: {
-    default: 'large',
-  },
+  size: 'large',
 };
