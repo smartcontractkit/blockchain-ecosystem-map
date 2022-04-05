@@ -59,20 +59,6 @@ module.exports = {
         ],
       }
     );
-
-    // rules.push({
-    //   test: /\.svg$/,
-    //   include: pathToInlineSvg,
-    //   use: [
-    //     {
-    //       loader: '@svgr/webpack',
-    //       options: {
-    //         icon: true,
-    //       },
-    //     },
-    //   ],
-    // });
-
     config.resolve.alias = {
       ...config.resolve.alias,
       '@/components': path.resolve(__dirname, '../src/components'),
