@@ -1,25 +1,19 @@
-import React, { useState, useCallback } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import clsx from 'clsx';
 import styles from './InnerAccordion.module.scss';
 import ExpandIcon from '@/icons/expand-icon.svg';
 
-export default function InnerAccordion({ title, id, children }) {
-  const [isExpand, setExpand] = useState(false);
-  // const expandedIconClasses = clsx(styles.icon, {[styles.expanded]: expanded});
-  const expandToggle = useCallback(() => {
-    setExpand(!isExpand);
-  }, [isExpand]);
-
+export default function InnerAccordion({ title, id, children, expanded, expandToggle }) {
   return (
     <React.Fragment>
       <h3>
         <button
           className={clsx('text__short--lg', styles.trigger)}
-          aria-expanded={isExpand}
+          aria-expanded={expanded}
           aria-controls={`${id}-sect`}
           id={`${id}-accordionid`}
-          onClick={expandToggle}
+          onClick={() => expandToggle(id)}
         >
           <span className={clsx(styles.icon)} aria-hidden="true">
             <ExpandIcon />
@@ -31,7 +25,7 @@ export default function InnerAccordion({ title, id, children }) {
         role="region"
         id={`${id}-sect`}
         aria-labelledby={`${id}-accordionid`}
-        hidden={!isExpand}
+        hidden={!expanded}
         className={styles.panel}
       >
         {children}
@@ -43,5 +37,7 @@ export default function InnerAccordion({ title, id, children }) {
 InnerAccordion.propTypes = {
   title: PropTypes.string.isRequired,
   id: PropTypes.string.isRequired,
+  expanded: PropTypes.bool.isRequired,
   children: PropTypes.node.isRequired,
+  expandToggle: PropTypes.func.isRequired,
 };

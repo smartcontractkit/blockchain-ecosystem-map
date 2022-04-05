@@ -12,6 +12,7 @@
   border: none;
   cursor: pointer;
   transition:all 0.5s ease-in-out;
+  margin-bottom: 1rem;
 
   &:hover {
     background-color: $brand-200;
@@ -22,18 +23,22 @@
     transition:all 0.5s ease-in-out;
     margin-right: 0.75rem;
     font-size: 1rem;
+    display: flex;
   }
+
   &[aria-expanded="true"] {
     & > .icon {
       transform: rotate(180deg);
     }
   }
+
 }
 
 .panel {
-    max-height: 0;
-    transition: max-height 0.5s ease-in;
-    &:not([aria-hidden="true"]) {
-      max-height: 1000px;
-    }
+  max-height: 0;
+  transition: all 1.5s ease-in-out;
+
+  &:not([aria-hidden="true"]) {
+    max-height: 1000px;
   }
+}
