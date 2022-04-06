@@ -31,7 +31,7 @@ function Navbar() {
     };
   }, []);
   return (
-    <header className={styles.navbar}>
+    <nav className={styles.navbar}>
       <div className={styles.navbar__group}>
         {!isScrollDown && <h3>Get Started</h3>}
         <ul>
@@ -108,7 +108,7 @@ function Navbar() {
           </li>
         </ul>
       </div>
-    </header>
+    </nav>
   );
 }
 
