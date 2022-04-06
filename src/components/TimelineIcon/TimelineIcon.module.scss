@@ -17,17 +17,22 @@
   &:after {
     content:"";
     position: absolute;
-    transform: rotate(90deg);
+    transform: rotate(45deg);
     background-color: $brand-200;
-    right: -0.2rem;
-    width: 10px;
-    height: 10px;
+    right: -0.3rem;
+    width: 18px;
+    height: 18px;
+    z-index: -1;
+    border-radius: 0.15rem;
   }
 
 
   &.active {
     color: #FFFFFF;
     background-color: $brand-600;
+    &:after {
+      background-color: $brand-600;
+    }
   }
 
 }
