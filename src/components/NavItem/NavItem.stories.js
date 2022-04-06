@@ -13,14 +13,13 @@ export default {
 
 const Template = (args) => (
   <NavItem {...args}>
-    <Learn />
+    <Learn /> Default
   </NavItem>
 );
 
 export const Default = Template.bind({});
 
 Default.args = {
-  text: 'Default',
-  id: 'learn',
+  href: '#learn',
   isSelected: false,
 };
