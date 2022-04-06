@@ -6,7 +6,7 @@ import ExpandIcon from '@/icons/expand-icon.svg';
 
 export default function InnerAccordion({ title, id, children, expanded, expandToggle }) {
   return (
-    <React.Fragment>
+    <section>
       <h3 className={styles.accordion__header}>
         <button
           className={clsx('text__short--lg', styles.trigger)}
@@ -15,21 +15,21 @@ export default function InnerAccordion({ title, id, children, expanded, expandTo
           id={`${id}-accordionid`}
           onClick={() => expandToggle(id)}
         >
-          <span className={clsx(styles.icon)} aria-hidden="true">
+          <span className={styles.icon} aria-hidden="true">
             <ExpandIcon />
           </span>
           {title}
         </button>
       </h3>
-      <section
+      <div
         role="region"
         id={`${id}-sect`}
         aria-labelledby={`${id}-accordionid`}
         className={clsx(styles.panel, { [styles.active]: expanded })}
       >
         {children}
-      </section>
-    </React.Fragment>
+      </div>
+    </section>
   );
 }
 
