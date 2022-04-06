@@ -2,7 +2,7 @@ import NavItem from './NavItem';
 import Learn from '@/icons/learn.svg';
 
 export default {
-  title: 'component/ Nav Item',
+  title: 'components/ Nav Item',
   component: NavItem,
   argTypes: {
     isSelected: {
