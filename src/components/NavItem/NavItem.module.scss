@@ -6,8 +6,10 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 1rem;
+  padding: 0.7rem 1rem;
   color: $brand-800;
+  width: fit-content;
+  font-size: 0.9rem;
   transition:all 0.5s ease-in-out;
 
   &:hover {
@@ -20,7 +22,7 @@
 
   & > svg {
     margin-right: 0.874375rem;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
   }
 
   &.selected {
