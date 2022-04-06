@@ -2,7 +2,7 @@ import NavItem from './NavItem';
 import Learn from '@/icons/learn.svg';
 
 export default {
-  title: 'component/ Nav Item',
+  title: 'components/ Nav Item',
   component: NavItem,
   argTypes: {
     isSelected: {
@@ -13,14 +13,13 @@ export default {
 
 const Template = (args) => (
   <NavItem {...args}>
-    <Learn />
+    <Learn /> Default
   </NavItem>
 );
 
 export const Default = Template.bind({});
 
 Default.args = {
-  text: 'Default',
-  id: 'learn',
+  href: '#learn',
   isSelected: false,
 };
