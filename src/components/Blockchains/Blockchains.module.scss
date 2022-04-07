@@ -1,9 +1,18 @@
 @import '@/styles/colors.scss';
+@import '@/styles/typography.scss';
 
 .container {
   margin: auto;
   padding: 4rem 0;
   border-bottom: 1px solid $brand-200;
+
+  & > h2 {
+    @extend .heading__200;
+    font-weight: 600;
+    color: $neutral-900;
+    margin: 0;
+    margin-bottom: 1.5rem;
+  }
 
   .contents {
     display: flex;
@@ -12,6 +21,7 @@
     & > * {
       flex-grow: 1;
     }
+
 
     @media (min-width: 1024px) {
       & > * {
