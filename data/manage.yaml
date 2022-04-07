@@ -1,0 +1,9 @@
+- name: 'Smart Contract Management Tools'
+  id: 'smart-contract-management-tools'
+  items: 
+    - title: 'OpenZeppelin'
+      logo: '/logos/zeppelin.png'
+      url: 'https://docs.openzeppelin.com/'
+    - title: 'Kaleido'
+      logo: '/logos/kaleido.png'
+      url:  'https://www.kaleido.io/blockchain-platform/smart-contract-management'
