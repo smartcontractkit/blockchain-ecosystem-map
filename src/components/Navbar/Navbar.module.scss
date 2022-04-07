@@ -2,7 +2,7 @@
 
 .navbar {
   display: flex;
-  justify-content: center;
+  
   box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.15);
   padding: 1rem;
   gap: 1.5rem;
@@ -10,6 +10,7 @@
   top: 0;
   z-index: 9999;
   background-color: #FFFFFF;
+  overflow-x: auto;
 
   &__group {
     display: flex;
@@ -29,5 +30,10 @@
       display: flex;
       gap: 0.5rem;
     }
+  }
+
+  @media (min-width: 1276px) {
+    justify-content: center;
+    overflow-x: hidden;
   }
 }
