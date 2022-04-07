@@ -3,7 +3,7 @@
   items: 
     - title: 'OpenZeppelin Contracts'
       logo: '/logos/zeppelin.png'
-      url: 'https://docs.openzeppelin.com/'
+      url: 'https://openzeppelin.com/contracts/'
     - title: 'Kaleido'
       logo: '/logos/kaleido.png'
       url:  'https://www.kaleido.io/blockchain-platform/smart-contract-management'
