@@ -2,7 +2,7 @@
   id: 'monitoring-tools'
   items: 
     - title: 'OpenZeppelin Sentinel'
-      logo: ''
+      logo: '/logos/'
       url: ''
     - title: 'Tenderly'
       logo: ''
