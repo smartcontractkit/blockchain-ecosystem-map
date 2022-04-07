@@ -1,0 +1,38 @@
+@import '@/styles/colors.scss';
+
+.timeline__icon {
+  color: $brand-800;
+  background-color: $brand-200;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 0.5rem;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.2rem;
+
+  position: relative;
+
+  &:after {
+    content:"";
+    position: absolute;
+    transform: rotate(45deg);
+    background-color: $brand-200;
+    right: -0.3rem;
+    width: 18px;
+    height: 18px;
+    z-index: -1;
+    border-radius: 0.15rem;
+  }
+
+
+  &.active {
+    color: #FFFFFF;
+    background-color: $brand-600;
+    &:after {
+      background-color: $brand-600;
+    }
+  }
+
+}
