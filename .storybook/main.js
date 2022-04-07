@@ -68,6 +68,7 @@ module.exports = {
       '@/styles': path.resolve(__dirname, '../src/styles'),
       '@/icons': path.resolve(__dirname, '../src/icons'),
       '/logos': path.resolve(__dirname, '../public/logos'),
+      '/images': path.resolve(__dirname, '../public/images'),
     };
     return config;
   },
