@@ -1,0 +1,39 @@
+- name: 'BSC'
+  id: 'Bsc'
+  logo: '/logos/bsc.png'
+  url: '#'
+
+- name: 'Polygon'
+  id: 'polygon'
+  logo: '/logos/polygonscan.png'
+  url: '#'
+
+- name: 'Avalanche'
+  id: 'avalanche'
+  logo: '/logos/avalanche.png'
+  url: '#'
+
+- name: 'FantomBSC'
+  id: 'fantomBSC'
+  logo: '/logos/fantombsc.png'
+  url: '#'
+
+- name: 'HECO'
+  id: 'heco'
+  logo: '/logos/hecoInfo.png'
+  url: '#'
+
+- name: 'xDai'
+  id: 'xDai'
+  logo: '/logos/xdai.png'
+  url: '#'
+
+- name: 'Arbitrum'
+  id: 'arbitrum'
+  logo: '/logos/arbiscan.png'
+  url: '#'
+
+- name: 'Optimism'
+  id: 'optimism'
+  logo: '/logos/optimisticethereum.png'
+  url: '#'
