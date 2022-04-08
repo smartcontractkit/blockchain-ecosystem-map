@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import NavItem from '@/components/NavItem';
+import NavigationProgressBar from '@/components/NavigationProgressBar';
 
 import styles from './Navbar.module.scss';
 
@@ -146,7 +147,7 @@ function Navbar() {
             </li>
           </ul>
         </div>
-        <div className={styles.progress} style={{ width: progress + '%' }}></div>
+        <NavigationProgressBar progress={progress} />
       </nav>
     </header>
   );
