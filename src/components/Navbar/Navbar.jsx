@@ -22,13 +22,22 @@ function Navbar() {
   const [, setActiveSection] = useState(null); //this will be needed to know which navitem isselected
 
   const updateProgress = (id) => {
-    const elm = document.querySelector('li#' + id);
+    /* 
+      Todo:
+      - Get the id of the visible section
+      - Use that to identify the list item
+      - Get the width of the nav
+      - Get the distance of the list item from the left with respect to the nav tag (note: in this case)
+      - Multiply the distance by 100 and divide by the width of the nav, thereby converting it to %
+      - Using rough estimate by adding a random value to balance things
+    */
+
+    const elm = document.querySelector(`li#${id}-li`);
     if (elm) {
       const nav = document.getElementById('nav');
       const navwidth = nav.offsetWidth;
       const left = Math.floor((elm.offsetLeft * 100) / navwidth);
-      const navitemId = id.split('-')[0];
-      console.log(navitemId);
+      const navitemId = id;
       setProgress(left + 5);
       setActiveSection(navitemId);
       return;
@@ -57,7 +66,7 @@ function Navbar() {
       const activeSectionElement = sectionsElements.find((section) => isElementVisible(section));
       if (activeSectionElement && activeSectionElement.id) {
         let id = activeSectionElement.id;
-        updateProgress(`${id}-li`);
+        updateProgress(id);
       }
     };
 
