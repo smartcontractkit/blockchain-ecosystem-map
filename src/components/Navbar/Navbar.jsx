@@ -60,7 +60,7 @@ function Navbar() {
   }, []);
 
   useEffect(() => {
-    const sectionsElements = Array.from(document.querySelectorAll('section'));
+    const sectionsElements = Array.from(document.querySelectorAll('h2'));
 
     const handleScroll = () => {
       const activeSectionElement = sectionsElements.find((section) => isElementVisible(section));
