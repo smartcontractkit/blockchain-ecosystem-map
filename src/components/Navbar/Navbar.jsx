@@ -19,7 +19,7 @@ import isElementVisible from '@/helpers/isElementVisible';
 function Navbar() {
   const [isScrollDown, setIsScrollDown] = useState(false);
   const [progress, setProgress] = useState(0);
-  const [, setActiveSection] = useState(null); //this will be needed to know which navitem isselected
+  const [activeSection, setActiveSection] = useState(null); //this will be needed to know which navitem isselected
 
   const updateProgress = (id) => {
     /* 
@@ -84,13 +84,13 @@ function Navbar() {
           {!isScrollDown && <h3>Get Started</h3>}
           <ul>
             <li id="learn-li">
-              <NavItem href="#learn">
+              <NavItem href="#learn" isSelected={activeSection === 'learn'}>
                 <LearnIcon />
                 Learn
               </NavItem>
             </li>
             <li id="fund-li">
-              <NavItem href="#fund">
+              <NavItem href="#fund" isSelected={activeSection === 'fund'}>
                 <FundIcon />
                 Fund
               </NavItem>
@@ -101,37 +101,37 @@ function Navbar() {
           {!isScrollDown && <h3>Development Cycle</h3>}
           <ul>
             <li id="develop-li">
-              <NavItem href="#develop">
+              <NavItem href="#develop" isSelected={activeSection === 'develop'}>
                 <DevelopIcon />
                 Develop
               </NavItem>
             </li>
             <li id="test-li">
-              <NavItem href="#test">
+              <NavItem href="#test" isSelected={activeSection === 'test'}>
                 <TestIcon />
                 Test
               </NavItem>
             </li>
             <li id="secure-li">
-              <NavItem href="#secure" isSelected>
+              <NavItem href="#secure" isSelected={activeSection === 'secure'}>
                 <SecureIcon />
                 Secure
               </NavItem>
             </li>
             <li id="deploy-li">
-              <NavItem href="#deploy">
+              <NavItem href="#deploy" isSelected={activeSection === 'deploy'}>
                 <DeployIcon />
                 Deploy
               </NavItem>
             </li>
             <li id="monitor-li">
-              <NavItem href="#monitor">
+              <NavItem href="#monitor" isSelected={activeSection === 'monitor'}>
                 <MonitorIcon />
                 Monitor
               </NavItem>
             </li>
             <li id="manage-li">
-              <NavItem href="#manage">
+              <NavItem href="#manage" isSelected={activeSection === 'manage'}>
                 <ManageIcon />
                 Manage
               </NavItem>
@@ -143,13 +143,13 @@ function Navbar() {
           {!isScrollDown && <h3>Share</h3>}
           <ul>
             <li id="community-li">
-              <NavItem href="#community">
+              <NavItem href="#community" isSelected={activeSection === 'community'}>
                 <CommunityIcon />
                 Community
               </NavItem>
             </li>
             <li id="market-li">
-              <NavItem href="#market">
+              <NavItem href="#market" isSelected={activeSection === 'market'}>
                 <MarketIcon />
                 Market
               </NavItem>

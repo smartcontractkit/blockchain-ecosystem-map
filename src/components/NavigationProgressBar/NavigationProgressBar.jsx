@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from 'NavigationProgressBar.module.scss';
+import styles from './NavigationProgressBar.module.scss';
 
 import PropTypes from 'prop-types';
 
