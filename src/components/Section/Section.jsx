@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { useState } from 'react';
 import ArrowDrop from '@/icons/arrow-drop.svg';
 
-function Section({ title, children }) {
+function Section({ title, id, children }) {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggle = () => {
@@ -11,7 +11,7 @@ function Section({ title, children }) {
   };
 
   return (
-    <section className={styles.container} role="region">
+    <div id={id} className={styles.container} role="region">
       <h3 className={styles.title}>
         <button aria-expanded="true" aria-controls="sect3" aria-disabled="true" onClick={toggle}>
           <ArrowDrop style={{ transform: isOpen ? 'rotate(90deg)' : 'rotate(0deg)' }} />
@@ -19,12 +19,13 @@ function Section({ title, children }) {
         </button>
       </h3>
       <div className={styles.body}>{children}</div>
-    </section>
+    </div>
   );
 }
 
 Section.propTypes = {
   title: PropTypes.string,
+  id: PropTypes.string,
   children: PropTypes.node,
 };
 

@@ -11,4 +11,5 @@ export const Default = Template.bind({});
 
 Default.args = {
   title: 'Section title',
+  id: 'section-id',
 };
