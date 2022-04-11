@@ -1,19 +1,38 @@
 @import '@/styles/_colors.scss';
+@import "@/styles/_typography.scss";
 
 .container {
   border: 1px solid $brand-200;
   border-radius: 0.75rem;
-  padding: 1rem;
 }
 
 .title {
-  font-size: 1.5rem;
-  font-weight: 600;
-  margin-bottom: 1rem;
+  margin: 0;
+  border-bottom: 1px solid $brand-200;
+  padding: 1rem;
+  
+  button {
+    color: $brand-900;
+    font-size: 1.125rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    border: none;
+    background: none;
+    display: flex;
+    align-items: center;
+    gap: 0.2rem;
+    width: 100%;
+    cursor: pointer;
+
+    svg {
+      font-size: 1.5rem;
+      color: $brand-800;
+      transform: rotate(0deg);
+      transition: all 0.2s ease-in-out;
+    }
+  }
 }
 
 .body {
-  font-size: 1.125rem;
-  line-height: 1.5;
-  margin-bottom: 1rem;
+  margin: 1rem;
 }

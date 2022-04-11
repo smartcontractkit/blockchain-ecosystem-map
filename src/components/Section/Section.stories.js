@@ -5,6 +5,10 @@ export default {
   component: Section,
 };
 
-const Template = (args) => <Section {...args} />;
+const Template = (args) => <Section {...args}> Hello world </Section>;
 
 export const Default = Template.bind({});
+
+Default.args = {
+  title: 'Section title',
+};
