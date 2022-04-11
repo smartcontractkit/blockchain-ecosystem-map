@@ -21,28 +21,6 @@ function Navbar({ activeLink }) {
   const [progress, setProgress] = useState(0);
   const [activeSection, setActiveSection] = useState(null); //this will be needed to know which navitem isselected
 
-  const updateProgress = (id, addedValue) => {
-    /* 
-      Todo:
-      - Get the id of the visible section
-      - Use that to identify the list item
-      - Get the width of the nav
-      - Get the distance of the list item from the left with respect to the nav tag (note: in this case)
-      - Multiply the distance by 100 and divide by the width of the nav, thereby converting it to %
-      - Using rough estimate by adding a random value to balance things
-    */
-
-    const elm = document.querySelector(`li#${id}-li`);
-    if (elm) {
-      const nav = document.getElementById('nav');
-      const navwidth = nav.offsetWidth;
-      const left = Math.floor((elm.offsetLeft * 100) / navwidth);
-      setProgress(left + addedValue);
-      setActiveSection(id);
-      return;
-    }
-  };
-
   useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY > 200) {
@@ -59,6 +37,30 @@ function Navbar({ activeLink }) {
   }, []);
 
   useEffect(() => {
+    const updateProgress = (id, addedValue) => {
+      /* 
+      Todo:
+      - Get the id of the visible section
+      - Use that to identify the list item
+      - Get the width of the nav
+      - Get the distance of the list item from the left with respect to the nav tag (note: in this case)
+      - Multiply the distance by 100 and divide by the width of the nav, thereby converting it to %
+      - Using rough estimate by adding a random value to balance things
+    */
+
+      const elm = document.querySelector(`li#${id}-li`);
+      if (elm) {
+        const nav = document.getElementById('nav');
+        const navwidth = nav.offsetWidth;
+        const left = Math.floor((elm.offsetLeft * 100) / navwidth);
+        setProgress(left + addedValue);
+        setActiveSection(id);
+        return;
+      }
+    };
+
+    updateProgress(activeLink, 4.5);
+
     window.addEventListener(
       'resize',
       function () {
@@ -67,10 +69,8 @@ function Navbar({ activeLink }) {
       },
       true
     );
-  });
 
-  useEffect(() => {
-    updateProgress(activeLink, 4.5);
+    return () => window.removeEventListener('resize', () => {});
   }, [activeLink]);
 
   return (
