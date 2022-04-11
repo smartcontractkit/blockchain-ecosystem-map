@@ -11,8 +11,8 @@ function Section({ title, id, children }) {
   };
 
   return (
-    <div id={id} className={styles.container} role="region">
-      <h3 className={styles.title}>
+    <div className={styles.container} role="region">
+      <h3 id={id} className={styles.title}>
         <button aria-expanded="true" aria-controls="sect3" aria-disabled="true" onClick={toggle}>
           <ArrowDrop style={{ transform: isOpen ? 'rotate(90deg)' : 'rotate(0deg)' }} />
           {title}
@@ -24,9 +24,9 @@ function Section({ title, id, children }) {
 }
 
 Section.propTypes = {
-  title: PropTypes.string,
-  id: PropTypes.string,
-  children: PropTypes.node,
+  title: PropTypes.string.isRequired,
+  id: PropTypes.string.isRequired,
+  children: PropTypes.node.isRequired,
 };
 
 export default Section;
