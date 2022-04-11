@@ -63,14 +63,14 @@ function Navbar({ activeLink }) {
       'resize',
       function () {
         /* In the future for responsiveness if needed we can check for screen width to know which rough value can be added */
-        updateProgress(activeLink, 4.2);
+        updateProgress(activeLink, 4.5);
       },
       true
     );
   });
 
   useEffect(() => {
-    updateProgress(activeLink, 4.2);
+    updateProgress(activeLink, 4.5);
   }, [activeLink]);
 
   return (

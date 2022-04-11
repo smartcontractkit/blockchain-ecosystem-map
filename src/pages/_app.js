@@ -4,7 +4,7 @@ import '@/styles/globals.scss';
 import PropTypes from 'prop-types';
 
 function MyApp({ Component, pageProps }) {
-  const [activelink] = useState('secure');
+  const [activelink] = useState('test');
 
   return (
     <>
