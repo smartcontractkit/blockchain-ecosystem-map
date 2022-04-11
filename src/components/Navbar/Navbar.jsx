@@ -21,7 +21,7 @@ function Navbar({ activeLink }) {
   const [progress, setProgress] = useState(0);
   const [activeSection, setActiveSection] = useState(null); //this will be needed to know which navitem isselected
 
-  const updateProgress = (id) => {
+  const updateProgress = (id, addedValue) => {
     /* 
       Todo:
       - Get the id of the visible section
@@ -37,7 +37,7 @@ function Navbar({ activeLink }) {
       const nav = document.getElementById('nav');
       const navwidth = nav.offsetWidth;
       const left = Math.floor((elm.offsetLeft * 100) / navwidth);
-      setProgress(left + 4.2);
+      setProgress(left + addedValue);
       setActiveSection(id);
       return;
     }
@@ -59,7 +59,18 @@ function Navbar({ activeLink }) {
   }, []);
 
   useEffect(() => {
-    updateProgress(activeLink);
+    window.addEventListener(
+      'resize',
+      function () {
+        /* In the future for responsiveness if needed we can check for screen width to know which rough value can be added */
+        updateProgress(activeLink, 4.2);
+      },
+      true
+    );
+  });
+
+  useEffect(() => {
+    updateProgress(activeLink, 4.2);
   }, [activeLink]);
 
   return (
