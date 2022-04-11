@@ -1,0 +1,19 @@
+@import '@/styles/_colors.scss';
+
+.container {
+  border: 1px solid $brand-200;
+  border-radius: 0.75rem;
+  padding: 1rem;
+}
+
+.title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.body {
+  font-size: 1.125rem;
+  line-height: 1.5;
+  margin-bottom: 1rem;
+}
