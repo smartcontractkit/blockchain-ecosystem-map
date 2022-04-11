@@ -9,7 +9,7 @@ function MyApp({ Component, pageProps }) {
 
   return (
     <>
-      <Navbar activeLink={activelink} />
+      <Navbar activeLink={activelink} chapters={chapters} />
       <main>
         <Component {...pageProps} chapters={chapters} />
       </main>

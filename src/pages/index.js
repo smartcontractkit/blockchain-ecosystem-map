@@ -7,6 +7,7 @@ import InnerAccordion from '@/components/InnerAccordion';
 import styles from '@/styles/Home.module.scss';
 
 import PropTypes from 'prop-types';
+import Card from '@/components/Card';
 
 export default function Home({ chapters }) {
   const [isExpanded, setisExpanded] = useState(null);
@@ -28,17 +29,21 @@ export default function Home({ chapters }) {
 
       {/* Get started */}
       <Chapter>
-        {get_started.map((result, index) => (
-          <Section key={index} title={result.title} id={result.id}>
-            {result.data.map((data, i) => (
+        {get_started.map((result) => (
+          <Section key={result.id} title={result.title} id={result.id}>
+            {result.data.map((data) => (
               <InnerAccordion
-                key={i}
+                key={data.id}
                 title={data.name}
                 id={data.id}
                 expanded={isExpanded === data.id}
                 expandToggle={expandPanel}
               >
-                <p>Here</p>
+                <div className={styles.accordion_contents}>
+                  {data.items.map((item) => (
+                    <Card key={item.url} title={item.title} imageSrc={item.logo} url={item.url} size="small" />
+                  ))}
+                </div>
               </InnerAccordion>
             ))}
           </Section>
@@ -47,17 +52,21 @@ export default function Home({ chapters }) {
 
       {/* Development Cycle */}
       <Chapter>
-        {development_cycle.map((result, index) => (
-          <Section key={index} title={result.title} id={result.title}>
-            {result.data.map((data, i) => (
+        {development_cycle.map((result) => (
+          <Section key={result.id} title={result.title} id={result.title}>
+            {result.data.map((data) => (
               <InnerAccordion
-                key={i}
+                key={data.id}
                 title={data.name}
                 id={data.id}
                 expanded={isExpanded === data.id}
                 expandToggle={expandPanel}
               >
-                <p>Here</p>
+                <div className={styles.accordion_contents}>
+                  {data.items.map((item) => (
+                    <Card key={item.url} title={item.title} imageSrc={item.logo} url={item.url} size="small" />
+                  ))}
+                </div>
               </InnerAccordion>
             ))}
           </Section>
@@ -67,17 +76,21 @@ export default function Home({ chapters }) {
       {/* Share */}
 
       <Chapter>
-        {share.map((result, index) => (
-          <Section key={index} title={result.title} id={result.title}>
-            {result.data.map((data, i) => (
+        {share.map((result) => (
+          <Section key={result.id} title={result.title} id={result.title}>
+            {result.data.map((data) => (
               <InnerAccordion
-                key={i}
+                key={data.id}
                 title={data.name}
                 id={data.id}
                 expanded={isExpanded === data.id}
                 expandToggle={expandPanel}
               >
-                <p>Here</p>
+                <div className={styles.accordion_contents}>
+                  {data.items.map((item) => (
+                    <Card key={item.url} title={item.title} imageSrc={item.logo} url={item.url} size="small" />
+                  ))}
+                </div>
               </InnerAccordion>
             ))}
           </Section>

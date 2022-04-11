@@ -5,21 +5,12 @@ import NavigationProgressBar from '@/components/NavigationProgressBar';
 
 import styles from './Navbar.module.scss';
 
-import LearnIcon from '@/icons/learn.svg';
-import FundIcon from '@/icons/fund.svg';
-import DevelopIcon from '@/icons/develop.svg';
-import TestIcon from '@/icons/test.svg';
-import SecureIcon from '@/icons/secure.svg';
-import DeployIcon from '@/icons/deploy.svg';
-import MonitorIcon from '@/icons/monitor.svg';
-import ManageIcon from '@/icons/manage.svg';
-import CommunityIcon from '@/icons/community.svg';
-import MarketIcon from '@/icons/market.svg';
-
-function Navbar({ activeLink }) {
+function Navbar({ activeLink, chapters }) {
   const [isScrollDown, setIsScrollDown] = useState(false);
   const [progress, setProgress] = useState(0);
   const [activeSection, setActiveSection] = useState(null); //this will be needed to know which navitem isselected
+
+  const { get_started, development_cycle, share } = chapters;
 
   useEffect(() => {
     const handleScroll = () => {
@@ -79,77 +70,41 @@ function Navbar({ activeLink }) {
         <div className={styles.navbar__group}>
           {!isScrollDown && <h3>Get Started</h3>}
           <ul>
-            <li id="learn-li">
-              <NavItem href="#learn" isSelected={activeSection === 'learn'}>
-                <LearnIcon />
-                Learn
-              </NavItem>
-            </li>
-            <li id="fund-li">
-              <NavItem href="#fund" isSelected={activeSection === 'fund'}>
-                <FundIcon />
-                Fund
-              </NavItem>
-            </li>
+            {get_started.map(({ title, id, Icon }, index) => (
+              <li id={`${id}-li`} key={index}>
+                <NavItem href={`#${id}`} isSelected={activeSection === id}>
+                  <Icon />
+                  {title}
+                </NavItem>
+              </li>
+            ))}
           </ul>
         </div>
         <div className={styles.navbar__group}>
           {!isScrollDown && <h3>Development Cycle</h3>}
           <ul>
-            <li id="develop-li">
-              <NavItem href="#develop" isSelected={activeSection === 'develop'}>
-                <DevelopIcon />
-                Develop
-              </NavItem>
-            </li>
-            <li id="test-li">
-              <NavItem href="#test" isSelected={activeSection === 'test'}>
-                <TestIcon />
-                Test
-              </NavItem>
-            </li>
-            <li id="secure-li">
-              <NavItem href="#secure" isSelected={activeSection === 'secure'}>
-                <SecureIcon />
-                Secure
-              </NavItem>
-            </li>
-            <li id="deploy-li">
-              <NavItem href="#deploy" isSelected={activeSection === 'deploy'}>
-                <DeployIcon />
-                Deploy
-              </NavItem>
-            </li>
-            <li id="monitor-li">
-              <NavItem href="#monitor" isSelected={activeSection === 'monitor'}>
-                <MonitorIcon />
-                Monitor
-              </NavItem>
-            </li>
-            <li id="manage-li">
-              <NavItem href="#manage" isSelected={activeSection === 'manage'}>
-                <ManageIcon />
-                Manage
-              </NavItem>
-            </li>
+            {development_cycle.map(({ title, id, Icon }, index) => (
+              <li id={`${id}-li`} key={index}>
+                <NavItem href={`#${id}`} isSelected={activeSection === id}>
+                  <Icon />
+                  {title}
+                </NavItem>
+              </li>
+            ))}
           </ul>
         </div>
 
         <div className={styles.navbar__group}>
           {!isScrollDown && <h3>Share</h3>}
           <ul>
-            <li id="community-li">
-              <NavItem href="#community" isSelected={activeSection === 'community'}>
-                <CommunityIcon />
-                Community
-              </NavItem>
-            </li>
-            <li id="market-li">
-              <NavItem href="#market" isSelected={activeSection === 'market'}>
-                <MarketIcon />
-                Market
-              </NavItem>
-            </li>
+            {share.map(({ title, id, Icon }, index) => (
+              <li id={`${id}-li`} key={index}>
+                <NavItem href={`#${id}`} isSelected={activeSection === id}>
+                  <Icon />
+                  {title}
+                </NavItem>
+              </li>
+            ))}
           </ul>
         </div>
         <NavigationProgressBar progress={progress} />
@@ -160,6 +115,7 @@ function Navbar({ activeLink }) {
 
 Navbar.propTypes = {
   activeLink: PropTypes.string.isRequired,
+  chapters: PropTypes.object.isRequired,
 };
 
 export default Navbar;
