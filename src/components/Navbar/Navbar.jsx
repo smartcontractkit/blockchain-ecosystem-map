@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import PropTypes from 'prop-types';
 import NavItem from '@/components/NavItem';
 import NavigationProgressBar from '@/components/NavigationProgressBar';
 
@@ -14,9 +15,8 @@ import MonitorIcon from '@/icons/monitor.svg';
 import ManageIcon from '@/icons/manage.svg';
 import CommunityIcon from '@/icons/community.svg';
 import MarketIcon from '@/icons/market.svg';
-import isElementVisible from '@/helpers/isElementVisible';
 
-function Navbar() {
+function Navbar({ activeLink }) {
   const [isScrollDown, setIsScrollDown] = useState(false);
   const [progress, setProgress] = useState(0);
   const [activeSection, setActiveSection] = useState(null); //this will be needed to know which navitem isselected
@@ -37,45 +37,30 @@ function Navbar() {
       const nav = document.getElementById('nav');
       const navwidth = nav.offsetWidth;
       const left = Math.floor((elm.offsetLeft * 100) / navwidth);
-      const navitemId = id;
-      setProgress(left + 5);
-      setActiveSection(navitemId);
+      setProgress(left + 4.2);
+      setActiveSection(id);
       return;
     }
   };
 
   useEffect(() => {
     const handleScroll = () => {
-      if (document.scrollY > 200) {
+      if (window.scrollY > 200) {
         setIsScrollDown(true);
-      } else if (document.scrollY < 50) {
+      } else if (window.scrollY < 50) {
         setIsScrollDown(false);
       }
     };
-    document.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll);
 
     return () => {
-      document.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('scroll', handleScroll);
     };
   }, []);
 
   useEffect(() => {
-    const sectionsElements = Array.from(document.querySelectorAll('h2'));
-
-    const handleScroll = () => {
-      const activeSectionElement = sectionsElements.find((section) => isElementVisible(section));
-      if (activeSectionElement && activeSectionElement.id) {
-        let id = activeSectionElement.id;
-        updateProgress(id);
-      }
-    };
-
-    document.addEventListener('scroll', handleScroll);
-
-    return () => {
-      document.removeEventListener('scroll', handleScroll);
-    };
-  }, []);
+    updateProgress(activeLink);
+  }, [activeLink]);
 
   return (
     <header className={styles.container}>
@@ -161,5 +146,9 @@ function Navbar() {
     </header>
   );
 }
+
+Navbar.propTypes = {
+  activeLink: PropTypes.string.isRequired,
+};
 
 export default Navbar;
