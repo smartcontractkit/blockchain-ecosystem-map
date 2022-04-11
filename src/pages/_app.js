@@ -1,4 +1,5 @@
 import Navbar from '@/components/Navbar';
+import chapters from '@/data/chapters';
 import '@/styles/globals.scss';
 import PropTypes from 'prop-types';
 
@@ -7,7 +8,7 @@ function MyApp({ Component, pageProps }) {
     <>
       <Navbar />
       <main>
-        <Component {...pageProps} />
+        <Component {...pageProps} chapters={chapters} />
       </main>
     </>
   );
