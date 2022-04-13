@@ -16,6 +16,7 @@
 
 - name: 'Auditing'
   id: 'auditing'
+  items:
     - title: 'Consensys Diligence'
       logo: '/logos/consensys-diligence.png'
       url: 'https://consensys.net/diligence/'

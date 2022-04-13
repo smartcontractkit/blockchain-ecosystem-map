@@ -33,7 +33,9 @@ All of the content files are located in `./data` folder
 
 ### Chapters Data Structure
 
-- Add new chapter or chapter contents [`./data/chapters.yaml`](data/chapters.yaml)
+- Add new chapter or chapter contents [`./data/chapters.yaml`](data/chapters.yaml). This file is used to dynamically
+  build the content in both the [navigation items](src/components/NavItem) and also the
+  [main contents](src/pages/index.js) (Get started, Development Cycle and Share).
 
 ## Contribute to the website
 

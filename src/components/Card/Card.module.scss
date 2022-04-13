@@ -11,15 +11,17 @@
   border: 1px solid $brand-200;
   border-radius: 0.75rem;
   transition: all 0.2s ease-in-out;
+  text-align: center;
+  padding: 0.5rem;
 
   &__small {
-    width: 6.75rem;
-    height: 6.75rem;
+    width: 7.38875rem;
+    height: 8rem;
     font-size: 0.875rem;
   }
 
   &__large {
-    width: 10rem;
+    width: 9.3125rem;
     height: 10rem;
     font-size: 1.125rem;
   }

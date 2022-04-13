@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import Navbar from '@/components/Navbar';
+import chapters from '@/data/chapters';
 import '@/styles/globals.scss';
 import PropTypes from 'prop-types';
 
@@ -8,9 +9,9 @@ function MyApp({ Component, pageProps }) {
 
   return (
     <>
-      <Navbar activeLink={activelink} />
+      <Navbar activeLink={activelink} chapters={chapters} />
       <main>
-        <Component {...pageProps} />
+        <Component {...pageProps} chapters={chapters} />
       </main>
     </>
   );

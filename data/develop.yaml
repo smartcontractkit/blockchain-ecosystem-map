@@ -250,5 +250,5 @@
   id: 'oracles'
   items:
   - title: 'Chainlink'
-      logo: '/logos/chainlink.png'
-      url: 'https://chain.link/'
+    logo: '/logos/chainlink.png'
+    url: 'https://chain.link/'
