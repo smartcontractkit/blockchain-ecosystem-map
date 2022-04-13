@@ -1,12 +1,11 @@
 @import "@/styles/_typography.scss";
 
 .container {
-  background: url("/images/bg-hero.png");
-  background-repeat: no-repeat;
-  background-size: cover;
   border-radius: 1rem;
   color: white;
   padding: 3.5rem;
+  position: relative;
+  overflow-x: hidden;
 
   h1 {
     @extend .heading__600;
@@ -15,5 +14,9 @@
 
   p {
     @extend .text__short--lg;
+  }
+
+  .image {
+    z-index: -1;
   }
 }
