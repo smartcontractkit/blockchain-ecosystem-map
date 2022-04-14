@@ -138,7 +138,7 @@ function Navbar({ activeLink, chapters, updateActiveLink }) {
 }
 
 Navbar.propTypes = {
-  activeLink: PropTypes.string.isRequired,
+  activeLink: PropTypes.string,
   chapters: PropTypes.object.isRequired,
   updateActiveLink: PropTypes.func,
 };
