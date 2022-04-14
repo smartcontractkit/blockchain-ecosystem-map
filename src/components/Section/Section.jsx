@@ -21,7 +21,7 @@ function Section({ title, id, children, Icon }) {
       </h3>
       <div className={styles.body}>{children}</div>
       <div className={styles.timelineIcon}>
-        <TimelineIcon>
+        <TimelineIcon isActive={false}>
           <Icon />
         </TimelineIcon>
       </div>
