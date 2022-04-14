@@ -1,4 +1,5 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { useRouter } from 'next/router';
 import Blockchains from '@/components/Blockchains';
 import Chapter from '@/components/Chapter';
 import Section from '@/components/Section';
@@ -10,13 +11,24 @@ import PropTypes from 'prop-types';
 import Card from '@/components/Card';
 
 export default function Home({ chapters }) {
+  const router = useRouter();
   const [isExpanded, setisExpanded] = useState(null);
 
   const chaptersKeys = Object.keys(chapters);
 
-  const expandPanel = (value) => {
-    setisExpanded(isExpanded && isExpanded === value ? null : value);
+  const expandPanel = ({ id, section_id }) => {
+    setisExpanded(isExpanded && isExpanded === id ? null : id);
+    router.push({
+      query: {
+        activelink: section_id + '#',
+        opened: isExpanded && isExpanded === id ? null : id,
+      },
+    });
   };
+
+  useEffect(() => {
+    setisExpanded(router.query.opened);
+  }, [router.query]);
 
   return (
     <div className={styles.container}>
@@ -34,7 +46,7 @@ export default function Home({ chapters }) {
                   title={data.name}
                   id={data.id}
                   expanded={isExpanded === data.id}
-                  expandToggle={expandPanel}
+                  expandToggle={(id) => expandPanel({ id, section_id: result.id })}
                 >
                   <div className={styles.accordion_contents}>
                     {data.items.map((item) => (

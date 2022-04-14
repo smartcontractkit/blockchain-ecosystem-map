@@ -7,7 +7,7 @@ import ExpandIcon from '@/icons/expand-icon.svg';
 export default function InnerAccordion({ title, id, children, expanded, expandToggle }) {
   return (
     <section>
-      <h4 className={styles.accordion__header}>
+      <h4 id={id} className={styles.accordion__header}>
         <button
           className={clsx('text__short--lg', styles.trigger)}
           aria-expanded={expanded}

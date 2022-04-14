@@ -1,4 +1,5 @@
 import React from 'react';
+import { useRouter } from 'next/router';
 import PropTypes from 'prop-types';
 import clsx from 'clsx';
 
@@ -6,8 +7,22 @@ import styles from './NavItem.module.scss';
 
 export default function NavItem({ href, children, isSelected }) {
   const navItemClasses = clsx('text__short--md', styles.navItem, { [styles.selected]: isSelected });
+  const router = useRouter();
+  const id = href.replace('#', '');
+
   return (
-    <a href={href} className={navItemClasses}>
+    <a
+      href={'#'}
+      onClick={() => {
+        // e.preventDefault();
+        router.push({
+          query: {
+            activelink: id,
+          },
+        });
+      }}
+      className={navItemClasses}
+    >
       {children}
     </a>
   );
