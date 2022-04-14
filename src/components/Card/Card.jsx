@@ -1,7 +1,6 @@
 import PropTypes from 'prop-types';
 import styles from './Card.module.scss';
 import clsx from 'clsx';
-import Image from 'next/image';
 
 function Card({ title, size = 'large', imageSrc, url }) {
   return (
@@ -12,7 +11,7 @@ function Card({ title, size = 'large', imageSrc, url }) {
       rel="noopener noreferrer"
       className={clsx(styles.container, styles[`container__${size}`])}
     >
-      <Image src={imageSrc} layout="fixed" width={50} height={50} objectFit="cover" alt={title} />
+      <img src={imageSrc} alt={title} />
       {title}
     </a>
   );
