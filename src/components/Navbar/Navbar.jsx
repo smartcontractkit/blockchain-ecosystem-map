@@ -86,7 +86,7 @@ function Navbar({ activeLink, chapters, updateActiveLink }) {
     return () => {
       document.removeEventListener('scroll', handleScroll);
     };
-  }, []);
+  });
 
   return (
     <header className={styles.container}>
