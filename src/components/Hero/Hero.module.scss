@@ -2,6 +2,7 @@
 
 .container {
   background: url("/images/bg-hero.png");
+  background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
   border-radius: 1rem;
@@ -10,10 +11,21 @@
 
   h1 {
     @extend .heading__600;
+    font-size: 1.7rem;
     margin-bottom: 2rem;
   }
 
   p {
     @extend .text__short--lg;
+    display: none;
   }
+
+   @media (min-width: 1024px) {
+     h1 {
+       font-size: 2.5rem;
+     }
+    p {
+      display: block;
+    }
+   }
 }
