@@ -29,5 +29,3 @@ Choose the right checklist for the change that you're making:
 
 - [ ] Make sure the linting passes
 - [ ] Added the data in the right `yaml` file
-
-© 2022 Chainlink, Inc. Terms Privacy
