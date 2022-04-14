@@ -3,7 +3,7 @@
 
 .container {
   margin: auto;
-  padding: 4rem 0;
+  padding: 3rem 0;
   border-bottom: 1px solid $brand-200;
 
   & > h2 {
@@ -21,12 +21,13 @@
     & > * {
       flex-grow: 1;
     }
+  }
 
+  @media (min-width: 1024px) {
+    padding: 4rem 0;
 
-    @media (min-width: 1024px) {
-      & > * {
-        flex-grow: 0;
-      }
+    .contents * {
+      flex-grow: 0;
     }
   }
 }
