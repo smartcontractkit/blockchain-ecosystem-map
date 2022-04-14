@@ -18,7 +18,6 @@ Choose the right checklist for the change that you're making:
 - [ ] Implements an existing feature request or change request. Make sure the feature request has been accepted for
       implementation before opening a PR.
 - [ ] Related issues linked using `fixes #number`
-- [ ] The new feature, or the fix is tested with jest and if applicable with cypress
 - [ ] The code is properly formatted using the project's prettier and eslint settings
 - [ ] Make sure that everything is properly typed in the code.
 - [ ] Contribution guidelines are met
