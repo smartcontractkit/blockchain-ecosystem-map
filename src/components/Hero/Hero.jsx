@@ -12,6 +12,7 @@ function Hero() {
         alt="hero image"
         objectPosition="center"
         priority
+        quality="100"
       />
       <h1>Ecosystem Map</h1>
       <p>Everything you need to start building blockchain applications</p>
