@@ -5,6 +5,7 @@
   border: 1px solid $brand-200;
   border-radius: 0.75rem;
   margin-top: 1.5625rem;
+  position: relative;
 }
 
 .title {
@@ -36,4 +37,10 @@
 
 .body {
   margin: 1rem;
+}
+
+.timelineIcon {
+  position: absolute;
+  left: -6.5rem;
+  top: 0.5rem;
 }

@@ -2,7 +2,12 @@ import PropTypes from 'prop-types';
 import styles from './Chapter.module.scss';
 
 function Chapter({ children }) {
-  return <section className={styles.container}>{children}</section>;
+  return (
+    <section className={styles.container}>
+      <div className={styles.timeline}></div>
+      {children}
+    </section>
+  );
 }
 
 Chapter.propTypes = {
