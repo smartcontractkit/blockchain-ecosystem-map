@@ -6,7 +6,6 @@ function Card({ title, size = 'large', imageSrc, url }) {
   return (
     <a
       href={url}
-      alt={`${title} website`}
       target="_blank"
       rel="noopener noreferrer"
       className={clsx(styles.container, styles[`container__${size}`])}
