@@ -43,4 +43,11 @@
   position: absolute;
   left: -6.5rem;
   top: 0.5rem;
+  display: none;
+}
+
+@media (min-width: 1024px) {  
+  .timelineIcon {
+    display: block;
+  }
 }
