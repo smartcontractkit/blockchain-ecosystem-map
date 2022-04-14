@@ -17,18 +17,24 @@ export default function Home({ chapters }) {
   const chaptersKeys = Object.keys(chapters);
 
   const expandPanel = ({ id, section_id }) => {
-    setisExpanded(isExpanded && isExpanded === id ? null : id);
-    router.push({
-      query: {
-        activelink: section_id + '#',
-        opened: isExpanded && isExpanded === id ? null : id,
-      },
+    const { opened } = router.query;
+    setisExpanded(opened && opened === id ? null : id);
+    const queryData = {
+      activelink: section_id,
+      opened: opened && opened === id ? null : id,
+    };
+    router.replace({
+      query: queryData,
     });
+
+    // setTimeout(() => {
+    // }, 200);
+    document.querySelector(`h4#${id}`)?.scrollIntoView();
   };
 
   useEffect(() => {
     setisExpanded(router.query.opened);
-  }, [router.query]);
+  }, [router.query.opened]);
 
   return (
     <div className={styles.container}>

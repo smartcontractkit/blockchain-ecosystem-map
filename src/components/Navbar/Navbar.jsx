@@ -77,8 +77,8 @@ function Navbar({ activeLink, chapters, updateActiveLink }) {
     const handleScroll = () => {
       const activeSectionElement = sectionsElements.find((section) => isElementVisible(section));
       if (activeSectionElement && activeSectionElement.id) {
-        let id = activeSectionElement.id;
-        updateActiveLink(id);
+        // let id = activeSectionElement.id;
+        updateActiveLink();
       }
     };
 

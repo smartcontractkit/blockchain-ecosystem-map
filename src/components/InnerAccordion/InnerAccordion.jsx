@@ -8,7 +8,8 @@ export default function InnerAccordion({ title, id, children, expanded, expandTo
   return (
     <section>
       <h4 id={id} className={styles.accordion__header}>
-        <button
+        <a
+          href={'#'}
           className={clsx('text__short--lg', styles.trigger)}
           aria-expanded={expanded}
           aria-controls={`${id}-sect`}
@@ -19,7 +20,7 @@ export default function InnerAccordion({ title, id, children, expanded, expandTo
             <ExpandIcon />
           </span>
           {title}
-        </button>
+        </a>
       </h4>
       <div
         role="region"

@@ -3,33 +3,34 @@ import { useRouter } from 'next/router';
 import Navbar from '@/components/Navbar';
 import chapters from '@/data/chapters';
 import '@/styles/globals.scss';
+import { DefaultSeo } from 'next-seo';
+import SEO from '../../next-seo.config';
 import PropTypes from 'prop-types';
+import useGoogleTagManager from '@/helpers/useGoogleTagManager';
 
 function MyApp({ Component, pageProps }) {
   const router = useRouter();
   const [activeLink, setActiveLink] = useState(router.query.activelink || '');
 
+  useGoogleTagManager(process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_TRACKING);
+
   const updateLink = (id) => {
-    router.push({
-      query: {
-        activelink: id,
-      },
-    });
+    setActiveLink(id);
   };
 
   useEffect(() => {
-    const { activelink, opened } = router.query;
-    console.log(activelink);
-    setActiveLink(activelink.replace('#', '') || '');
-    document.querySelector(`h3#${activelink.replace('#', '')}`)?.scrollIntoView();
-    if (opened) {
-      // document.querySelector(`h4#${opened}`)?.scrollIntoView();
+    const { activelink } = router.query;
+    if (activelink) {
+      setActiveLink(activelink.replace('#', '') || '');
+      // if (opened) document.querySelector(`h4#${opened.replace('#', '')}`)?.scrollIntoView();
+      document.querySelector(`h3#${activelink.replace('#', '')}`)?.scrollIntoView();
     }
   }, [router.query]);
 
   return (
     <>
       <Navbar activeLink={activeLink} chapters={chapters} updateActiveLink={updateLink} />
+      <DefaultSeo {...SEO} />
       <main>
         <Component {...pageProps} chapters={chapters} />
       </main>
