@@ -16,12 +16,10 @@ function MyApp({ Component, pageProps }) {
   useEffect(() => {
     const { activelink, opened } = router.query;
     if (activelink) {
-      document
-        .querySelector(`h3#${activelink.replace('#', '')}`)
-        ?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      document.querySelector(`h3#${activelink}`)?.scrollIntoView({ behavior: 'smooth', block: 'center' });
     }
     if (opened) {
-      document.querySelector(`h4#${opened.replace('#', '')}`)?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      document.querySelector(`h4#${opened}`)?.scrollIntoView({ behavior: 'smooth', block: 'center' });
     }
   }, [router, router.query]);
 
