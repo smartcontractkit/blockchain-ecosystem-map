@@ -4,6 +4,7 @@ import NavItem from '@/components/NavItem';
 import NavigationProgressBar from '@/components/NavigationProgressBar';
 import chapters from '@/data/chapters';
 import styles from './Navbar.module.scss';
+import clsx from 'clsx';
 
 function Navbar({ activeLink }) {
   const [isScrollDown, setIsScrollDown] = useState(false);
@@ -65,10 +66,10 @@ function Navbar({ activeLink }) {
   }, [activeLink]);
 
   return (
-    <header className={styles.container}>
+    <header className={clsx(styles.container, { [styles.scrolled]: isScrollDown })}>
       <nav id="nav" className={styles.navbar}>
         <div className={styles.navbar__group}>
-          {!isScrollDown && <h3>Get Started</h3>}
+          <h3>Get Started</h3>
           <ul>
             {get_started.map(({ title, id, Icon }, index) => (
               <li id={`${id}-li`} key={index}>
@@ -81,7 +82,7 @@ function Navbar({ activeLink }) {
           </ul>
         </div>
         <div className={styles.navbar__group}>
-          {!isScrollDown && <h3>Development Cycle</h3>}
+          <h3>Development Cycle</h3>
           <ul>
             {development_cycle.map(({ title, id, Icon }, index) => (
               <li id={`${id}-li`} key={index}>
@@ -95,7 +96,7 @@ function Navbar({ activeLink }) {
         </div>
 
         <div className={styles.navbar__group}>
-          {!isScrollDown && <h3>Share</h3>}
+          <h3>Share</h3>
           <ul>
             {share.map(({ title, id, Icon }, index) => (
               <li id={`${id}-li`} key={index}>
