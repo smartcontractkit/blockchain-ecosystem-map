@@ -6,7 +6,7 @@ import PropTypes from 'prop-types';
 import useGoogleTagManager from '@/helpers/useGoogleTagManager';
 function MyApp({ Component, pageProps }) {
   useGoogleTagManager(process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_TRACKING);
-  
+
   return (
     <>
       <DefaultSeo {...SEO} />
