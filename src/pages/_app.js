@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
 import { useRouter } from 'next/router';
 import Navbar from '@/components/Navbar';
 import '@/styles/globals.scss';
@@ -9,23 +9,19 @@ import useGoogleTagManager from '@/helpers/useGoogleTagManager';
 
 function MyApp({ Component, pageProps }) {
   const router = useRouter();
-  const [activeLink] = useState(router.query.activelink || '');
 
   useGoogleTagManager(process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_TRACKING);
 
   useEffect(() => {
-    const { opened } = router.query;
-    // if (activelink) {
-    //   document.querySelector(`h3#${activelink}`)?.scrollIntoView({ behavior: 'smooth', block: 'center' });
-    // }
+    const opened = router.query.opened;
     if (opened) {
       document.querySelector(`h4#${opened}`)?.scrollIntoView({ behavior: 'smooth', block: 'center' });
     }
-  }, []);
+  }, [router.query.opened]);
 
   return (
     <>
-      <Navbar activeLink={activeLink} />
+      <Navbar />
       <DefaultSeo {...SEO} />
       <main>
         <Component {...pageProps} />

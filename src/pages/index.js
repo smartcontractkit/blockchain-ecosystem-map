@@ -15,15 +15,17 @@ export default function Home() {
 
   const chaptersKeys = Object.keys(chapters);
 
-  const expandPanel = ({ id, section_id }) => {
+  const expandPanel = ({ id }) => {
     const { opened } = router.query;
     setisExpanded(opened && opened === id ? null : id);
-    const queryData = {
-      activelink: section_id,
+    let queryData = {
       opened: opened && opened === id ? null : id,
     };
 
-    // updateLink(section_id);
+    if (opened === id) {
+      queryData = null;
+    }
+
     router.replace({
       query: queryData,
     });
@@ -49,7 +51,7 @@ export default function Home() {
                   title={data.name}
                   id={data.id}
                   expanded={isExpanded === data.id}
-                  expandToggle={(id) => expandPanel({ id, section_id: section.id })}
+                  expandToggle={(id) => expandPanel({ id })}
                 >
                   <div className={styles.accordion_contents}>
                     {data.items.map((item) => (
