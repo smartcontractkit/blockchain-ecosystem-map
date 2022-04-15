@@ -14,14 +14,14 @@ function MyApp({ Component, pageProps }) {
   useGoogleTagManager(process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_TRACKING);
 
   useEffect(() => {
-    const { activelink, opened } = router.query;
-    if (activelink) {
-      document.querySelector(`h3#${activelink}`)?.scrollIntoView({ behavior: 'smooth', block: 'center' });
-    }
+    const { opened } = router.query;
+    // if (activelink) {
+    //   document.querySelector(`h3#${activelink}`)?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    // }
     if (opened) {
       document.querySelector(`h4#${opened}`)?.scrollIntoView({ behavior: 'smooth', block: 'center' });
     }
-  }, [router, router.query]);
+  }, []);
 
   return (
     <>
