@@ -10,18 +10,19 @@ import useGoogleTagManager from '@/helpers/useGoogleTagManager';
 
 function MyApp({ Component, pageProps }) {
   const router = useRouter();
-  const [activeLink, setActiveLink] = useState(router.query.activelink || '');
+  const [activeLink] = useState(router.query.activelink || '');
 
   useGoogleTagManager(process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_TRACKING);
 
   useEffect(() => {
     const { activelink, opened } = router.query;
     if (activelink) {
-      setActiveLink(activelink.replace('#', '') || '');
-      document.querySelector(`h3#${activelink.replace('#', '')}`)?.scrollIntoView(true);
+      document
+        .querySelector(`h3#${activelink.replace('#', '')}`)
+        ?.scrollIntoView({ behavior: 'smooth', block: 'center' });
     }
     if (opened) {
-      document.querySelector(`h4#${opened.replace('#', '')}`)?.scrollIntoView(true);
+      document.querySelector(`h4#${opened.replace('#', '')}`)?.scrollIntoView({ behavior: 'smooth', block: 'center' });
     }
   }, [router, router.query]);
 

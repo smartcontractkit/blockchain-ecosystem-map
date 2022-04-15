@@ -4,16 +4,11 @@ import NavItem from '@/components/NavItem';
 import NavigationProgressBar from '@/components/NavigationProgressBar';
 
 import styles from './Navbar.module.scss';
-import isElementVisible from '@/helpers/isElementVisible';
-
-// import { useRouter } from 'next/router';
 
 function Navbar({ activeLink, chapters }) {
   const [isScrollDown, setIsScrollDown] = useState(false);
   const [progress, setProgress] = useState(0);
   const [activeSection, setActiveSection] = useState(null); //this will be needed to know which navitem isselected
-
-  // const router = useRouter();
 
   const { get_started, development_cycle, share } = chapters;
 
@@ -66,23 +61,8 @@ function Navbar({ activeLink, chapters }) {
       true
     );
 
-    const sectionsElements = Array.from(document.querySelectorAll('h3'));
-
-    const handleScroll = () => {
-      const activeSectionElement = sectionsElements.find((section) => isElementVisible(section));
-      if (activeSectionElement && activeSectionElement.id) {
-        let id = activeSectionElement.id;
-        updateProgress(id, 4.5);
-      }
-    };
-
-    window.onscroll = handleScroll;
-
-    // document.addEventListener('scroll', handleScroll, false);
-
     return () => {
       window.removeEventListener('resize', () => {});
-      // document.removeEventListener('scroll', () => {});
     };
   }, [activeLink]);
 

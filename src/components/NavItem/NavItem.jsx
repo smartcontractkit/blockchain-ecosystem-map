@@ -14,7 +14,7 @@ export default function NavItem({ href, children, isSelected }) {
     <a
       href={'#'}
       onClick={() => {
-        router.push({
+        router.replace({
           query: {
             activelink: id,
           },
