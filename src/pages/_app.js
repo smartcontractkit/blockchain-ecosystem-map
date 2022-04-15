@@ -14,22 +14,20 @@ function MyApp({ Component, pageProps }) {
 
   useGoogleTagManager(process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_TRACKING);
 
-  const updateLink = (id) => {
-    setActiveLink(id);
-  };
-
   useEffect(() => {
-    const { activelink } = router.query;
+    const { activelink, opened } = router.query;
     if (activelink) {
       setActiveLink(activelink.replace('#', '') || '');
-      // if (opened) document.querySelector(`h4#${opened.replace('#', '')}`)?.scrollIntoView();
-      document.querySelector(`h3#${activelink.replace('#', '')}`)?.scrollIntoView();
+      document.querySelector(`h3#${activelink.replace('#', '')}`)?.scrollIntoView(true);
     }
-  }, [router.query]);
+    if (opened) {
+      document.querySelector(`h4#${opened.replace('#', '')}`)?.scrollIntoView(true);
+    }
+  }, [router, router.query]);
 
   return (
     <>
-      <Navbar activeLink={activeLink} chapters={chapters} updateActiveLink={updateLink} />
+      <Navbar activeLink={activeLink} chapters={chapters} />
       <DefaultSeo {...SEO} />
       <main>
         <Component {...pageProps} chapters={chapters} />

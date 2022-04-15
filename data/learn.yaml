@@ -31,7 +31,7 @@
 
 
 - name: '3rd Party Learning Journeys'
-  id: '3rd-party-learning-journeys'
+  id: 'party-learning-journeys'
   items:
     - title: 'Chainlink'
       logo: '/logos/learn/chainlink.png'

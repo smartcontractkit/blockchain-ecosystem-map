@@ -6,9 +6,9 @@ import NavigationProgressBar from '@/components/NavigationProgressBar';
 import styles from './Navbar.module.scss';
 import isElementVisible from '@/helpers/isElementVisible';
 
-// import { useRouter } from 'next/router'
+// import { useRouter } from 'next/router';
 
-function Navbar({ activeLink, chapters, updateActiveLink }) {
+function Navbar({ activeLink, chapters }) {
   const [isScrollDown, setIsScrollDown] = useState(false);
   const [progress, setProgress] = useState(0);
   const [activeSection, setActiveSection] = useState(null); //this will be needed to know which navitem isselected
@@ -66,27 +66,25 @@ function Navbar({ activeLink, chapters, updateActiveLink }) {
       true
     );
 
-    return () => {
-      window.removeEventListener('resize', () => {});
-    };
-  }, [activeLink]);
-
-  useEffect(() => {
     const sectionsElements = Array.from(document.querySelectorAll('h3'));
 
     const handleScroll = () => {
       const activeSectionElement = sectionsElements.find((section) => isElementVisible(section));
       if (activeSectionElement && activeSectionElement.id) {
-        // let id = activeSectionElement.id;
-        updateActiveLink();
+        let id = activeSectionElement.id;
+        updateProgress(id, 4.5);
       }
     };
 
-    document.addEventListener('scroll', handleScroll);
+    window.onscroll = handleScroll;
+
+    // document.addEventListener('scroll', handleScroll, false);
+
     return () => {
-      document.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('resize', () => {});
+      // document.removeEventListener('scroll', () => {});
     };
-  });
+  }, [activeLink]);
 
   return (
     <header className={styles.container}>
@@ -140,7 +138,6 @@ function Navbar({ activeLink, chapters, updateActiveLink }) {
 Navbar.propTypes = {
   activeLink: PropTypes.string,
   chapters: PropTypes.object.isRequired,
-  updateActiveLink: PropTypes.func,
 };
 
 export default Navbar;

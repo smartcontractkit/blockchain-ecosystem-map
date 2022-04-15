@@ -23,13 +23,10 @@ export default function Home({ chapters }) {
       activelink: section_id,
       opened: opened && opened === id ? null : id,
     };
-    router.replace({
+    // const params = new URLSearchParams(queryData).toString();
+    router.push({
       query: queryData,
     });
-
-    // setTimeout(() => {
-    // }, 200);
-    document.querySelector(`h4#${id}`)?.scrollIntoView();
   };
 
   useEffect(() => {
