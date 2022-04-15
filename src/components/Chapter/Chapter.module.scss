@@ -1,3 +1,45 @@
+@import "@/styles/_colors.scss";
+
 .container {
+  padding-left: 0;
   margin-top: 4rem;
+  position: relative;
+}
+
+.timeline {
+  height: 95%;
+  width: 2px;
+  background-color: $brand-200;
+  position: absolute;
+  left: 1rem;
+  top: 2rem;
+  display: none;
+
+  &:before, &:after {
+    content: "";
+    position: absolute;
+    width: 0.7rem;
+    height: 0.7rem;
+    border: 2px solid $brand-200;
+    border-radius: 50%;
+    left: -0.35rem;
+  }
+
+  &:before {
+    top: -0.9rem;
+  }
+
+  &:after {
+    bottom: -0.9rem;
+  }
+}
+
+@media (min-width: 1024px) {  
+  .container {
+    padding-left: 6rem;
+  }
+
+  .timeline {
+    display: block;
+  }
 }

@@ -2,10 +2,10 @@ import { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import NavItem from '@/components/NavItem';
 import NavigationProgressBar from '@/components/NavigationProgressBar';
-
+import chapters from '@/data/chapters';
 import styles from './Navbar.module.scss';
 
-function Navbar({ activeLink, chapters }) {
+function Navbar({ activeLink }) {
   const [isScrollDown, setIsScrollDown] = useState(false);
   const [progress, setProgress] = useState(0);
   const [activeSection, setActiveSection] = useState(null); //this will be needed to know which navitem isselected
@@ -115,7 +115,6 @@ function Navbar({ activeLink, chapters }) {
 
 Navbar.propTypes = {
   activeLink: PropTypes.string.isRequired,
-  chapters: PropTypes.object.isRequired,
 };
 
 export default Navbar;

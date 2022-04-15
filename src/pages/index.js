@@ -5,11 +5,10 @@ import Section from '@/components/Section';
 import Hero from '@/components/Hero';
 import InnerAccordion from '@/components/InnerAccordion';
 import styles from '@/styles/Home.module.scss';
-
-import PropTypes from 'prop-types';
+import chapters from '@/data/chapters';
 import Card from '@/components/Card';
 
-export default function Home({ chapters }) {
+export default function Home() {
   const [isExpanded, setisExpanded] = useState(null);
 
   const chaptersKeys = Object.keys(chapters);
@@ -26,9 +25,9 @@ export default function Home({ chapters }) {
 
       {chaptersKeys.map((chapter, index) => (
         <Chapter key={index}>
-          {chapters[chapter].map((result) => (
-            <Section key={result.id} title={result.title} id={result.id}>
-              {result.data.map((data) => (
+          {chapters[chapter].map((section) => (
+            <Section key={section.id} title={section.title} id={section.id} Icon={section.Icon}>
+              {section.data.map((data) => (
                 <InnerAccordion
                   key={data.id}
                   title={data.name}
@@ -50,7 +49,3 @@ export default function Home({ chapters }) {
     </div>
   );
 }
-
-Home.propTypes = {
-  chapters: PropTypes.object,
-};
