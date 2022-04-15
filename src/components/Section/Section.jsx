@@ -2,8 +2,9 @@ import styles from './Section.module.scss';
 import PropTypes from 'prop-types';
 import { useState } from 'react';
 import ArrowDrop from '@/icons/arrow-drop.svg';
+import TimelineIcon from '@/components/TimelineIcon';
 
-function Section({ title, id, children }) {
+function Section({ title, id, children, Icon }) {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggle = () => {
@@ -19,6 +20,11 @@ function Section({ title, id, children }) {
         </button>
       </h3>
       <div className={styles.body}>{children}</div>
+      <div className={styles.timelineIcon}>
+        <TimelineIcon isActive={false}>
+          <Icon />
+        </TimelineIcon>
+      </div>
     </div>
   );
 }
@@ -27,6 +33,7 @@ Section.propTypes = {
   title: PropTypes.string.isRequired,
   id: PropTypes.string.isRequired,
   children: PropTypes.node.isRequired,
+  Icon: PropTypes.elementType.isRequired,
 };
 
 export default Section;

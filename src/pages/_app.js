@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
 import Navbar from '@/components/Navbar';
-import chapters from '@/data/chapters';
 import '@/styles/globals.scss';
 import { DefaultSeo } from 'next-seo';
 import SEO from '../../next-seo.config';
@@ -28,10 +27,10 @@ function MyApp({ Component, pageProps }) {
 
   return (
     <>
-      <Navbar activeLink={activeLink} chapters={chapters} />
+      <Navbar activeLink={activeLink} />
       <DefaultSeo {...SEO} />
       <main>
-        <Component {...pageProps} chapters={chapters} />
+        <Component {...pageProps} />
       </main>
     </>
   );
