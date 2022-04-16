@@ -15,7 +15,7 @@ export default function Home() {
 
   const chaptersKeys = Object.keys(chapters);
 
-  const expandPanel = ({ id }) => {
+  const expandPanel = (id) => {
     setisExpanded(isExpanded && isExpanded === id ? null : id);
 
     setTimeout(() => {
@@ -26,7 +26,7 @@ export default function Home() {
   useEffect(() => {
     const { asPath } = router;
     const id = asPath.split('#')[1];
-    if (id) expandPanel({ id });
+    expandPanel(id || null);
   }, []);
 
   return (
@@ -45,7 +45,7 @@ export default function Home() {
                   title={data.name}
                   id={data.id}
                   expanded={isExpanded === data.id}
-                  expandToggle={(id) => expandPanel({ id })}
+                  expandToggle={expandPanel}
                 >
                   <div className={styles.accordion_contents}>
                     {data.items.map((item) => (
