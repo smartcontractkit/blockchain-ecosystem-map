@@ -10,13 +10,11 @@ function MyApp({ Component, pageProps }) {
 
   return (
     <StateProvider>
-      <>
-        <Navbar />
-        <DefaultSeo {...SEO} />
-        <main>
-          <Component {...pageProps} />
-        </main>
-      </>
+      <Navbar />
+      <DefaultSeo {...SEO} />
+      <main>
+        <Component {...pageProps} />
+      </main>
     </StateProvider>
   );
 }
