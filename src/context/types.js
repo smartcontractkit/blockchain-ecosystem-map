@@ -1,3 +1,1 @@
-export const ADD_VISIBLE = 'ADD_VISIBLE';
-
-export const REMOVE_VISIBLE = 'REMOVE_VISIBLE';
+export const SET_VISIBLE = 'SET_VISIBLE';

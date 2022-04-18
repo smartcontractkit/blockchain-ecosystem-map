@@ -4,11 +4,14 @@ import NavigationProgressBar from '@/components/NavigationProgressBar';
 import chapters from '@/data/chapters';
 import styles from './Navbar.module.scss';
 import clsx from 'clsx';
+import { useStateValue } from '@/context/StateProvider';
 
 function Navbar() {
   const [isScrollDown, setIsScrollDown] = useState(false);
-  const [progress] = useState(0);
-  const [activeSection] = useState(null); //this will be needed to know which navitem isselected
+  const [progress, setProgress] = useState(0);
+  const [activeSection, setActiveSection] = useState(null); //this will be needed to know which navitem isselected
+
+  const [{ visible }] = useStateValue();
 
   const { get_started, development_cycle, share } = chapters;
 
@@ -28,20 +31,23 @@ function Navbar() {
   }, []);
 
   useEffect(() => {
-    // const updateProgress = (id, addedValue) => {
+    const updateProgress = (id, addedValue) => {
+      const elm = document.querySelector(`li#${id}-li`);
+      if (elm) {
+        const nav = document.getElementById('nav');
+        const navwidth = nav.offsetWidth;
+        const left = Math.floor((elm.offsetLeft * 100) / navwidth);
+        setProgress(left + addedValue);
+        setActiveSection(id);
+      }
 
-    //   const elm = document.querySelector(`li#${id}-li`);
-    //   if (elm) {
-    //     const nav = document.getElementById('nav');
-    //     const navwidth = nav.offsetWidth;
-    //     const left = Math.floor((elm.offsetLeft * 100) / navwidth);
-    //     setProgress(left + addedValue);
-    //     setActiveSection(id);
-    //     return;
-    //   }
-    // };
+      if (activeSection === 'learn' && !id) {
+        setProgress(0);
+        setActiveSection(null);
+      }
+    };
 
-    // updateProgress(activeLink, 4.5);
+    updateProgress(visible, 4.5);
 
     window.addEventListener(
       'resize',
@@ -55,7 +61,7 @@ function Navbar() {
     return () => {
       window.removeEventListener('resize', () => {});
     };
-  }, []);
+  }, [visible]);
 
   return (
     <header className={clsx(styles.container, { [styles.scrolled]: isScrollDown })}>
