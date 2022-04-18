@@ -1,13 +1,15 @@
+import { ADD_VISIBLE } from './types';
+
 export const initialState = {
-  visable: [],
+  visible: [],
 };
 
 function reducer(state, action) {
   switch (action.type) {
-    case 'ADD_VISABLE':
+    case ADD_VISIBLE:
       return {
         ...state,
-        visable: [...state.visable, action.payload],
+        visible: [...state.visible, action.payload],
       };
 
     default:
