@@ -1,15 +1,14 @@
 import { useState, useEffect } from 'react';
-import PropTypes from 'prop-types';
 import NavItem from '@/components/NavItem';
 import NavigationProgressBar from '@/components/NavigationProgressBar';
 import chapters from '@/data/chapters';
 import styles from './Navbar.module.scss';
 import clsx from 'clsx';
 
-function Navbar({ activeLink }) {
+function Navbar() {
   const [isScrollDown, setIsScrollDown] = useState(false);
-  const [progress, setProgress] = useState(0);
-  const [activeSection, setActiveSection] = useState(null); //this will be needed to know which navitem isselected
+  const [progress] = useState(0);
+  const [activeSection] = useState(null); //this will be needed to know which navitem isselected
 
   const { get_started, development_cycle, share } = chapters;
 
@@ -29,41 +28,34 @@ function Navbar({ activeLink }) {
   }, []);
 
   useEffect(() => {
-    const updateProgress = (id, addedValue) => {
-      /* 
-      Todo:
-      - Get the id of the visible section
-      - Use that to identify the list item
-      - Get the width of the nav
-      - Get the distance of the list item from the left with respect to the nav tag (note: in this case)
-      - Multiply the distance by 100 and divide by the width of the nav, thereby converting it to %
-      - Using rough estimate by adding a random value to balance things
-    */
+    // const updateProgress = (id, addedValue) => {
 
-      const elm = document.querySelector(`li#${id}-li`);
-      if (elm) {
-        const nav = document.getElementById('nav');
-        const navwidth = nav.offsetWidth;
-        const left = Math.floor((elm.offsetLeft * 100) / navwidth);
-        setProgress(left + addedValue);
-        setActiveSection(id);
-        return;
-      }
-    };
+    //   const elm = document.querySelector(`li#${id}-li`);
+    //   if (elm) {
+    //     const nav = document.getElementById('nav');
+    //     const navwidth = nav.offsetWidth;
+    //     const left = Math.floor((elm.offsetLeft * 100) / navwidth);
+    //     setProgress(left + addedValue);
+    //     setActiveSection(id);
+    //     return;
+    //   }
+    // };
 
-    updateProgress(activeLink, 4.5);
+    // updateProgress(activeLink, 4.5);
 
     window.addEventListener(
       'resize',
       function () {
         /* In the future for responsiveness if needed we can check for screen width to know which rough value can be added */
-        updateProgress(activeLink, 4.5);
+        // updateProgress(activeLink, 4.5);
       },
       true
     );
 
-    return () => window.removeEventListener('resize', () => {});
-  }, [activeLink]);
+    return () => {
+      window.removeEventListener('resize', () => {});
+    };
+  }, []);
 
   return (
     <header className={clsx(styles.container, { [styles.scrolled]: isScrollDown })}>
@@ -113,9 +105,5 @@ function Navbar({ activeLink }) {
     </header>
   );
 }
-
-Navbar.propTypes = {
-  activeLink: PropTypes.string.isRequired,
-};
 
 export default Navbar;

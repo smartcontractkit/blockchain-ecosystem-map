@@ -1,4 +1,5 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { useRouter } from 'next/router';
 import Blockchains from '@/components/Blockchains';
 import Chapter from '@/components/Chapter';
 import Section from '@/components/Section';
@@ -9,13 +10,24 @@ import chapters from '@/data/chapters';
 import Card from '@/components/Card';
 
 export default function Home() {
-  const [isExpanded, setisExpanded] = useState(null);
+  const router = useRouter();
+  const [isExpanded, setIsExpanded] = useState(null);
 
   const chaptersKeys = Object.keys(chapters);
 
-  const expandPanel = (value) => {
-    setisExpanded(isExpanded && isExpanded === value ? null : value);
+  const expandPanel = (id) => {
+    setIsExpanded(isExpanded && isExpanded === id ? null : id);
+
+    setTimeout(() => {
+      document.querySelector(`h4#${id}`)?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }, 100);
   };
+
+  useEffect(() => {
+    const { asPath } = router;
+    const id = asPath.split('#')[1];
+    expandPanel(id || null);
+  }, []);
 
   return (
     <div className={styles.container}>

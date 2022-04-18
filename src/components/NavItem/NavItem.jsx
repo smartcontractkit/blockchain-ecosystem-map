@@ -6,8 +6,10 @@ import styles from './NavItem.module.scss';
 
 export default function NavItem({ href, children, isSelected }) {
   const navItemClasses = clsx('text__short--md', styles.navItem, { [styles.selected]: isSelected });
+  const id = href.replace('#', '');
+
   return (
-    <a href={href} className={navItemClasses}>
+    <a href={`#${id}`} className={navItemClasses}>
       {children}
     </a>
   );

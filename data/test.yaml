@@ -14,7 +14,7 @@
     logo: '/logos/brownie.png'
     url: 'https://github.com/eth-brownie/brownie'
   - title: 'Dapp Tools'
-    logo: '/logos/dappstools.png'
+    logo: '/logos/dapptools.png'
     url: 'https://dapp.tools/'
   - title: 'Eth Lint'
     logo: '/logos/ethlint.png'

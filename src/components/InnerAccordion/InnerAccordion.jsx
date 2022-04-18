@@ -5,10 +5,13 @@ import styles from './InnerAccordion.module.scss';
 import ExpandIcon from '@/icons/expand-icon.svg';
 
 export default function InnerAccordion({ title, id, children, expanded, expandToggle }) {
+  const linkId = !expanded ? '#' : `#${id}`;
+
   return (
     <section>
-      <h4 className={styles.accordion__header}>
-        <button
+      <h4 id={id} className={styles.accordion__header}>
+        <a
+          href={linkId}
           className={clsx('text__short--lg', styles.trigger)}
           aria-expanded={expanded}
           aria-controls={`${id}-sect`}
@@ -19,7 +22,7 @@ export default function InnerAccordion({ title, id, children, expanded, expandTo
             <ExpandIcon />
           </span>
           {title}
-        </button>
+        </a>
       </h4>
       <div
         role="region"

@@ -4,13 +4,14 @@ import { DefaultSeo } from 'next-seo';
 import SEO from '../../next-seo.config';
 import PropTypes from 'prop-types';
 import useGoogleTagManager from '@/helpers/useGoogleTagManager';
+
 function MyApp({ Component, pageProps }) {
   useGoogleTagManager(process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_TRACKING);
 
   return (
     <>
+      <Navbar />
       <DefaultSeo {...SEO} />
-      <Navbar activeLink="test" />
       <main>
         <Component {...pageProps} />
       </main>
