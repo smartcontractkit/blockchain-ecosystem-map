@@ -34,7 +34,6 @@ export default function Home() {
       <Hero />
 
       <Blockchains />
-
       {chaptersKeys.map((chapter, index) => (
         <Chapter key={index}>
           {chapters[chapter].map((section) => (
