@@ -11,12 +11,12 @@ import Card from '@/components/Card';
 
 export default function Home() {
   const router = useRouter();
-  const [isExpanded, setisExpanded] = useState(null);
+  const [isExpanded, setIsExpanded] = useState(null);
 
   const chaptersKeys = Object.keys(chapters);
 
   const expandPanel = (id) => {
-    setisExpanded(isExpanded && isExpanded === id ? null : id);
+    setIsExpanded(isExpanded && isExpanded === id ? null : id);
 
     setTimeout(() => {
       document.querySelector(`h4#${id}`)?.scrollIntoView({ behavior: 'smooth', block: 'center' });
