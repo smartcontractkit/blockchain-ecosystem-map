@@ -1,5 +1,5 @@
 import { createContext, useContext, useReducer } from 'react';
-import { reducer, initialState } from './reducer';
+import reducer, { initialState } from './reducer';
 import PropTypes from 'prop-types';
 
 const StateContext = createContext();

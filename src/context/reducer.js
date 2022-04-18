@@ -1,13 +1,13 @@
 export const initialState = {
-  theme: 'light',
+  visable: [],
 };
 
 function reducer(state, action) {
   switch (action.type) {
-    case 'SET_THEME':
+    case 'ADD_VISABLE':
       return {
         ...state,
-        theme: state.theme,
+        visable: [...state.visable, action.payload],
       };
 
     default:
