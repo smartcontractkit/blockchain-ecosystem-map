@@ -8,8 +8,14 @@ export default function NavItem({ href, children, isSelected }) {
   const navItemClasses = clsx('text__short--md', styles.navItem, { [styles.selected]: isSelected });
   const id = href.replace('#', '');
 
+  const scrollToHeading = (id) => {
+    setTimeout(() => {
+      document.querySelector(`h3#${id}`)?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }, 100);
+  };
+
   return (
-    <a href={`#${id}`} className={navItemClasses}>
+    <a href={`#${id}`} className={navItemClasses} onClick={() => scrollToHeading(id)}>
       {children}
     </a>
   );
