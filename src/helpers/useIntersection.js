@@ -5,12 +5,14 @@ const useIntersection = (element) => {
 
   useEffect(() => {
     const section = element.current;
-    const option = {
-      rootMargin: '-100px',
-    };
-    const observer = new IntersectionObserver(([entry]) => {
-      setState(entry.isIntersecting);
-    }, option);
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setState(entry.isIntersecting);
+      },
+      {
+        rootMargin: '-100px',
+      }
+    );
 
     section && observer.observe(section);
     return () => {

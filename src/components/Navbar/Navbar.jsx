@@ -18,7 +18,7 @@ function Navbar() {
 
   const scrollToHeading = (id) => {
     setTimeout(() => {
-      document.querySelector(`h3#${id}`)?.scrollIntoView({ behavior: 'smooth', block: 'end' });
+      document.querySelector(`h3#${id}`)?.scrollIntoView({ behavior: 'smooth' });
     }, 20);
   };
 

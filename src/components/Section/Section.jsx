@@ -24,7 +24,7 @@ function Section({ title, id, children, Icon }) {
   const revealSection = (section_id) => {
     setTimeout(() => {
       if (ref.current.id === section_id) {
-        ref.current.scrollIntoView({ behavior: 'smooth', block: 'end' });
+        ref.current.scrollIntoView({ behavior: 'smooth' });
       }
     });
   };
