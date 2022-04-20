@@ -7,10 +7,8 @@ import useIntersection from '@/helpers/useIntersection';
 import { useStateValue } from '@/context/StateProvider';
 import { SET_NOTVISIBLE, SET_VISIBLE } from '@/context/types';
 import { useEffect } from 'react';
-import { useRouter } from 'next/router';
 
 function Section({ title, id, children, Icon }) {
-  const router = useRouter();
   const [isOpen, setIsOpen] = useState(false);
   const ref = useRef();
   const isVisible = useIntersection(ref);
@@ -19,14 +17,6 @@ function Section({ title, id, children, Icon }) {
 
   const toggle = () => {
     setIsOpen(!isOpen);
-  };
-
-  const revealSection = (section_id) => {
-    setTimeout(() => {
-      if (ref.current.id === section_id) {
-        ref.current.scrollIntoView({ behavior: 'smooth' });
-      }
-    });
   };
 
   useEffect(() => {
@@ -38,12 +28,6 @@ function Section({ title, id, children, Icon }) {
     }
     return () => dispatch({ type: SET_NOTVISIBLE, payload: id });
   }, [visible.length, isVisible]);
-
-  useEffect(() => {
-    const { asPath } = router;
-    const section_id = asPath.split('#')[1];
-    revealSection(section_id || null);
-  }, []);
 
   return (
     <div className={styles.container} role="region">

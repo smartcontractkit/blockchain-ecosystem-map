@@ -16,12 +16,6 @@ function Navbar() {
 
   const { get_started, development_cycle, share } = chapters;
 
-  const scrollToHeading = (id) => {
-    setTimeout(() => {
-      document.querySelector(`h3#${id}`)?.scrollIntoView({ behavior: 'smooth' });
-    }, 20);
-  };
-
   useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY > 200) {
@@ -45,7 +39,7 @@ function Navbar() {
           <ul>
             {get_started.map(({ title, id, Icon }, index) => (
               <NavbarItemList id={id} key={index} navbar={ref}>
-                <NavItem href={`#${id}`} isSelected={activeSection === id} scrollToHeading={scrollToHeading}>
+                <NavItem href={`#${id}`} isSelected={activeSection === id}>
                   <Icon />
                   {title}
                 </NavItem>
@@ -58,7 +52,7 @@ function Navbar() {
           <ul>
             {development_cycle.map(({ title, id, Icon }, index) => (
               <NavbarItemList id={id} key={index} navbar={ref}>
-                <NavItem href={`#${id}`} isSelected={activeSection === id} scrollToHeading={scrollToHeading}>
+                <NavItem href={`#${id}`} isSelected={activeSection === id}>
                   <Icon />
                   {title}
                 </NavItem>
@@ -72,7 +66,7 @@ function Navbar() {
           <ul>
             {share.map(({ title, id, Icon }, index) => (
               <NavbarItemList id={id} key={index} navbar={ref}>
-                <NavItem href={`#${id}`} isSelected={activeSection === id} scrollToHeading={scrollToHeading}>
+                <NavItem href={`#${id}`} isSelected={activeSection === id}>
                   <Icon />
                   {title}
                 </NavItem>
