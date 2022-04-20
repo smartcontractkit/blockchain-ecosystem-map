@@ -37,7 +37,14 @@ export default function Home() {
       {chaptersKeys.map((chapter, index) => (
         <Chapter key={index}>
           {chapters[chapter].map((section) => (
-            <Section key={section.id} title={section.title} id={section.id} Icon={section.Icon}>
+            <Section
+              key={section.id}
+              title={section.title}
+              id={section.id}
+              Icon={section.Icon}
+              expandToggle={expandPanel}
+              expandedId={isExpanded}
+            >
               {section.data.map((data) => (
                 <InnerAccordion
                   key={data.id}

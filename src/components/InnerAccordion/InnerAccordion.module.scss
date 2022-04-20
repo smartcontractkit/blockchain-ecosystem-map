@@ -22,15 +22,16 @@
   
     & > .icon{
       transform-origin: 50% 50%;
-      transition:all 0.5s ease-in-out;
+      transition:all 0.2s ease-in-out;
       margin-right: 0.75rem;
       font-size: 1rem;
       display: flex;
+      transform: rotate(-90deg);
     }
   
     &[aria-expanded="true"] {
       & > .icon {
-        transform: rotate(180deg);
+        transform: rotate(0deg);
       }
     }
   

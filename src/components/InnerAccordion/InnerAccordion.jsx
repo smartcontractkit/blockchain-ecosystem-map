@@ -6,7 +6,6 @@ import ExpandIcon from '@/icons/expand-icon.svg';
 
 export default function InnerAccordion({ title, id, children, expanded, expandToggle }) {
   const linkId = !expanded ? '#' : `#${id}`;
-
   return (
     <section>
       <h4 id={id} className={styles.accordion__header}>
