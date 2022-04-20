@@ -12,8 +12,8 @@ export default function NavbarItemList({ id, navbar, children }) {
       const listItem = ref.current;
       if (section_id === id) {
         const navwidth = navbar.current.offsetWidth;
-        let left = Math.floor((listItem.offsetLeft * 100) / navwidth) + 4.5;
-        if (addedValue) {
+        let left = Math.floor((listItem.offsetLeft * 100) / navwidth);
+        if (addedValue && addedValue > 0) {
           left += addedValue;
         }
 
