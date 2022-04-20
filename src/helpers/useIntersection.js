@@ -6,10 +6,9 @@ const useIntersection = (element) => {
   useEffect(() => {
     const section = element.current;
     const option = {
-      threshold: 0.5,
+      rootMargin: '-100px',
     };
     const observer = new IntersectionObserver(([entry]) => {
-      console.log(entry.target);
       setState(entry.isIntersecting);
     }, option);
 

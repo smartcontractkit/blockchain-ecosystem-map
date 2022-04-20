@@ -1,3 +1,4 @@
 export const SET_VISIBLE = 'SET_VISIBLE';
+export const SET_NOTVISIBLE = 'SET_NOTVISIBLE';
 export const SET_PROGRESS = 'SET_PROGRESS';
 export const SET_ACTIVESECTION = 'SET_ACTIVESECTION';

@@ -27,13 +27,13 @@ export default function NavbarItemList({ id, navbar, children }) {
       }
     };
 
-    updateProgress(visible, null);
+    updateProgress(visible[0], null);
 
     window.addEventListener(
       'resize',
       function () {
         /* In the future for responsiveness if needed we can check for screen width to know which rough value can be added */
-        updateProgress(visible, null);
+        updateProgress(visible[0], null);
       },
       true
     );

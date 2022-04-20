@@ -5,7 +5,7 @@ import ArrowDrop from '@/icons/arrow-drop.svg';
 import TimelineIcon from '@/components/TimelineIcon';
 import useIntersection from '@/helpers/useIntersection';
 import { useStateValue } from '@/context/StateProvider';
-import { SET_VISIBLE } from '@/context/types';
+import { SET_NOTVISIBLE, SET_VISIBLE } from '@/context/types';
 import { useEffect } from 'react';
 import { useRouter } from 'next/router';
 
@@ -30,12 +30,14 @@ function Section({ title, id, children, Icon }) {
   };
 
   useEffect(() => {
+    const id = ref.current.id;
     if (isVisible) {
-      const id = ref.current.id;
       dispatch({ type: SET_VISIBLE, payload: id });
+    } else {
+      dispatch({ type: SET_NOTVISIBLE, payload: id });
     }
-    return () => dispatch({ type: SET_VISIBLE, payload: null });
-  }, [visible, isVisible]);
+    return () => dispatch({ type: SET_NOTVISIBLE, payload: id });
+  }, [visible.length, isVisible]);
 
   useEffect(() => {
     const { asPath } = router;
@@ -53,7 +55,7 @@ function Section({ title, id, children, Icon }) {
       </h3>
       <div className={styles.body}>{children}</div>
       <div className={styles.timelineIcon}>
-        <TimelineIcon isActive={visible === id}>
+        <TimelineIcon isActive={visible[0] === id}>
           <Icon />
         </TimelineIcon>
       </div>
