@@ -4,20 +4,18 @@ const useIntersection = (element) => {
   const [isVisible, setState] = useState(false);
 
   useEffect(() => {
-    const elm = element.current;
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        setState(entry.isIntersecting);
-      },
-      {
-        // threshold: 1,
-        rootMargin: '-100px',
-      }
-    );
+    const section = element.current;
+    const option = {
+      threshold: 0.5,
+    };
+    const observer = new IntersectionObserver(([entry]) => {
+      console.log(entry.target);
+      setState(entry.isIntersecting);
+    }, option);
 
-    elm && observer.observe(elm);
+    section && observer.observe(section);
     return () => {
-      observer.unobserve(elm);
+      observer.unobserve(section);
     };
   }, []);
 

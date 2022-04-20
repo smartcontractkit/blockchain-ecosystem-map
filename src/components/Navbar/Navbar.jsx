@@ -5,15 +5,22 @@ import chapters from '@/data/chapters';
 import styles from './Navbar.module.scss';
 import clsx from 'clsx';
 import { useStateValue } from '@/context/StateProvider';
+import NavbarItemList from '@/components/NavbarItemList';
+import { useRef } from 'react';
 
 function Navbar() {
+  const ref = useRef();
   const [isScrollDown, setIsScrollDown] = useState(false);
-  const [progress, setProgress] = useState(0);
-  const [activeSection, setActiveSection] = useState(null); //this will be needed to know which navitem isselected
 
-  const [{ visible }] = useStateValue();
+  const [{ activeSection, progress }] = useStateValue();
 
   const { get_started, development_cycle, share } = chapters;
+
+  const scrollToHeading = (id) => {
+    setTimeout(() => {
+      document.querySelector(`h3#${id}`)?.scrollIntoView({ behavior: 'smooth', block: 'end' });
+    }, 20);
+  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -30,52 +37,19 @@ function Navbar() {
     };
   }, []);
 
-  useEffect(() => {
-    const updateProgress = (id, addedValue) => {
-      const elm = document.querySelector(`li#${id}-li`);
-      if (elm) {
-        const nav = document.getElementById('nav');
-        const navwidth = nav.offsetWidth;
-        const left = Math.floor((elm.offsetLeft * 100) / navwidth);
-        setProgress(left + addedValue);
-        setActiveSection(id);
-      }
-
-      if (activeSection === 'learn' && !id) {
-        setProgress(0);
-        setActiveSection(null);
-      }
-    };
-
-    updateProgress(visible, 4.5);
-
-    window.addEventListener(
-      'resize',
-      function () {
-        /* In the future for responsiveness if needed we can check for screen width to know which rough value can be added */
-        // updateProgress(activeLink, 4.5);
-      },
-      true
-    );
-
-    return () => {
-      window.removeEventListener('resize', () => {});
-    };
-  }, [visible]);
-
   return (
     <header className={clsx(styles.container, { [styles.scrolled]: isScrollDown })}>
-      <nav id="nav" className={styles.navbar}>
+      <nav id="nav" ref={ref} className={styles.navbar}>
         <div className={styles.navbar__group}>
           <h3>Get Started</h3>
           <ul>
             {get_started.map(({ title, id, Icon }, index) => (
-              <li id={`${id}-li`} key={index}>
-                <NavItem href={`#${id}`} isSelected={activeSection === id}>
+              <NavbarItemList id={id} key={index} navbar={ref}>
+                <NavItem href={`#${id}`} isSelected={activeSection === id} scrollToHeading={scrollToHeading}>
                   <Icon />
                   {title}
                 </NavItem>
-              </li>
+              </NavbarItemList>
             ))}
           </ul>
         </div>
@@ -83,12 +57,12 @@ function Navbar() {
           <h3>Development Cycle</h3>
           <ul>
             {development_cycle.map(({ title, id, Icon }, index) => (
-              <li id={`${id}-li`} key={index}>
-                <NavItem href={`#${id}`} isSelected={activeSection === id}>
+              <NavbarItemList id={id} key={index} navbar={ref}>
+                <NavItem href={`#${id}`} isSelected={activeSection === id} scrollToHeading={scrollToHeading}>
                   <Icon />
                   {title}
                 </NavItem>
-              </li>
+              </NavbarItemList>
             ))}
           </ul>
         </div>
@@ -97,12 +71,12 @@ function Navbar() {
           <h3>Share</h3>
           <ul>
             {share.map(({ title, id, Icon }, index) => (
-              <li id={`${id}-li`} key={index}>
-                <NavItem href={`#${id}`} isSelected={activeSection === id}>
+              <NavbarItemList id={id} key={index} navbar={ref}>
+                <NavItem href={`#${id}`} isSelected={activeSection === id} scrollToHeading={scrollToHeading}>
                   <Icon />
                   {title}
                 </NavItem>
-              </li>
+              </NavbarItemList>
             ))}
           </ul>
         </div>
