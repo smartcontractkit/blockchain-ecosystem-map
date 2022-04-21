@@ -5,12 +5,14 @@ const useIntersection = (element) => {
 
   useEffect(() => {
     const section = element.current;
+    const navHeight = '-100px';
+
     const observer = new IntersectionObserver(
       ([entry]) => {
         setState(entry.isIntersecting);
       },
       {
-        rootMargin: '-100px',
+        rootMargin: navHeight,
       }
     );
 

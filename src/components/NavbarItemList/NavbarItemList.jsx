@@ -1,7 +1,7 @@
 import React, { useRef, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { useStateValue } from '@/context/StateProvider';
-import { SET_ACTIVESECTION, SET_PROGRESS } from '@/context/types';
+import { SET_ACTIVE_SECTION, SET_PROGRESS } from '@/context/types';
 
 export default function NavbarItemList({ id, navbar, children }) {
   const ref = useRef();
@@ -10,20 +10,23 @@ export default function NavbarItemList({ id, navbar, children }) {
   useEffect(() => {
     const updateProgress = (section_id, addedValue) => {
       const listItem = ref.current;
+
       if (section_id === id) {
-        const navwidth = navbar.current.offsetWidth;
-        let left = Math.floor((listItem.offsetLeft * 100) / navwidth);
+        const MAGIC_NUMBER = 4.5;
+        const navWidth = navbar.current.offsetWidth;
+        let left = Math.floor((listItem.offsetLeft * 100) / navWidth) + MAGIC_NUMBER;
+
         if (addedValue && addedValue > 0) {
           left += addedValue;
         }
 
         dispatch({ type: SET_PROGRESS, payload: left });
-        dispatch({ type: SET_ACTIVESECTION, payload: section_id });
+        dispatch({ type: SET_ACTIVE_SECTION, payload: section_id });
       }
 
       if (activeSection === 'learn' && !section_id) {
         dispatch({ type: SET_PROGRESS, payload: 0 });
-        dispatch({ type: SET_ACTIVESECTION, payload: null });
+        dispatch({ type: SET_ACTIVE_SECTION, payload: null });
       }
     };
 
@@ -41,7 +44,7 @@ export default function NavbarItemList({ id, navbar, children }) {
     return () => {
       window.removeEventListener('resize', () => {});
     };
-  }, [visible]);
+  }, [visible.length]);
 
   return (
     <li id={`${id}-li`} ref={ref}>

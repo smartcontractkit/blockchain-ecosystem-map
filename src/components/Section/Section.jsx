@@ -3,31 +3,18 @@ import PropTypes from 'prop-types';
 import { useState, useRef } from 'react';
 import ArrowDrop from '@/icons/arrow-drop.svg';
 import TimelineIcon from '@/components/TimelineIcon';
-import useIntersection from '@/helpers/useIntersection';
 import { useStateValue } from '@/context/StateProvider';
-import { SET_NOTVISIBLE, SET_VISIBLE } from '@/context/types';
-import { useEffect } from 'react';
+import useToggleVisibility from '@/helpers/useToggleVisibility';
 
 function Section({ title, id, children, Icon }) {
   const [isOpen, setIsOpen] = useState(false);
   const ref = useRef();
-  const isVisible = useIntersection(ref);
-
-  const [{ visible }, dispatch] = useStateValue();
+  const [{ visible }] = useStateValue();
+  useToggleVisibility(ref);
 
   const toggle = () => {
     setIsOpen(!isOpen);
   };
-
-  useEffect(() => {
-    const id = ref.current.id;
-    if (isVisible) {
-      dispatch({ type: SET_VISIBLE, payload: id });
-    } else {
-      dispatch({ type: SET_NOTVISIBLE, payload: id });
-    }
-    return () => dispatch({ type: SET_NOTVISIBLE, payload: id });
-  }, [visible.length, isVisible]);
 
   return (
     <div className={styles.container} role="region">
