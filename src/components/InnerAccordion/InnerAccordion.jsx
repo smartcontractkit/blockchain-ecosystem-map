@@ -14,7 +14,7 @@ export default function InnerAccordion({ title, id, children, expanded, expandTo
           aria-expanded={expanded}
           aria-controls={`${id}-sect`}
           id={`${id}-accordionid`}
-          onClick={() => expandToggle(id)}
+          onClick={(e) => [e.stopPropagation(), expandToggle(id)]}
         >
           <span className={styles.icon} aria-hidden="true">
             <ExpandIcon />
