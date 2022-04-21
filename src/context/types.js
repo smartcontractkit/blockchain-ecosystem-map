@@ -1,3 +1,4 @@
-export const ADD_VISIBLE = 'ADD_VISIBLE';
-
-export const REMOVE_VISIBLE = 'REMOVE_VISIBLE';
+export const SET_VISIBLE = 'SET_VISIBLE';
+export const SET_NOT_VISIBLE = 'SET_NOT_VISIBLE';
+export const SET_PROGRESS = 'SET_PROGRESS';
+export const SET_ACTIVE_SECTION = 'SET_ACTIVE_SECTION';

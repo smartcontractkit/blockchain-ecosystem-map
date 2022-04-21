@@ -17,10 +17,6 @@ export default function Home() {
 
   const expandPanel = (id) => {
     setIsExpanded(isExpanded && isExpanded === id ? null : id);
-
-    setTimeout(() => {
-      document.querySelector(`h4#${id}`)?.scrollIntoView({ behavior: 'smooth', block: 'center' });
-    }, 100);
   };
 
   useEffect(() => {
