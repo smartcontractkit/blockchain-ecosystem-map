@@ -12,15 +12,15 @@ export default function NavbarItemList({ id, navbar, children }) {
       const listItem = ref.current;
 
       if (section_id === id) {
-        const MAGIC_NUMBER = 4.5;
+        const defaultItemMargin = 4.5;
         const navWidth = navbar.current.offsetWidth;
-        let left = Math.floor((listItem.offsetLeft * 100) / navWidth) + MAGIC_NUMBER;
+        let progressWidth = Math.floor((listItem.offsetLeft * 100) / navWidth) + defaultItemMargin;
 
         if (addedValue && addedValue > 0) {
-          left += addedValue;
+          progressWidth += addedValue;
         }
 
-        dispatch({ type: SET_PROGRESS, payload: left });
+        dispatch({ type: SET_PROGRESS, payload: progressWidth });
         dispatch({ type: SET_ACTIVE_SECTION, payload: section_id });
       }
 
