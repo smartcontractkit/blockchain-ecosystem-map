@@ -9,7 +9,7 @@ export default function InnerAccordion({ title, id, children, expanded, expandTo
     <section>
       <h4 id={id} className={styles.accordion__header}>
         <a
-          href={`#${id}`}
+          href={`#${id}/`}
           className={clsx('text__short--lg', styles.trigger)}
           aria-expanded={expanded}
           aria-controls={`${id}-sect`}
