@@ -1,25 +1,41 @@
 import styles from './Section.module.scss';
 import PropTypes from 'prop-types';
-import { useState, useRef } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import ArrowDrop from '@/icons/arrow-drop.svg';
 import TimelineIcon from '@/components/TimelineIcon';
 import { useStateValue } from '@/context/StateProvider';
 import useToggleVisibility from '@/helpers/useToggleVisibility';
 
-function Section({ title, id, children, Icon }) {
+function Section({ title, id, children, Icon, expandToggle, expandedId }) {
   const [isOpen, setIsOpen] = useState(false);
   const ref = useRef();
   const [{ visible }] = useStateValue();
   useToggleVisibility(ref);
 
+  const childrenIds = children.map((child) => child.props.id);
+
+  useEffect(() => {
+    if (childrenIds.includes(expandedId)) {
+      setIsOpen(true);
+    } else {
+      setIsOpen(false);
+    }
+  }, [expandedId]);
+
   const toggle = () => {
-    setIsOpen(!isOpen);
+    if (isOpen) {
+      expandToggle(null);
+      setIsOpen(false);
+    } else {
+      expandToggle(children[0].props.id);
+      setIsOpen(true);
+    }
   };
 
   return (
     <div className={styles.container} role="region">
       <h3 id={id} ref={ref} className={styles.title}>
-        <button aria-expanded="true" aria-controls="sect3" aria-disabled="true" onClick={toggle}>
+        <button aria-expanded={isOpen} aria-controls="sect3" onClick={toggle}>
           <ArrowDrop style={{ transform: isOpen ? 'rotate(90deg)' : 'rotate(0deg)' }} />
           {title}
         </button>
@@ -39,6 +55,8 @@ Section.propTypes = {
   id: PropTypes.string.isRequired,
   children: PropTypes.node.isRequired,
   Icon: PropTypes.elementType.isRequired,
+  expandToggle: PropTypes.func.isRequired,
+  expandedId: PropTypes.string,
 };
 
 export default Section;

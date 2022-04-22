@@ -44,7 +44,7 @@ export default function NavbarItemList({ id, navbar, children }) {
     return () => {
       window.removeEventListener('resize', () => {});
     };
-  }, [visible.length]);
+  }, [visible]);
 
   return (
     <li id={`${id}-li`} ref={ref}>
