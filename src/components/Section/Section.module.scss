@@ -6,6 +6,12 @@
   border-radius: 0.75rem;
   margin-top: 1.5625rem;
   position: relative;
+  cursor: pointer;
+  transition: all 0.5s ease-in-out;
+
+  &:hover {
+    box-shadow: 0 0 15px -5px rgba(0,0,0,0.3);
+  }
 }
 
 .title {

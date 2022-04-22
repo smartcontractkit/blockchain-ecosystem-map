@@ -43,6 +43,7 @@
 .panel {
   max-height: 0;
   overflow-y: hidden;
+
   &.active {
     max-height: 1000px;
     margin-bottom: 1rem;
