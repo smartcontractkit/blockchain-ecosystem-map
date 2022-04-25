@@ -14,7 +14,7 @@
       logo: '/logos/rust.png'
       url: 'https://www.rust-lang.org/learn'
     - title: 'C / C++'
-      logo: '/logos/c++.png'
+      logo: '/logos/c-plus-plus.png'
       url: 'https://docs.microsoft.com/en-us/cpp/?view=msvc-160'
 
 - name: 'Node & Interface Languages'
