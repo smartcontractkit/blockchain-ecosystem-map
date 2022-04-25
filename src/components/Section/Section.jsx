@@ -29,8 +29,8 @@ function Section({ title, id, children, Icon, expandToggle, expandedId }) {
       setIsOpen(false);
     } else {
       expandToggle(accordionId);
-      window.history.replaceState({}, null, `#${accordionId}`);
       setIsOpen(true);
+      window.history.replaceState({}, null, `#${accordionId}`);
     }
   };
 
