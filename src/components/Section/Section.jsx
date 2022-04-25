@@ -23,12 +23,14 @@ function Section({ title, id, children, Icon, expandToggle, expandedId }) {
   }, [expandedId]);
 
   const toggle = () => {
+    const accordionId = children[0].props.id;
     if (isOpen) {
       expandToggle(null);
       setIsOpen(false);
     } else {
-      expandToggle(children[0].props.id);
+      expandToggle(accordionId);
       setIsOpen(true);
+      window.history.replaceState({}, null, `#${accordionId}`);
     }
   };
 
