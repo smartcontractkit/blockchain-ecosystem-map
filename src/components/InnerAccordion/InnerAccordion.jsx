@@ -5,6 +5,13 @@ import styles from './InnerAccordion.module.scss';
 import ExpandIcon from '@/icons/expand-icon.svg';
 
 export default function InnerAccordion({ title, id, children, expanded, expandToggle }) {
+  const toggleAccordion = (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    expandToggle(id);
+    window.history.replaceState({}, null, `#${id}`);
+  };
+
   return (
     <section>
       <h4 id={id} className={styles.accordion__header}>
@@ -14,7 +21,7 @@ export default function InnerAccordion({ title, id, children, expanded, expandTo
           aria-expanded={expanded}
           aria-controls={`${id}-sect`}
           id={`${id}-accordionid`}
-          onClick={(e) => [e.stopPropagation(), expandToggle(id)]}
+          onClick={toggleAccordion}
         >
           <span className={styles.icon} aria-hidden="true">
             <ExpandIcon />
