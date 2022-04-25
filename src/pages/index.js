@@ -22,8 +22,6 @@ export default function Home() {
   useEffect(() => {
     const { asPath } = router;
     let id = asPath.split('#')[1];
-    id = id.replace('/', '');
-    router.push('#' + id);
     expandPanel(id || null);
   }, []);
 

@@ -9,12 +9,17 @@ export default function InnerAccordion({ title, id, children, expanded, expandTo
     <section>
       <h4 id={id} className={styles.accordion__header}>
         <a
-          href={`#${id}/`}
+          href={`#${id}`}
           className={clsx('text__short--lg', styles.trigger)}
           aria-expanded={expanded}
           aria-controls={`${id}-sect`}
           id={`${id}-accordionid`}
-          onClick={(e) => [e.stopPropagation(), expandToggle(id)]}
+          onClick={(e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            expandToggle(id);
+            window.history.replaceState({}, null, `#${id}`);
+          }}
         >
           <span className={styles.icon} aria-hidden="true">
             <ExpandIcon />
