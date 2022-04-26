@@ -25,6 +25,7 @@
   width: 100%;
   overflow-x: auto;
   margin: 0 auto;
+  box-shadow: 29px 10px 15px rgb(0 0 0 / 6%) inset, -29px 10px 15px rgb(0 0 0 / 6%) inset;
 
   &__group {
     display: flex;
@@ -45,6 +46,7 @@
       gap: 0.5rem;
     }
   }
+ 
 
   @media (min-width: 1280px) {
     max-width: 1276px;
