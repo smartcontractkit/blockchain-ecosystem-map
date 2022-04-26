@@ -9,7 +9,8 @@ export default function InnerAccordion({ title, id, children, expanded, expandTo
     e.preventDefault();
     e.stopPropagation();
     expandToggle(id);
-    window.history.replaceState({}, null, `#${id}`);
+    const accordionId = expanded ? '/' : `#${id}`;
+    window.history.replaceState({}, null, accordionId);
   };
 
   return (
