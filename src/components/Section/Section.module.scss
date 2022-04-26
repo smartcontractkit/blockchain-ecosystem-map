@@ -31,6 +31,17 @@
     width: 100%;
     padding: 1rem;
     cursor: pointer;
+    border-radius: 0.75rem 0.75rem 0 0;
+    transition:all 0.5s ease-in-out;
+
+    &.active {
+      color: #FFF;
+      background-color: $brand-600;
+
+      svg {
+        color: #FFF;
+      }
+    }
 
     svg {
       font-size: 1.5rem;

@@ -5,6 +5,7 @@ import ArrowDrop from '@/icons/arrow-drop.svg';
 import TimelineIcon from '@/components/TimelineIcon';
 import { useStateValue } from '@/context/StateProvider';
 import useToggleVisibility from '@/helpers/useToggleVisibility';
+import clsx from 'clsx';
 
 function Section({ title, id, children, Icon, expandToggle, expandedId }) {
   const [isOpen, setIsOpen] = useState(false);
@@ -37,7 +38,12 @@ function Section({ title, id, children, Icon, expandToggle, expandedId }) {
   return (
     <div className={styles.container} role="region" onClick={toggle}>
       <h3 id={id} ref={ref} className={styles.title}>
-        <button aria-expanded={isOpen} aria-controls="sect3" onClick={toggle}>
+        <button
+          aria-expanded={isOpen}
+          className={clsx({ [styles.active]: isOpen })}
+          aria-controls="sect3"
+          onClick={toggle}
+        >
           <ArrowDrop style={{ transform: isOpen ? 'rotate(90deg)' : 'rotate(0deg)' }} />
           {title}
         </button>
