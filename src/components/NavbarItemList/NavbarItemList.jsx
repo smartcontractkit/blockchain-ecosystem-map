@@ -51,12 +51,8 @@ export default function NavbarItemList({ id, navbar, children }) {
   useEffect(() => {
     if (ref.current.id === 'market-li') {
       if (isVisible) {
-        //Remove right shdow
-        console.log('market remove');
         dispatch({ type: SET_MORE_ENTITY_SHADOW, payload: false });
       } else {
-        //show right shadow
-        console.log('market add');
         dispatch({ type: SET_MORE_ENTITY_SHADOW, payload: true });
       }
     }
