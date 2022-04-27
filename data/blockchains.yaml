@@ -37,3 +37,13 @@
   id: 'optimism'
   logo: '/logos/optimisticethereum.png'
   url: 'https://www.optimism.io/'
+
+- name: 'Terra'
+  id: 'terra'
+  logo: '/logos/terra.png'
+  url: 'https://www.terra.money/'
+
+- name: 'Solana'
+  id: 'solana'
+  logo: '/logos/solana.png'
+  url: 'https://solana.com/'

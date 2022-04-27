@@ -31,8 +31,6 @@ export default function Home() {
   return (
     <div className={styles.container}>
       <Hero />
-
-      <Blockchains />
       {chaptersKeys.map((chapter, index) => (
         <Chapter key={index}>
           {chapters[chapter].map((section) => (
@@ -63,6 +61,8 @@ export default function Home() {
           ))}
         </Chapter>
       ))}
+
+      <Blockchains />
     </div>
   );
 }
