@@ -52,3 +52,16 @@
     overflow-x: hidden;
   }
 }
+
+.github_logo {
+  position: absolute;
+  right: 1rem;
+  top: 45%;
+  z-index: 10;
+  display: none;
+  width: 35px;
+
+  @media (min-width: 1280px) {
+    display: block;
+  }
+}
