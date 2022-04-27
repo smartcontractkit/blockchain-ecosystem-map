@@ -4,7 +4,7 @@ export const initialState = {
   visible: [],
   activeSection: null,
   progress: 0,
-  visibleShadow: true,
+  showShadow: true,
 };
 
 const addVisible = (array, value) => {
@@ -48,7 +48,7 @@ function reducer(state, action) {
     case SET_MORE_ENTITY_SHADOW:
       return {
         ...state,
-        visibleShadow: action.payload,
+        showShadow: action.payload,
       };
 
     default:
