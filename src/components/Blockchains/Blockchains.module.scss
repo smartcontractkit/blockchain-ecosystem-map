@@ -4,7 +4,6 @@
 .container {
   margin: auto;
   padding: 3rem 0;
-  border-bottom: 1px solid $brand-200;
 
   & > h2 {
     @extend .heading__200;
