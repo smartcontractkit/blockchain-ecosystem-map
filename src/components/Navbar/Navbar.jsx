@@ -13,7 +13,7 @@ function Navbar() {
   const ref = useRef();
   const [isScrollDown, setIsScrollDown] = useState(false);
 
-  const [{ activeSection, progress }] = useStateValue();
+  const [{ activeSection, progress, showShadow }] = useStateValue();
 
   const { get_started, development_cycle, share } = chapters;
 
@@ -35,7 +35,12 @@ function Navbar() {
   }, []);
 
   return (
-    <header className={clsx(styles.container, { [styles.scrolled]: isScrollDown })}>
+    <header
+      className={clsx(styles.container, {
+        [styles.scrolled]: isScrollDown,
+        [styles.shadow_right]: showShadow,
+      })}
+    >
       <nav id="nav" ref={ref} className={styles.navbar}>
         <div className={styles.navbar__group}>
           <h3>Get Started</h3>
