@@ -1,10 +1,12 @@
 import React, { useRef, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { useStateValue } from '@/context/StateProvider';
-import { SET_ACTIVE_SECTION, SET_PROGRESS } from '@/context/types';
+import { SET_ACTIVE_SECTION, SET_MORE_ENTITY_SHADOW, SET_PROGRESS } from '@/context/types';
+import useIntersection from '@/helpers/useIntersection';
 
 export default function NavbarItemList({ id, navbar, children }) {
   const ref = useRef();
+  const isVisible = useIntersection(ref, navbar);
   const [{ visible, activeSection }, dispatch] = useStateValue();
 
   useEffect(() => {
@@ -45,6 +47,20 @@ export default function NavbarItemList({ id, navbar, children }) {
       window.removeEventListener('resize', () => {});
     };
   }, [visible]);
+
+  useEffect(() => {
+    if (ref.current.id === 'market-li') {
+      if (isVisible) {
+        //Remove right shdow
+        console.log('market remove');
+        dispatch({ type: SET_MORE_ENTITY_SHADOW, payload: false });
+      } else {
+        //show right shadow
+        console.log('market add');
+        dispatch({ type: SET_MORE_ENTITY_SHADOW, payload: true });
+      }
+    }
+  }, [isVisible]);
 
   return (
     <li id={`${id}-li`} ref={ref}>

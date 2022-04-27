@@ -1,9 +1,10 @@
-import { SET_ACTIVE_SECTION, SET_PROGRESS, SET_VISIBLE, SET_NOT_VISIBLE } from './types';
+import { SET_ACTIVE_SECTION, SET_PROGRESS, SET_VISIBLE, SET_NOT_VISIBLE, SET_MORE_ENTITY_SHADOW } from './types';
 
 export const initialState = {
   visible: [],
   activeSection: null,
   progress: 0,
+  visibleShadow: true,
 };
 
 const addVisible = (array, value) => {
@@ -43,6 +44,11 @@ function reducer(state, action) {
       return {
         ...state,
         activeSection: action.payload,
+      };
+    case SET_MORE_ENTITY_SHADOW:
+      return {
+        ...state,
+        visibleShadow: action.payload,
       };
 
     default:
