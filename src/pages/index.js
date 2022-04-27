@@ -20,8 +20,10 @@ export default function Home() {
   };
 
   useEffect(() => {
+    const DEFAULT_ACCORDION_ID = 'general-learning-resources';
     const { asPath } = router;
     let id = asPath.split('#')[1];
+    id = id ? id : DEFAULT_ACCORDION_ID;
     router.replace(asPath);
     expandPanel(id || null);
   }, []);

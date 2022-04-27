@@ -35,6 +35,7 @@ export default function InnerAccordion({ title, id, children, expanded, expandTo
         id={`${id}-sect`}
         aria-labelledby={`${id}-accordionid`}
         className={clsx(styles.panel, { [styles.active]: expanded })}
+        hidden={!expanded}
       >
         {children}
       </div>
