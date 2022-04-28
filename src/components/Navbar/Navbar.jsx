@@ -7,6 +7,7 @@ import clsx from 'clsx';
 import { useStateValue } from '@/context/StateProvider';
 import NavbarItemList from '@/components/NavbarItemList';
 import { useRef } from 'react';
+import Githublogo from '@/icons/github-logo.svg';
 
 function Navbar() {
   const ref = useRef();
@@ -15,6 +16,8 @@ function Navbar() {
   const [{ activeSection, progress, showShadow }] = useStateValue();
 
   const { get_started, development_cycle, share } = chapters;
+
+  const github_repo_url = process.env.GITHUB_REPO_URL || '#';
 
   useEffect(() => {
     const handleScroll = () => {
@@ -81,6 +84,9 @@ function Navbar() {
         </div>
         <NavigationProgressBar progress={progress} />
       </nav>
+      <a href={github_repo_url} target="_blank" rel="noopener noreferrer" className={styles.github_logo}>
+        <Githublogo />
+      </a>
     </header>
   );
 }

@@ -69,3 +69,16 @@
     overflow-x: hidden;
   }
 }
+
+.github_logo {
+  position: absolute;
+  right: 1rem;
+  top: 47%;
+  z-index: 10;
+  display: none;
+  width: 30px;
+
+  @media (min-width: 1380px) {
+    display: block;
+  }
+}
