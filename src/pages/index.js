@@ -8,6 +8,7 @@ import InnerAccordion from '@/components/InnerAccordion';
 import styles from '@/styles/Home.module.scss';
 import chapters from '@/data/chapters';
 import Card from '@/components/Card';
+import Intro from '@/components/Intro';
 
 export default function Home() {
   const router = useRouter();
@@ -30,6 +31,8 @@ export default function Home() {
 
   return (
     <div className={styles.container}>
+      <Intro />
+
       <Hero />
       {chaptersKeys.map((chapter, index) => (
         <Chapter key={index}>
