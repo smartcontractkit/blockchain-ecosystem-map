@@ -1,5 +1,4 @@
 import { Steps } from 'intro.js-react';
-import dynamic from 'next/dynamic';
 
 const steps = [
   // {
