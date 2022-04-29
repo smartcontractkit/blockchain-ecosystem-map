@@ -8,7 +8,6 @@ import InnerAccordion from '@/components/InnerAccordion';
 import styles from '@/styles/Home.module.scss';
 import chapters from '@/data/chapters';
 import Card from '@/components/Card';
-// import Intro from '@/components/Intro';
 import dynamic from 'next/dynamic';
 
 const Intro = dynamic(() => import('@/components/Intro'), {

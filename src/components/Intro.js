@@ -1,41 +1,48 @@
 import { Steps } from 'intro.js-react';
+import { setCookie, parseCookies } from 'nookies';
 
 const steps = [
-  // {
-  //   element: '.selector1',
-  //   intro: 'test 1',
-  //   position: 'right',
-  //   tooltipClass: 'myTooltipClass',
-  //   highlightClass: 'myHighlightClass',
-  // },
   {
-    // element: '#nav',
-    intro: 'test 2',
+    intro: 'Welcome to the Environment map for blockchain ecosystem!',
   },
-  // {
-  //   element: '.selector3',
-  //   intro: 'test 3',
-  // },
+  {
+    element: '#nav',
+    intro: 'This is your journey to learn how to create dApp',
+  },
+  {
+    element: '#learn-section',
+    intro: 'Each section has an expandable sections for you to explore',
+  },
+  {
+    element: '#blockchains-section',
+    intro: 'Here is your quick link to the most common blockchains',
+  },
+  {
+    element: '#github',
+    intro: 'The app is Opensource, so feel free to contribute too',
+  },
 ];
+
+const guideOptions = {
+  nextLabel: 'Next',
+  prevLabel: 'Previous',
+  doneLabel: 'Done',
+};
 
 function Intro() {
   const handleExit = () => {
-    console.log('exit');
+    setCookie(null, 'hideTour', 'true', {
+      maxAge: 9999 * 24 * 60 * 60,
+      path: '/',
+    });
   };
 
-  // const Steps = dynamic(() => import {Steps} from 'intro.js-react', {
-  //   ssr: false,
-  // });
+  const cookies = parseCookies();
 
-  return (
-    <Steps
-      onExit={handleExit}
-      steps={steps}
-      enabled={true}
-      initialStep={0}
-      // options={guideOptions}
-    />
-  );
+  if (!cookies.hideTour)
+    return <Steps onExit={handleExit} steps={steps} enabled={true} initialStep={0} options={guideOptions} />;
+
+  return null;
 }
 
 export default Intro;
