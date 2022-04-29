@@ -30,12 +30,7 @@ function Intro() {
   return (
     <Steps
       onExit={handleExit}
-      steps={[
-        {
-          // element: '#nav',
-          intro: 'test 2',
-        },
-      ]}
+      steps={steps}
       enabled={true}
       initialStep={0}
       // options={guideOptions}
