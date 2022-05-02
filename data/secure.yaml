@@ -4,19 +4,19 @@
     - title: 'Slither'
       logo: '/logos/slither.png'
       url: 'https://github.com/crytic/slither'
-      description: 'this is my description'
+      description: null
     - title: 'Manticore'
       logo: '/logos/manticore.png'
       url: 'https://github.com/trailofbits/manticore'
-      description: 'this is my description'
+      description: null
     - title: 'Mythril'
       logo: '/logos/mythril.png'
       url: 'https://github.com/ConsenSys/mythril'
-      description: 'this is my description'
+      description: null
     - title: 'OpenZeppelin Defender'
       logo: '/logos/openzeppelin-defender.png'
       url: 'https://openzeppelin.com/defender/'
-      description: 'this is my description'
+      description: null
 
 - name: 'Auditing'
   id: 'auditing'
@@ -24,12 +24,12 @@
     - title: 'Consensys Diligence'
       logo: '/logos/consensys-diligence.png'
       url: 'https://consensys.net/diligence/'
-      description: 'this is my description'
+      description: null
     - title: 'HashEx'
       logo: '/logos/hashex.png'
       url: 'https://hashex.org/'
-      description: 'this is my description'
+      description: null
     - title: 'Quantstamp'
       logo: '/logos/quantstamp.png'
       url: 'https://quantstamp.com/'
-      description: 'this is my description'
+      description: null

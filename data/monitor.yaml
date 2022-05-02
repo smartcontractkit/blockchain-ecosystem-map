@@ -4,35 +4,35 @@
     - title: 'OpenZeppelin Sentinel'
       logo: '/logos/zeppelin.png'
       url: 'https://docs.openzeppelin.com/defender/sentinel'
-      description: 'this is my description'
+      description: null
     - title: 'Tenderly'
       logo: '/logos/tenderly.png'
       url: 'https://tenderly.co/monitoring/'
-      description: 'this is my description'
+      description: null
     - title: 'Scout'
       logo: '/logos/scout.png'
       url: 'https://scout.cool/'
-      description: 'this is my description'
+      description: null
     - title: 'Ethernal'
       logo: '/logos/ethernal.png'
       url: 'https://github.com/tryethernal'
-      description: 'this is my description'
+      description: null
     - title: 'Blockscout'
       logo: '/logos/blockscout.png'
       url: 'https://blockscout.com/xdai/mainnet/'
-      description: 'this is my description'
+      description: null
     - title: 'Dune'
       logo: '/logos/dune.png'
       url: 'https://dune.network/'
-      description: 'this is my description'
+      description: null
     - title: 'Corda'
       logo: '/logos/corda.png'
       url: 'https://github.com/corda'
-      description: 'this is my description'
+      description: null
     - title: 'Fantom'
       logo: '/logos/fantom.png'
       url: 'https://github.com/Fantom-Foundation'
-      description: 'this is my description'
+      description: null
 
 - name: 'Explorers'
   id: 'explorers'
@@ -40,40 +40,40 @@
     - title: 'TheGraph'
       logo: '/logos/thegraph.png'
       url: 'https://thegraph.com/en/'
-      description: 'this is my description'
+      description: null
     - title: 'Etherscan'
       logo: '/logos/etherscan.png'
       url: 'https://etherscan.io/'
-      description: 'this is my description'
+      description: null
     - title: 'Solscan'
       logo: '/logos/solscan.png'
       url: 'https://solscan.io/'
-      description: 'this is my description'
+      description: null
     - title: 'BscScan'
       logo: '/logos/bscscan.png'
       url: 'https://bscscan.com/'
-      description: 'this is my description'
+      description: null
     - title: 'PolygonScan'
       logo: '/logos/polygonscan.png'
       url: 'https://polygonscan.com/'
-      description: 'this is my description'
+      description: null
     - title: 'Avalanche Explorer'
       logo: '/logos/avalancheexplorer.png'
       url: 'https://explorer.avax.network/'
-      description: 'this is my description'
+      description: null
     - title: 'FTMScan'
       logo: '/logos/ftmscan.png'
       url: 'https://ftmscan.com/'
-      description: 'this is my description'
+      description: null
     - title: 'HecoInfo'
       logo: '/logos/hecoInfo.png'
       url: 'https://hecoinfo.com/'
-      description: 'this is my description'
+      description: null
     - title: 'Arbiscan'
       logo: '/logos/arbiscan.png'
       url: 'https://arbiscan.io/'
-      description: 'this is my description'
+      description: null
     - title: 'Optimistic Ethereum'
       logo: '/logos/optimisticethereum.png'
       url: 'https://optimistic.etherscan.io/'
-      description: 'this is my description'
+      description: null

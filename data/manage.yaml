@@ -4,8 +4,8 @@
     - title: 'OpenZeppelin Contracts'
       logo: '/logos/zeppelin.png'
       url: 'https://openzeppelin.com/contracts/'
-      description: 'this is my description'
+      description: null
     - title: 'Kaleido'
       logo: '/logos/kaleido.png'
       url:  'https://www.kaleido.io/blockchain-platform/smart-contract-management'
-      description: 'this is my description'
+      description: null

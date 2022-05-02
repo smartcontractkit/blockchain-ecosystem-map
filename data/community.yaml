@@ -4,7 +4,7 @@
     - title: 'Rekt News'
       logo: '/logos/rekt.png'
       url: 'https://rekt.news/'
-      description: 'this is my description'
+      description: null
 
 - name: 'For Enterprise'
   id: 'for-enterprise'
@@ -12,7 +12,7 @@
     - title: 'DoraHacks'
       logo: '/logos/dorahacks.png'
       url: 'https://dorahacks.io/'
-      description: 'this is my description'
+      description: null
 
 - name: 'For Developers'
   id: 'for-developers'
@@ -20,28 +20,28 @@
     - title: 'DoraHacks'
       logo: '/logos/dorahacks.png'
       url: 'https://dorahacks.io/'
-      description: 'this is my description'
+      description: null
     - title: 'Reddit'
       logo: '/logos/reddit.png'
       url: 'https://www.reddit.com/r/smartcontracts/'
-      description: 'this is my description'
+      description: null
     - title: 'OpenZeppelin Forum'
       logo: '/logos/openzeppelin.png'
       url: 'https://forum.openzeppelin.com/c/smart-contracts/39'
-      description: 'this is my description'
+      description: null
     - title: 'EatTheBlocks Forum'
       logo: '/logos/eattheblocks.png'
       url: 'https://forum.eattheblocks.com/c/dapp-smart-contract-development'
-      description: 'this is my description'
+      description: null
     - title: 'Cardano Forum'
       logo: '/logos/cardano.png'
       url: 'https://forum.cardano.org/c/developers/29'
-      description: 'this is my description'
+      description: null
     - title: 'Solidity Forum'
       logo: '/logos/solidity-forum.png'
       url: 'https://forum.soliditylang.org/'
-      description: 'this is my description'
+      description: null
     - title: 'Chainlink Discord'
       logo: '/logos/chainlink.png'
       url: 'https://discord.com/channels/592041321326182401/592044132222894090'
-      description: 'this is my description'
+      description: null
