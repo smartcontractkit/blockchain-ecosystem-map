@@ -46,7 +46,7 @@ function Navbar() {
           <h3>Get Started</h3>
           <ul>
             {get_started.map(({ title, id, Icon }, index) => (
-              <NavbarItemList id={id} key={index} navbar={ref}>
+              <NavbarItemList id={id} key={index}>
                 <NavItem href={`#${id}`} isSelected={activeSection === id}>
                   <Icon />
                   {title}
@@ -59,7 +59,7 @@ function Navbar() {
           <h3>Development Cycle</h3>
           <ul>
             {development_cycle.map(({ title, id, Icon }, index) => (
-              <NavbarItemList id={id} key={index} navbar={ref}>
+              <NavbarItemList id={id} key={index}>
                 <NavItem href={`#${id}`} isSelected={activeSection === id}>
                   <Icon />
                   {title}
@@ -73,7 +73,7 @@ function Navbar() {
           <h3>Share</h3>
           <ul>
             {share.map(({ title, id, Icon }, index) => (
-              <NavbarItemList id={id} key={index} navbar={ref}>
+              <NavbarItemList id={id} key={index}>
                 <NavItem href={`#${id}`} isSelected={activeSection === id}>
                   <Icon />
                   {title}

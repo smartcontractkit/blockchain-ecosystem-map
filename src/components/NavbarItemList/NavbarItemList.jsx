@@ -4,8 +4,9 @@ import { useStateValue } from '@/context/StateProvider';
 import { SET_ACTIVE_SECTION, SET_MORE_ENTITY_SHADOW, SET_PROGRESS } from '@/context/types';
 import useIntersection from '@/helpers/useIntersection';
 
-export default function NavbarItemList({ id, navbar, children }) {
+export default function NavbarItemList({ id, children }) {
   const ref = useRef();
+  const navbar = useRef();
   const isVisible = useIntersection(ref, navbar);
   const [{ visible, activeSection }, dispatch] = useStateValue();
 
@@ -58,6 +59,10 @@ export default function NavbarItemList({ id, navbar, children }) {
     }
   }, [isVisible]);
 
+  useEffect(() => {
+    navbar.current = document.querySelector('#nav');
+  }, []);
+
   return (
     <li id={`${id}-li`} ref={ref}>
       {children}
@@ -67,6 +72,5 @@ export default function NavbarItemList({ id, navbar, children }) {
 
 NavbarItemList.propTypes = {
   id: PropTypes.string.isRequired,
-  navbar: PropTypes.object,
   children: PropTypes.node.isRequired,
 };
