@@ -61,7 +61,7 @@ export default function Home() {
                             content={getDescription(item.description)}
                             forceDirection={true}
                             direction="down"
-                            arrowSize={7}
+                            arrowSize={6}
                           >
                             <Card title={item.title} imageSrc={item.logo} url={item.url} size="small" />
                           </Tooltip>
