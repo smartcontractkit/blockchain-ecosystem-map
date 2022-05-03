@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
 @import './typography';
+@import './colors';
 
 html,
 body {
@@ -11,7 +12,9 @@ body {
     scroll-behavior: smooth;
     scroll-padding-top: 6rem;
 }
-
+body {
+  background-color: $brand-50;
+}
 a {
   color: inherit;
   text-decoration: none;
