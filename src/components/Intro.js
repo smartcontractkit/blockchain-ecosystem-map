@@ -25,7 +25,6 @@ const steps = [
 
 const guideOptions = {
   nextLabel: 'Next',
-  prevLabel: 'Previous',
   doneLabel: 'Done',
 };
 
