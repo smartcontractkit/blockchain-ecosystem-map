@@ -8,7 +8,7 @@ import InnerAccordion from '@/components/InnerAccordion';
 import styles from '@/styles/Home.module.scss';
 import chapters from '@/data/chapters';
 import Card from '@/components/Card';
-import ToolTip from '@/components/ToolTip';
+import Tooltip from 'react-tooltip-lite';
 
 export default function Home() {
   const router = useRouter();
@@ -57,9 +57,9 @@ export default function Home() {
                     {data.items.map((item) => (
                       <Fragment key={item.url}>
                         {item.description ? (
-                          <ToolTip content={getDescription(item.description)}>
+                          <Tooltip content={getDescription(item.description)} arrowSize={6}>
                             <Card title={item.title} imageSrc={item.logo} url={item.url} size="small" />
-                          </ToolTip>
+                          </Tooltip>
                         ) : (
                           <Card title={item.title} imageSrc={item.logo} url={item.url} size="small" />
                         )}
