@@ -38,7 +38,7 @@ function Section({ title, id, children, Icon, expandToggle, expandedId }) {
   };
 
   return (
-    <div className={styles.container} role="region" onClick={toggle}>
+    <div className={styles.container} role="region" onClick={toggle} id={`${id}-section`}>
       <h3 id={id} ref={ref} className={styles.title}>
         <button
           aria-expanded={isOpen}

@@ -84,7 +84,7 @@ function Navbar() {
         </div>
         <NavigationProgressBar progress={progress} />
       </nav>
-      <a href={github_repo_url} target="_blank" rel="noopener noreferrer" className={styles.github_logo}>
+      <a href={github_repo_url} target="_blank" rel="noopener noreferrer" className={styles.github_logo} id="github">
         <Githublogo />
       </a>
     </header>
