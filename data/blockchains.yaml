@@ -2,48 +2,58 @@
   id: 'Bsc'
   logo: '/logos/bsc.png'
   url: 'https://www.bnbchain.world/en/smartChain'
+  description: null
 
 - name: 'Polygon'
   id: 'polygon'
   logo: '/logos/polygonscan.png'
   url: 'https://polygon.technology/'
+  description: null
 
 - name: 'Avalanche'
   id: 'avalanche'
   logo: '/logos/avalanche.png'
   url: 'https://www.avax.network/'
+  description: null
 
 - name: 'FantomBSC'
   id: 'fantomBSC'
   logo: '/logos/fantombsc.png'
   url: 'https://fantom.foundation/'
+  description: null
 
 - name: 'HECO'
   id: 'heco'
   logo: '/logos/hecoInfo.png'
   url: 'https://www.hecochain.com/en-us/'
+  description: null
 
 - name: 'xDai'
   id: 'xDai'
   logo: '/logos/xdai.png'
   url: 'https://www.xdaichain.com/'
+  description: null
 
 - name: 'Arbitrum'
   id: 'arbitrum'
   logo: '/logos/arbiscan.png'
   url: 'https://offchainlabs.com/'
+  description: null
 
 - name: 'Optimism'
   id: 'optimism'
   logo: '/logos/optimisticethereum.png'
   url: 'https://www.optimism.io/'
+  description: null
 
 - name: 'Terra'
   id: 'terra'
   logo: '/logos/terra.png'
   url: 'https://www.terra.money/'
+  description: null
 
 - name: 'Solana'
   id: 'solana'
   logo: '/logos/solana.png'
   url: 'https://solana.com/'
+  description: null

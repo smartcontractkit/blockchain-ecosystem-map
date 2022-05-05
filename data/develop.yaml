@@ -4,18 +4,23 @@
     - title: 'Solidity'
       logo: '/logos/solidity.png'
       url: 'https://docs.soliditylang.org/'
+      description: ''
     - title: 'Vyper'
       logo: '/logos/vyper.png'
       url: 'https://vyper.readthedocs.io/'
+      description: ''
     - title: 'Serpent'
       logo: '/logos/serpent.png'
       url: 'https://github.com/ethereum/serpent'
+      description: 'Contribute to ethereum/serpent development by creating an account on GitHub.'
     - title: 'Rust'
       logo: '/logos/rust.png'
       url: 'https://www.rust-lang.org/learn'
+      description: 'A language empowering everyone to build reliable and efficient software.'
     - title: 'C / C++'
       logo: '/logos/c-plus-plus.png'
       url: 'https://docs.microsoft.com/en-us/cpp/?view=msvc-160'
+      description: 'Learn how to use C++ to develop applications, services, and tools for your platforms and devices.'
 
 - name: 'Node & Interface Languages'
   id: 'node-interface-languages'
@@ -23,12 +28,15 @@
     - title: 'Go'
       logo: '/logos/go.png'
       url: 'https://go.dev/'
+      description: 'Go is an open source programming language that makes it easy to build simple, reliable, and efficient software.'
     - title: 'TypeScript'
       logo: '/logos/typescript.png'
       url: 'https://www.typescriptlang.org/'
+      description: 'TypeScript extends JavaScript by adding types to the language. TypeScript speeds up your development experience by catching errors and providing fixes before you even run your code.'
     - title: 'JavaScript'
       logo: '/logos/javascript.png'
       url: 'https://javascript.info/js'
+      description: ''
 
 - name: 'Dev Frameworks and Libraries'
   id: 'dev-frameworks-libraries'
@@ -36,45 +44,59 @@
     - title: 'HardHat'
       logo: '/logos/hardhat.png'
       url: 'https://hardhat.org/'
+      description: 'Hardhat is an Ethereum development environment. Compile your contracts and run them on a development network. Get Solidity stack traces, console.log and more.'
     - title: 'Truffle'
       logo: '/logos/truffle.png'
       url: 'https://trufflesuite.com/'
+      description: 'The Truffle Suite gets developers from idea to dapp as comfortably as possible.'
     - title: 'Brownie'
       logo: '/logos/brownie.png'
       url: 'https://github.com/eth-brownie/brownie'
+      description: 'A Python-based development and testing framework for smart contracts targeting the Ethereum Virtual Machine. - eth-brownie/brownie: A Python-based development and testing framework for smart contra...'
     - title: 'OpenZeppelin Contracts'
       logo: '/logos/openzeppelin.png'
       url: 'https://openzeppelin.com/contracts/'
+      description: null
     - title: 'Waffle'
       logo: '/logos/waffle.png'
       url: 'https://getwaffle.io/'
+      description: null
     - title: 'Py-EVM'
       logo: '/logos/logo.png'
       url: 'https://github.com/ethereum/py-evm'
+      description: null
     - title: 'OpenEthereum'
       logo: '/logos/logo.png'
       url: 'https://github.com/openethereum/openethereum'
+      description: null
     - title: 'Embark'
       logo: '/logos/embark.png'
       url: 'https://framework.embarklabs.io/'
+      description: null
     - title: 'Ganache'
       logo: '/logos/ganache.png'
       url: 'https://trufflesuite.com/ganache/'
+      description: null
     - title: 'Dapptools'
       logo: '/logos/dapptools.png'
       url: 'https://dapp.tools/'
+      description: null
     - title: 'Epirus'
       logo: '/logos/epirus.png'
       url: 'https://github.com/web3labs/epirus-free'
+      description: null
     - title: 'Solidity Template'
       logo: '/logos/logo.png'
       url: 'https://github.com/paulrberg/solidity-template'
+      description: null
     - title: 'One Click Dapp'
       logo: '/logos/oneclickdapp.png'
       url: 'https://oneclickdapp.com/'
+      description: null
     - title: 'CosmWasm'
       logo: '/logos/cosm-wasm.png'
       url: 'https://docs.cosmwasm.com/docs/'
+      description: null
 
 - name: 'IDEs'
   id: 'ides'
@@ -82,12 +104,15 @@
     - title: 'Remix'
       logo: '/logos/remix.png'
       url: 'https://remix.ethereum.org/'
+      description: null
     - title: 'VSCode'
       logo: '/logos/vscode.png'
       url: 'https://code.visualstudio.com/'
+      description: null
     - title: 'EthFiddle'
       logo: '/logos/ethfiddle.png'
       url: 'https://ethfiddle.com/'
+      description: null
     
 - name: 'Frontend Frameworks'
   id: 'frontend-frameworks'
@@ -95,36 +120,47 @@
     - title: 'Web3.js'
       logo: '/logos/web3js.png'
       url: 'https://web3js.readthedocs.io/'
+      description: null
     - title: 'Ether.js'
       logo: '/logos/etherjs.png'
       url: 'https://docs.ethers.io/'
+      description: null
     - title: 'Moralis'
       logo: '/logos/moralis.png'
       url: 'https://github.com/MoralisWeb3/react-moralis'
+      description: null
     - title: 'useDapp'
       logo: '/logos/logo.png'
       url: 'https://github.com/TrueFiEng/useDApp'
+      description: null
     - title: 'One Click Dapp'
       logo: '/logos/oneclickdapp.png'
       url: 'https://github.com/oneclickdapp/oneclickdapp-v1'
+      description: null
     - title: 'Solana dApp Scaffold'
       logo: '/logos/solana-dapp-scaffold.png'
       url: 'https://github.com/solana-labs/dapp-scaffold'
+      description: null
     - title: 'React'
       logo: '/logos/react.png'
       url: 'https://reactjs.org/'
+      description: null
     - title: 'Next.js'
       logo: '/logos/nextjs.png'
       url: 'https://nextjs.org/'
+      description: null
     - title: 'Angular'
       logo: '/logos/angular.png'
       url: 'https://angular.io/'
+      description: null
     - title: 'Scaffold-ETH'
       logo: '/logos/logo.png'
       url: 'https://github.com/scaffold-eth/scaffold-eth'
+      description: null
     - title: 'Terrain'
       logo: '/logos/terrain.png'
       url: 'https://github.com/iboss-ptk/terrain'
+      description: null
 
 - name: 'Backend Frameworks'
   id: 'backend-frameworks'
@@ -132,21 +168,27 @@
     - title: 'Web3.py'
       logo: '/logos/python.png'
       url: 'https://github.com/ethereum/web3.py'
+      description: null
     - title: 'Nethereum'
       logo: '/logos/nethereum.png'
       url: 'https://nethereum.com/'
+      description: null
     - title: 'Solana-web3.js'
       logo: '/logos/logo.png'
       url: 'https://github.com/solana-labs/solana-web3.js'
+      description: null
     - title: 'Alchemy Build'
       logo: '/logos/alchemy.png'
       url: 'https://www.alchemy.com/build'
+      description: null
     - title: 'Infura'
       logo: '/logos/infura.png'
       url: 'https://infura.io/'
+      description: null
     - title: 'Anchor'
       logo: '/logos/anchor.png'
       url: 'https://github.com/project-serum/anchor'
+      description: null
 
 - name: 'Fullstack Frameworks'
   id: 'fullstack-frameworks'
@@ -154,12 +196,15 @@
     - title: 'Web3 React'
       logo: '/logos/web3-react.png'
       url: 'https://github.com/NoahZinsmeister/web3-react'
+      description: null
     - title: 'Decentology'
       logo: '/logos/decentology.png'
       url: 'https://www.decentology.com/'
+      description: null
     - title: 'create-eth-app'
       logo: '/logos/logo.png'
       url: 'https://github.com/paulrberg/create-eth-app'
+      description: null
 
 - name: 'Blockchain Validators'
   id: 'blockchain-validators'
@@ -167,21 +212,27 @@
     - title: 'Go Ethereum'
       logo: '/logos/go-ethereum.png'
       url: 'https://geth.ethereum.org/'
+      description: null
     - title: 'Aleth'
       logo: '/logos/logo.png'
       url: 'https://github.com/ethereum/aleth'
+      description: null
     - title: 'Erigon'
       logo: '/logos/logo.png'
       url: 'https://github.com/ledgerwatch/erigon'
+      description: null
     - title: 'Hyperledger Besu'
       logo: '/logos/hyperledger-besu.png'
       url: 'https://besu.hyperledger.org/'
+      description: null
     - title: 'Nethermind'
       logo: '/logos/nethermind.png'
       url: 'https://nethermind.io/'
+      description: null
     - title: 'Substrate'
       logo: '/logos/substrate.png'
       url: 'https://substrate.io/'
+      description: null
 
 - name: 'Wallets'
   id: 'wallets'
@@ -189,24 +240,31 @@
     - title: 'MetaMask'
       logo: '/logos/metamask.png'
       url: 'https://metamask.io/'
+      description: null
     - title: 'Trezor'
       logo: '/logos/trezor.png'
       url: 'https://trezor.io/'
+      description: null
     - title: 'MyEtherWallet'
       logo: '/logos/myetherwallet.png'
       url: 'https://www.myetherwallet.com/'
+      description: null
     - title: 'Terra Station'
       logo: '/logos/terra-station.png'
       url: 'https://chrome.google.com/webstore/detail/terra-station-wallet/aiifbnbfobpmeekipheeijimdpnlpgpp'
+      description: null
     - title: 'Ledger'
       logo: '/logos/ledger.png'
       url: 'https://www.ledger.com/'
+      description: null
     - title: 'MyCrypto'
       logo: '/logos/mycrypto.png'
       url: 'https://mycrypto.com/'
+      description: null
     - title: 'Phantom'
       logo: '/logos/phantom.png'
       url: 'https://phantom.app/'
+      description: null
 
 - name: 'Service Frameworks'
   id: 'service-frameworks'
@@ -214,18 +272,23 @@
     - title: 'Aragon'
       logo: '/logos/aragon.png'
       url: 'https://aragon.org/'
+      description: null
     - title: 'DoraHacks'
       logo: '/logos/dorahacks.png'
       url: 'https://dorahacks.io/'
+      description: null
     - title: 'Cosmos'
       logo: '/logos/cosmos.png'
       url: 'https://docs.cosmos.network/'
+      description: null
     - title: 'The Graph'
       logo: '/logos/thegraph.png'
       url: 'https://thegraph.com/'
+      description: null
     - title: 'JAMS Arbitration and Mediation'
       logo: '/logos/jams.png'
       url: 'https://www.jamsadr.com/smartcontracts'
+      description: null
 
 - name: 'Low-code / No-code Tools'
   id: 'no-code-tools'
@@ -233,18 +296,23 @@
     - title: 'DappBuilder'
       logo: '/logos/dappbuilder.png'
       url: 'https://dappbuilder.org/'
+      description: null
     - title: 'MyWish'
       logo: '/logos/mywish.png'
       url: 'https://mywish.io/'
+      description: null
     - title: 'SettleMint'
       logo: '/logos/settlemint.png'
       url: 'https://www.settlemint.com/'
+      description: null
     - title: 'Simba'
       logo: '/logos/simba.png'
       url: 'https://simbachain.com/'
+      description: null
     - title: 'Transient'
       logo: '/logos/transient.png'
       url: 'https://transientnetwork.io/'
+      description: null
 
 - name: 'Oracles'
   id: 'oracles'
@@ -252,3 +320,4 @@
   - title: 'Chainlink'
     logo: '/logos/chainlink.png'
     url: 'https://chain.link/'
+    description: null

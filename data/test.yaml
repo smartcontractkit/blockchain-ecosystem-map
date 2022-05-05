@@ -4,18 +4,24 @@
   - title: 'Truffle'
     logo: '/logos/truffle.png'
     url: 'https://trufflesuite.com/'
+    description: null
   - title: 'HardHat'
     logo: '/logos/hardhat.png'
     url: 'https://hardhat.org/'
+    description: null
   - title: 'Solidity Coverage'
     logo: '/logos/logo.png'
     url: 'https://github.com/sc-forks/solidity-coverage'
+    description: null
   - title: 'Brownie'
     logo: '/logos/brownie.png'
     url: 'https://github.com/eth-brownie/brownie'
+    description: null
   - title: 'Dapp Tools'
     logo: '/logos/dapptools.png'
     url: 'https://dapp.tools/'
+    description: null
   - title: 'Eth Lint'
     logo: '/logos/ethlint.png'
     url: 'https://github.com/duaraghav8/Ethlint'
+    description: null

@@ -67,6 +67,6 @@ export default function NavbarItemList({ id, navbar, children }) {
 
 NavbarItemList.propTypes = {
   id: PropTypes.string.isRequired,
-  navbar: PropTypes.object,
   children: PropTypes.node.isRequired,
+  navbar: PropTypes.object,
 };

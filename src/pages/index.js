@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { Fragment, useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import Blockchains from '@/components/Blockchains';
 import Chapter from '@/components/Chapter';
@@ -8,6 +8,7 @@ import InnerAccordion from '@/components/InnerAccordion';
 import styles from '@/styles/Home.module.scss';
 import chapters from '@/data/chapters';
 import Card from '@/components/Card';
+import Tooltip from 'react-tooltip-lite';
 import dynamic from 'next/dynamic';
 
 const Intro = dynamic(() => import('@/components/Intro'), {
@@ -23,6 +24,8 @@ export default function Home() {
   const expandPanel = (id) => {
     setIsExpanded(isExpanded && isExpanded === id ? null : id);
   };
+
+  const getDescription = (text) => (text.length > 120 ? `${text.slice(0, 120)}...` : text);
 
   useEffect(() => {
     const DEFAULT_ACCORDION_ID = 'general-learning-resources';
@@ -59,7 +62,15 @@ export default function Home() {
                 >
                   <div className={styles.accordion_contents}>
                     {data.items.map((item) => (
-                      <Card key={item.url} title={item.title} imageSrc={item.logo} url={item.url} size="small" />
+                      <Fragment key={item.url}>
+                        {item.description ? (
+                          <Tooltip content={getDescription(item.description)} arrowSize={6}>
+                            <Card title={item.title} imageSrc={item.logo} url={item.url} size="small" />
+                          </Tooltip>
+                        ) : (
+                          <Card title={item.title} imageSrc={item.logo} url={item.url} size="small" />
+                        )}
+                      </Fragment>
                     ))}
                   </div>
                 </InnerAccordion>

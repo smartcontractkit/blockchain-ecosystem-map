@@ -28,6 +28,18 @@ svg {
   fill: currentColor;
 }
 
+.react-tooltip-lite {
+  background-color: $brand-600;
+  color: #fff;
+  border-radius: 0.5rem;
+  font-size: 0.75rem;
+  font-weight: 500;
+  padding: 0.75rem;
+}
+
+.react-tooltip-lite-arrow {
+  border-color: $brand-600;
+}
 .introjs-prevbutton {
   display: none!important;
 }
