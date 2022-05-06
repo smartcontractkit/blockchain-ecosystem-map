@@ -23,6 +23,9 @@ updates:
       # only get the _freshest_ of new packages to consider upgrading
       - dependency-name: "intro.js"
       - dependency-name: "intro.js-react"
+      - dependency-name: "next"
       - dependency-name: "nookies"
+      - dependency-name: "react"
+      - dependency-name: "react-dom"
       - dependency-name: "react-gtm-module"
       - dependency-name: "react-tooltip-lite"
