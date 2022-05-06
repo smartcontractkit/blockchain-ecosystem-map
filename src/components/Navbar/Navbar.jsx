@@ -12,6 +12,7 @@ import Githublogo from '@/icons/github-logo.svg';
 function Navbar() {
   const ref = useRef();
   const [isScrollDown, setIsScrollDown] = useState(false);
+  const [navWidth, setNavWidth] = useState(0);
 
   const [{ activeSection, progress, showShadow }] = useStateValue();
 
@@ -20,6 +21,8 @@ function Navbar() {
   const github_repo_url = process.env.GITHUB_REPO_URL || '#';
 
   useEffect(() => {
+    setNavWidth(ref.current.offsetWidth);
+
     const handleScroll = () => {
       if (window.scrollY > 200) {
         setIsScrollDown(true);
@@ -46,7 +49,7 @@ function Navbar() {
           <h3>Get Started</h3>
           <ul>
             {get_started.map(({ title, id, Icon }, index) => (
-              <NavbarItemList id={id} key={index} navbar={ref}>
+              <NavbarItemList id={id} key={index} navbar={ref} navWidth={navWidth}>
                 <NavItem href={`#${id}`} isSelected={activeSection === id}>
                   <Icon />
                   {title}
@@ -59,7 +62,7 @@ function Navbar() {
           <h3>Development Cycle</h3>
           <ul>
             {development_cycle.map(({ title, id, Icon }, index) => (
-              <NavbarItemList id={id} key={index} navbar={ref}>
+              <NavbarItemList id={id} key={index} navbar={ref} navWidth={navWidth}>
                 <NavItem href={`#${id}`} isSelected={activeSection === id}>
                   <Icon />
                   {title}
@@ -73,7 +76,7 @@ function Navbar() {
           <h3>Share</h3>
           <ul>
             {share.map(({ title, id, Icon }, index) => (
-              <NavbarItemList id={id} key={index} navbar={ref}>
+              <NavbarItemList id={id} key={index} navbar={ref} navWidth={navWidth}>
                 <NavItem href={`#${id}`} isSelected={activeSection === id}>
                   <Icon />
                   {title}

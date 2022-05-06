@@ -4,7 +4,7 @@ import { useStateValue } from '@/context/StateProvider';
 import { SET_ACTIVE_SECTION, SET_MORE_ENTITY_SHADOW, SET_PROGRESS } from '@/context/types';
 import useIntersection from '@/helpers/useIntersection';
 
-export default function NavbarItemList({ id, navbar, children }) {
+export default function NavbarItemList({ id, navbar, navWidth, children }) {
   const ref = useRef();
   const isVisible = useIntersection(ref, navbar);
   const [{ visible, activeSection }, dispatch] = useStateValue();
@@ -15,7 +15,6 @@ export default function NavbarItemList({ id, navbar, children }) {
 
       if (section_id === id) {
         const defaultItemMargin = 4.5;
-        const navWidth = navbar.current.offsetWidth;
         let progressWidth = Math.floor((listItem.offsetLeft * 100) / navWidth) + defaultItemMargin;
 
         if (addedValue && addedValue > 0) {
@@ -69,4 +68,5 @@ NavbarItemList.propTypes = {
   id: PropTypes.string.isRequired,
   children: PropTypes.node.isRequired,
   navbar: PropTypes.object,
+  navWidth: PropTypes.number,
 };

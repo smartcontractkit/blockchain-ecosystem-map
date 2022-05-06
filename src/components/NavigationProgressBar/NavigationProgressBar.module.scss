@@ -7,4 +7,9 @@
     height: 2px;
     background-color: $brand-600;
     transition:all 0.5s ease-in-out;
+    display: none;
+
+     @media (min-width: 1280px) {
+        display: block;
+      }
   }
