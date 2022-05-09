@@ -10,6 +10,7 @@ import chapters from '@/data/chapters';
 import Card from '@/components/Card';
 import Tooltip from 'react-tooltip-lite';
 import dynamic from 'next/dynamic';
+import steps from '@/data/intro-steps';
 
 const Intro = dynamic(() => import('@/components/Intro'), {
   ssr: false,
@@ -18,6 +19,7 @@ const Intro = dynamic(() => import('@/components/Intro'), {
 export default function Home() {
   const router = useRouter();
   const [isExpanded, setIsExpanded] = useState(null);
+  const [introSteps, setIntroSteps] = useState(steps);
 
   const chaptersKeys = Object.keys(chapters);
 
@@ -34,11 +36,29 @@ export default function Home() {
     id = id ? id : DEFAULT_ACCORDION_ID;
     router.replace(asPath);
     expandPanel(id || null);
+
+    /* For the Inrojs */
+    function regulateSteps() {
+      let stepsUpdate = introSteps;
+      if (window.screen.width < 1276) {
+        stepsUpdate = stepsUpdate.filter((step) => step.element !== '#github');
+      } else {
+        if (introSteps.length === 4) {
+          stepsUpdate.push({
+            element: '#github',
+            intro: 'The app is Opensource, so feel free to contribute too',
+          });
+        }
+      }
+      setIntroSteps(stepsUpdate);
+    }
+
+    regulateSteps();
   }, []);
 
   return (
     <div className={styles.container}>
-      <Intro />
+      <Intro steps={introSteps} />
 
       <Hero />
       {chaptersKeys.map((chapter, index) => (
