@@ -1,7 +1,7 @@
 - name: 'Hosting Solutions'
   id: 'hosting-solutions'
   items:
-    - title 'Etherscan'
+    - title: 'Etherscan'
       logo: '/logos/etherscan.png'
       url: 'https://etherscan.io/'
       description: null
