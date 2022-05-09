@@ -43,7 +43,7 @@ export default function Home() {
       if (window.screen.width < 1276) {
         stepsUpdate = stepsUpdate.filter((step) => step.element !== '#github');
       } else {
-        if (introSteps.length === 4) {
+        if (stepsUpdate.length === 4) {
           stepsUpdate.push({
             element: '#github',
             intro: 'The app is Opensource, so feel free to contribute too',
