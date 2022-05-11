@@ -13,7 +13,7 @@ export default function NavbarItemList({ id, navbar, navWidth, children }) {
     const updateProgress = (section_id, addedValue) => {
       const listItem = ref.current;
 
-      if (section_id === id && navWidth) {
+      if (section_id === id && navWidth && navbar) {
         const defaultItemMargin = 4.5;
         let progressWidth = Math.floor((listItem.offsetLeft * 100) / navWidth) + defaultItemMargin;
 
@@ -23,6 +23,15 @@ export default function NavbarItemList({ id, navbar, navWidth, children }) {
 
         dispatch({ type: SET_PROGRESS, payload: progressWidth });
         dispatch({ type: SET_ACTIVE_SECTION, payload: section_id });
+        /* It will only scroll to the link of an active header if that link isn't visible on the navbar, this helps us scroll only when neccessary */
+        if (!isVisible) {
+          const defaultScrollLeftMargin = -10;
+          navbar.current.scrollTo({
+            top: 0,
+            left: section_id === 'learn' ? defaultScrollLeftMargin : listItem.offsetLeft + defaultScrollLeftMargin,
+            behavior: 'smooth',
+          });
+        }
       }
 
       if (activeSection === 'learn' && !section_id) {
