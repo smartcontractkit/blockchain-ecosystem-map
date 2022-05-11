@@ -11,6 +11,7 @@
   width: fit-content;
   font-size: 0.9rem;
   transition:all 0.5s ease-in-out;
+  height: 3rem;
   
   &:hover{
     background-color: $brand-100;
@@ -21,8 +22,21 @@
   }
 
   & > svg {
-    margin-right: 0.874375rem;
     font-size: 1.2rem;
+  }
+
+  & > span {
+    display: none;
+  }
+
+
+  @media (min-width: 1276px) {
+    & > svg {
+      margin-right: 0.874375rem;
+    }
+    & > span {
+      display: block;
+    }
   }
 
   &.selected {
