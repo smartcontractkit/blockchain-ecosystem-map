@@ -1,12 +1,11 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
+import clsx from 'clsx';
 import NavItem from '@/components/NavItem';
 import NavigationProgressBar from '@/components/NavigationProgressBar';
 import chapters from '@/data/chapters';
 import styles from './Navbar.module.scss';
-import clsx from 'clsx';
 import { useStateValue } from '@/context/StateProvider';
 import NavbarItemList from '@/components/NavbarItemList';
-import { useRef } from 'react';
 import Githublogo from '@/icons/github-logo.svg';
 
 function Navbar() {
@@ -21,8 +20,6 @@ function Navbar() {
   const github_repo_url = process.env.GITHUB_REPO_URL || '#';
 
   useEffect(() => {
-    setNavWidth(ref.current.offsetWidth);
-
     const handleScroll = () => {
       if (window.scrollY > 200) {
         setIsScrollDown(true);
@@ -30,10 +27,16 @@ function Navbar() {
         setIsScrollDown(false);
       }
     };
+    const handleNavWidth = () => setNavWidth(ref.current.offsetWidth);
+
+    handleNavWidth();
+
     window.addEventListener('scroll', handleScroll);
+    window.addEventListener('resize', handleNavWidth, true);
 
     return () => {
       window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('resize', handleNavWidth, true);
     };
   }, []);
 
@@ -52,7 +55,7 @@ function Navbar() {
               <NavbarItemList id={id} key={index} navbar={ref} navWidth={navWidth}>
                 <NavItem href={`#${id}`} isSelected={activeSection === id}>
                   <Icon />
-                  {title}
+                  <span>{title}</span>
                 </NavItem>
               </NavbarItemList>
             ))}
@@ -65,7 +68,7 @@ function Navbar() {
               <NavbarItemList id={id} key={index} navbar={ref} navWidth={navWidth}>
                 <NavItem href={`#${id}`} isSelected={activeSection === id}>
                   <Icon />
-                  {title}
+                  <span>{title}</span>
                 </NavItem>
               </NavbarItemList>
             ))}
@@ -79,7 +82,7 @@ function Navbar() {
               <NavbarItemList id={id} key={index} navbar={ref} navWidth={navWidth}>
                 <NavItem href={`#${id}`} isSelected={activeSection === id}>
                   <Icon />
-                  {title}
+                  <span>{title}</span>
                 </NavItem>
               </NavbarItemList>
             ))}
