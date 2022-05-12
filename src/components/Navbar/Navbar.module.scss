@@ -46,6 +46,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    flex: 1;
 
     h3 {
       @extend .text__upper;
@@ -78,6 +79,14 @@
   display: none;
   width: 30px;
 
+  @media (min-width: 768px) {
+    display: block;
+  }
+  
+  @media (min-width: 1276px) {
+    display: none;
+  }
+  
   @media (min-width: 1380px) {
     display: block;
   }

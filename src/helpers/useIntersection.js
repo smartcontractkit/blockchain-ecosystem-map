@@ -5,7 +5,7 @@ const useIntersection = (element, root = null) => {
 
   useEffect(() => {
     const section = element.current;
-    const navHeight = !root ? '-100px' : '5px';
+    const navHeight = !root ? '-100px' : '0px';
     const rootElement = root?.current;
 
     const observer = new IntersectionObserver(
