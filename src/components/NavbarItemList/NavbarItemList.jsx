@@ -3,11 +3,13 @@ import PropTypes from 'prop-types';
 import { useStateValue } from '@/context/StateProvider';
 import { SET_ACTIVE_SECTION, SET_MORE_ENTITY_SHADOW, SET_PROGRESS } from '@/context/types';
 import useIntersection from '@/helpers/useIntersection';
+import useScrollDirection from '@/helpers/useScrollDirection';
 
 export default function NavbarItemList({ id, navbar, navWidth, children }) {
   const ref = useRef();
   const isVisible = useIntersection(ref, navbar);
   const [{ visible, activeSection }, dispatch] = useStateValue();
+  const { scrolledUp } = useScrollDirection();
 
   useEffect(() => {
     const updateProgress = (section_id, addedValue) => {
@@ -34,7 +36,7 @@ export default function NavbarItemList({ id, navbar, navWidth, children }) {
         }
       }
 
-      if (activeSection === 'learn' && !section_id) {
+      if (activeSection === 'learn' && !section_id && scrolledUp) {
         dispatch({ type: SET_PROGRESS, payload: 0 });
         dispatch({ type: SET_ACTIVE_SECTION, payload: null });
       }
