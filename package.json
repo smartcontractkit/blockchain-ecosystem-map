@@ -21,7 +21,7 @@
     "next": "12.1.0",
     "next-seo": "^5.4.0",
     "nookies": "^2.5.2",
-    "react": "17.0.2",
+    "react": "18.1.0",
     "react-dom": "17.0.2",
     "react-gtm-module": "^2.0.11",
     "react-tooltip-lite": "^1.12.0",
@@ -47,6 +47,6 @@
     "eslint-plugin-unused-imports": "^2.0.0",
     "husky": "^7.0.4",
     "prettier": "^2.6.1",
-    "yaml-loader": "^0.6.0"
+    "yaml-loader": "^0.8.0"
   }
 }
