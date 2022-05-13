@@ -1,5 +1,5 @@
 import { Fragment, useEffect, useState } from 'react';
-import { useRouter } from 'next/router';
+// import { useRouter } from 'next/router';
 import Blockchains from '@/components/Blockchains';
 import Chapter from '@/components/Chapter';
 import Section from '@/components/Section';
@@ -17,25 +17,50 @@ const Intro = dynamic(() => import('@/components/Intro'), {
 });
 
 export default function Home() {
-  const router = useRouter();
-  const [isExpanded, setIsExpanded] = useState(null);
+  // const router = useRouter();
+  const [isExpanded, setIsExpanded] = useState([]);
   const [introSteps, setIntroSteps] = useState(steps);
 
   const chaptersKeys = Object.keys(chapters);
 
+  const saveExpanded = (value) => {
+    localStorage.setItem('chapters', JSON.stringify(value));
+    setIsExpanded(value);
+  };
+
   const expandPanel = (id) => {
-    setIsExpanded(isExpanded && isExpanded === id ? null : id);
+    let newExpandedValues = isExpanded;
+    if (newExpandedValues.includes(id)) {
+      newExpandedValues = newExpandedValues.filter((value) => value !== id);
+    } else if (newExpandedValues.length) {
+      newExpandedValues = [...newExpandedValues, id];
+    } else {
+      newExpandedValues = [id];
+    }
+    saveExpanded(newExpandedValues);
   };
 
   const getDescription = (text) => (text.length > 120 ? `${text.slice(0, 120)}...` : text);
+  const getExpanded = (id) => {
+    return isExpanded.includes(id);
+  };
+
+  const sectionExpand = (ids, action) => {
+    let newExpandedValues = isExpanded;
+
+    if (action === 'add') {
+      newExpandedValues = [...newExpandedValues, ...ids];
+    } else {
+      newExpandedValues = newExpandedValues.filter((arr) => {
+        return !ids.includes(arr);
+      });
+    }
+    saveExpanded(newExpandedValues);
+  };
 
   useEffect(() => {
-    const DEFAULT_ACCORDION_ID = 'general-learning-resources';
-    const { asPath } = router;
-    let id = asPath.split('#')[1];
-    id = id ? id : DEFAULT_ACCORDION_ID;
-    router.replace(asPath);
-    expandPanel(id || null);
+    const openedChapters = JSON.parse(localStorage.getItem('chapters'));
+    setIsExpanded(openedChapters ?? []);
 
     /* For the Inrojs */
     function regulateSteps() {
@@ -69,15 +94,15 @@ export default function Home() {
               title={section.title}
               id={section.id}
               Icon={section.Icon}
-              expandToggle={expandPanel}
-              expandedId={isExpanded}
+              expandToggle={sectionExpand}
+              expandedIds={isExpanded}
             >
               {section.data.map((data) => (
                 <InnerAccordion
                   key={data.id}
                   title={data.name}
                   id={data.id}
-                  expanded={isExpanded === data.id}
+                  expanded={getExpanded(data.id)}
                   expandToggle={expandPanel}
                 >
                   <div className={styles.accordion_contents}>

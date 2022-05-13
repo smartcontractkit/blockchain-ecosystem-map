@@ -7,7 +7,7 @@ import { useStateValue } from '@/context/StateProvider';
 import useToggleVisibility from '@/helpers/useToggleVisibility';
 import clsx from 'clsx';
 
-function Section({ title, id, children, Icon, expandToggle, expandedId }) {
+function Section({ title, id, children, Icon, expandToggle, expandedIds }) {
   const [isOpen, setIsOpen] = useState(false);
   const ref = useRef();
   const [{ visible }] = useStateValue();
@@ -15,27 +15,29 @@ function Section({ title, id, children, Icon, expandToggle, expandedId }) {
 
   const childrenIds = children.map((child) => child.props.id);
 
-  useEffect(() => {
-    if (childrenIds.includes(expandedId)) {
-      setIsOpen(true);
-    } else {
-      setIsOpen(false);
-    }
-  }, [expandedId]);
-
   const toggle = () => {
-    let accordionId = '/';
-
     if (isOpen) {
-      expandToggle(null);
+      expandToggle(childrenIds);
       setIsOpen(false);
     } else {
-      accordionId = `#${children[0].props.id}`;
-      expandToggle(children[0].props.id);
+      expandToggle([childrenIds[0]], 'add');
       setIsOpen(true);
     }
-    window.history.replaceState({}, null, accordionId);
   };
+
+  useEffect(() => {
+    let expandedId = childrenIds.find((childrenId) => {
+      if (expandedIds.includes(childrenId)) {
+        return true;
+      }
+    });
+
+    if (expandedId) {
+      setIsOpen(true);
+    } else {
+      setIsOpen(false);
+    }
+  }, [expandedIds]);
 
   return (
     <div className={styles.container} role="region" onClick={toggle} id={`${id}-section`}>
@@ -66,7 +68,7 @@ Section.propTypes = {
   children: PropTypes.node.isRequired,
   Icon: PropTypes.elementType.isRequired,
   expandToggle: PropTypes.func.isRequired,
-  expandedId: PropTypes.string,
+  expandedIds: PropTypes.array,
 };
 
 export default Section;
