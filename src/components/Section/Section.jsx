@@ -17,15 +17,16 @@ function Section({ title, id, children, Icon, expandToggle, expandedIds }) {
 
   const toggle = () => {
     if (isOpen) {
-      expandToggle(childrenIds);
+      expandToggle(childrenIds, 'clear');
       setIsOpen(false);
     } else {
-      expandToggle([childrenIds[0]], 'add');
+      expandToggle(childrenIds[0], 'add');
       setIsOpen(true);
     }
   };
 
   useEffect(() => {
+    /* Find if at least one of the section children Id is part list of expanded Id's */
     let expandedId = childrenIds.find((childrenId) => {
       if (expandedIds.includes(childrenId)) {
         return true;
@@ -44,7 +45,7 @@ function Section({ title, id, children, Icon, expandToggle, expandedIds }) {
       <h3 id={id} ref={ref} className={styles.title}>
         <button
           aria-expanded={isOpen}
-          className={clsx({ [styles.active]: isOpen })}
+          className={clsx({ [styles.active]: visible[0] === id })}
           aria-controls="sect3"
           onClick={toggle}
         >

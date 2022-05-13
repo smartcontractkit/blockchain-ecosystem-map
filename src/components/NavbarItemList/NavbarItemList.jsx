@@ -32,6 +32,9 @@ export default function NavbarItemList({ id, navbar, navWidth, children }) {
             behavior: 'smooth',
           });
         }
+
+        /* Update the URL with the active section */
+        window.history.replaceState({}, null, `#${section_id}`);
       }
 
       if (activeSection === 'learn' && !section_id) {

@@ -1,5 +1,5 @@
 import { Fragment, useEffect, useState } from 'react';
-// import { useRouter } from 'next/router';
+import { useRouter } from 'next/router';
 import Blockchains from '@/components/Blockchains';
 import Chapter from '@/components/Chapter';
 import Section from '@/components/Section';
@@ -11,14 +11,16 @@ import Card from '@/components/Card';
 import Tooltip from 'react-tooltip-lite';
 import dynamic from 'next/dynamic';
 import steps from '@/data/intro-steps';
+import ExpandCollapseAllButton from '@/components/ExpandCollapseAllButton';
 
 const Intro = dynamic(() => import('@/components/Intro'), {
   ssr: false,
 });
 
 export default function Home() {
-  // const router = useRouter();
+  const router = useRouter();
   const [isExpanded, setIsExpanded] = useState([]);
+  const [allSubsections, setAllSubsections] = useState([]);
   const [introSteps, setIntroSteps] = useState(steps);
 
   const chaptersKeys = Object.keys(chapters);
@@ -41,24 +43,50 @@ export default function Home() {
   };
 
   const getDescription = (text) => (text.length > 120 ? `${text.slice(0, 120)}...` : text);
-  const getExpanded = (id) => {
-    return isExpanded.includes(id);
-  };
 
-  const sectionExpand = (ids, action) => {
+  const getExpanded = (id) => isExpanded.includes(id);
+
+  const sectionExpand = (payload, action) => {
     let newExpandedValues = isExpanded;
 
     if (action === 'add') {
-      newExpandedValues = [...newExpandedValues, ...ids];
+      /* Adds the first id in the section */
+      newExpandedValues = [...newExpandedValues, payload];
     } else {
+      /* Removes every id tied to that section when closed */
       newExpandedValues = newExpandedValues.filter((arr) => {
-        return !ids.includes(arr);
+        return !payload.includes(arr);
       });
     }
     saveExpanded(newExpandedValues);
   };
 
+  /* Logic to expand all and collapse all subsections
+    - Get all subsections first
+    - if the number of subsections is more than opened subbsection, then populate expanded with all subsections else remove all susections
+  */
+
+  const getAllSubSections = () => {
+    const allChapters = Object.values(chapters);
+    const chaptersData = allChapters.flat().map((res) => res.data);
+    const subsections = chaptersData.flat().map((res) => res.id);
+
+    setAllSubsections(subsections);
+  };
+  const getAllExpanded = () => allSubsections.length === isExpanded.length;
+
+  const toggleExpandAll = () => {
+    if (getAllExpanded()) {
+      saveExpanded([]);
+    } else {
+      saveExpanded(allSubsections);
+    }
+  };
+
   useEffect(() => {
+    const { asPath } = router;
+    router.replace(asPath);
+
     const openedChapters = JSON.parse(localStorage.getItem('chapters'));
     setIsExpanded(openedChapters ?? []);
 
@@ -79,6 +107,7 @@ export default function Home() {
     }
 
     regulateSteps();
+    getAllSubSections();
   }, []);
 
   return (
@@ -126,6 +155,8 @@ export default function Home() {
       ))}
 
       <Blockchains />
+
+      <ExpandCollapseAllButton expanded={getAllExpanded()} toggleExpanded={toggleExpandAll} />
     </div>
   );
 }
