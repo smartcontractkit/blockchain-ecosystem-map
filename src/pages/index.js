@@ -26,7 +26,7 @@ export default function Home() {
   const chaptersKeys = Object.keys(chapters);
 
   const saveExpanded = (value) => {
-    localStorage.setItem('chapters', JSON.stringify(value));
+    localStorage.setItem('opened', JSON.stringify(value));
     setIsExpanded(value);
   };
 
@@ -63,20 +63,21 @@ export default function Home() {
 
   /* Logic to expand all and collapse all subsections
     - Get all subsections first
-    - if the number of subsections is more than opened subbsection, then populate expanded with all subsections else remove all susections
+    - if the number of subsections is more than opened subsection, then populate expanded with all subsections else remove all subsections
   */
 
   const getAllSubSections = () => {
     const allChapters = Object.values(chapters);
     const chaptersData = allChapters.flat().map((res) => res.data);
-    const subsections = chaptersData.flat().map((res) => res.id);
+    const subSectionsId = chaptersData.flat().map((res) => res.id);
 
-    setAllSubsections(subsections);
+    setAllSubsections(subSectionsId);
   };
   const getAllExpanded = () => allSubsections.length === isExpanded.length;
 
   const toggleExpandAll = () => {
     if (getAllExpanded()) {
+      //if all subsections are opened
       saveExpanded([]);
     } else {
       saveExpanded(allSubsections);
@@ -84,11 +85,13 @@ export default function Home() {
   };
 
   useEffect(() => {
+    const DEFAULT_ACCORDION_ID = 'general-learning-resources';
     const { asPath } = router;
     router.replace(asPath);
 
-    const openedChapters = JSON.parse(localStorage.getItem('chapters'));
-    setIsExpanded(openedChapters ?? []);
+    let openedChapters = JSON.parse(localStorage.getItem('opened'));
+    openedChapters = openedChapters && openedChapters.length ? openedChapters : [DEFAULT_ACCORDION_ID];
+    saveExpanded(openedChapters);
 
     /* For the Inrojs */
     function regulateSteps() {
