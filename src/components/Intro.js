@@ -2,9 +2,12 @@ import { Steps } from 'intro.js-react';
 import { setCookie, parseCookies } from 'nookies';
 import PropTypes from 'prop-types';
 import { useState } from 'react';
+import { useRouter } from 'next/router';
 
 function Intro({ steps }) {
   const [step, setStep] = useState(0);
+  const router = useRouter();
+  const { query } = router;
 
   const guideOptions = {
     nextLabel: 'Next',
@@ -29,7 +32,7 @@ function Intro({ steps }) {
 
   const cookies = parseCookies();
 
-  if (cookies.hideTour) {
+  if (query.intro === 'false' || cookies.hideTour) {
     return null;
   }
 
