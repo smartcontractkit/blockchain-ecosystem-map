@@ -7,7 +7,7 @@ import { useStateValue } from '@/context/StateProvider';
 import useToggleVisibility from '@/helpers/useToggleVisibility';
 import clsx from 'clsx';
 
-function Section({ title, id, children, Icon, expandToggle, expandedId }) {
+function Section({ title, id, children, Icon, expandToggle, expandedIds }) {
   const [isOpen, setIsOpen] = useState(false);
   const ref = useRef();
   const [{ visible }] = useStateValue();
@@ -15,34 +15,37 @@ function Section({ title, id, children, Icon, expandToggle, expandedId }) {
 
   const childrenIds = children.map((child) => child.props.id);
 
-  useEffect(() => {
-    if (childrenIds.includes(expandedId)) {
-      setIsOpen(true);
-    } else {
-      setIsOpen(false);
-    }
-  }, [expandedId]);
-
   const toggle = () => {
-    let accordionId = '/';
-
     if (isOpen) {
-      expandToggle(null);
+      expandToggle(childrenIds, 'clear');
       setIsOpen(false);
     } else {
-      accordionId = `#${children[0].props.id}`;
-      expandToggle(children[0].props.id);
+      expandToggle(childrenIds[0], 'add');
       setIsOpen(true);
     }
-    window.history.replaceState({}, null, accordionId);
   };
+
+  useEffect(() => {
+    /* Find if at least one of the section children Id is part list of expanded Id's */
+    let expandedId = childrenIds.find((childrenId) => {
+      if (expandedIds.includes(childrenId)) {
+        return true;
+      }
+    });
+
+    if (expandedId) {
+      setIsOpen(true);
+    } else {
+      setIsOpen(false);
+    }
+  }, [expandedIds]);
 
   return (
     <div className={styles.container} role="region" onClick={toggle} id={`${id}-section`}>
       <h3 id={id} ref={ref} className={styles.title}>
         <button
           aria-expanded={isOpen}
-          className={clsx({ [styles.active]: isOpen })}
+          className={clsx({ [styles.active]: visible[0] === id })}
           aria-controls="sect3"
           onClick={toggle}
         >
@@ -66,7 +69,7 @@ Section.propTypes = {
   children: PropTypes.node.isRequired,
   Icon: PropTypes.elementType.isRequired,
   expandToggle: PropTypes.func.isRequired,
-  expandedId: PropTypes.string,
+  expandedIds: PropTypes.array,
 };
 
 export default Section;

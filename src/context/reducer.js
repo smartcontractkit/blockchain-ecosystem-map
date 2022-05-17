@@ -10,7 +10,7 @@ export const initialState = {
 const addVisible = (array, value) => {
   let arr = array;
   if (Array.isArray(arr) && arr.indexOf(value) <= -1) {
-    arr.push(value);
+    arr = [...arr, value];
   }
   return arr;
 };
