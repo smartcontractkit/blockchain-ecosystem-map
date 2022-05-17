@@ -40,7 +40,6 @@ export default function Home() {
     /* For the Inrojs */
     function regulateSteps() {
       let stepsUpdate = introSteps;
-      console.log(window.screen.width);
       if (window.screen.width < 768 || (window.screen.width >= 1276 && window.screen.width < 1380)) {
         stepsUpdate = stepsUpdate.filter((step) => step.element !== '#github');
       } else if ((window.screen.width >= 768 && window.screen.width < 1276) || window.screen.width > 1380) {
