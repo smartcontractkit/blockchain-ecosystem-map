@@ -1,0 +1,62 @@
+@import "@/styles/_colors.scss";
+@import "@/styles/_typography.scss";
+
+.results {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 3.5rem;
+  background-color: #FFFFFF;
+  
+  padding-inline: 0.5rem;
+
+  @media (min-width: 1276px) {
+    right: 50%;
+    border: 0.125rem solid #EBF3FF;
+  }
+  
+  
+
+    & > .content {
+      max-height: 319px;
+      overflow-y: auto;
+      margin: 20px auto;
+      padding-inline: 0.75rem;
+
+      &::-webkit-scrollbar {
+        width: 5px;
+        padding: 30px 0;
+      }
+
+      &::-webkit-scrollbar-track {
+        background: $neutral-100;
+      }
+
+      &::-webkit-scrollbar-thumb {
+        background-color: $neutral-600;
+        border-radius: 20px;
+      }
+
+       & > .section {
+         &:not(:last-child) {
+           border-bottom: 1px solid $divider;
+         }
+      }
+  }
+
+
+  & h4{
+    @extend .text__short--md;
+    line-height: 132%;
+    color: $neutral-600;
+    margin-bottom: 0.75rem;
+    margin-left: 1.25rem;
+  }
+
+ 
+
+
+  
+
+   border-radius: 0.5rem;
+}
