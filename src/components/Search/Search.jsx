@@ -14,11 +14,16 @@ export default function Search() {
   const [search, setSearch] = useState('');
   const [blockchains, setBlockhains] = useState([]);
   const [resources, setResources] = useState([]);
+  const [sections, setSections] = useState([]);
   const [chapters, setChapters] = useState([]);
 
   const handleSearch = (e) => {
+    // Remove the scroll padding top to prevent scroll on key press
+    e.nativeEvent.path[6].style.scrollPaddingTop = 'unset';
+
     const value = e.target.value;
     setSearch(value);
+
     if (value.length > 0) {
       const { resource, blockchain, chapter } = searchItem(value);
       const resourcesData = filterMatchedResult(resource);
@@ -27,10 +32,20 @@ export default function Search() {
 
       const gotContents = resourcesData.length > 0 || blockchainData.length > 0 || chapterData.length > 0;
 
-      setResources([...resourcesData]);
+      /* Need to separate those with id from those without id from the resource data */
+      const getSections = resourcesData.filter((res) => res.id);
+      const getResources = resourcesData.filter((res) => res.url);
+
+      setResources([...getResources]);
+      setSections([...getSections]);
       setBlockhains([...blockchainData]);
       setChapters([...chapterData]);
       setHasContents(gotContents);
+
+      // return the scroll padding top to its normal value
+      setTimeout(() => {
+        e.nativeEvent.path[6].style.scrollPaddingTop = '12rem';
+      });
     }
   };
   const clear = () => {
@@ -51,7 +66,13 @@ export default function Search() {
         </span>
 
         {hasContents && search.length > 0 && (
-          <SearchResult clear={clear} chapters={chapters} blockchains={blockchains} resources={resources} />
+          <SearchResult
+            clear={clear}
+            chapters={chapters}
+            blockchains={blockchains}
+            resources={resources}
+            sections={sections}
+          />
         )}
       </div>
       {search.length > 0 && (

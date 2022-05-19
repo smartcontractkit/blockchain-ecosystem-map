@@ -4,17 +4,16 @@ import styles from './SearchResult.module.scss';
 import SearchItem from '../SearchItem';
 import { useState } from 'react';
 
-export default function SearchResult({ blockchains, chapters, resources, clear }) {
+export default function SearchResult({ blockchains, chapters, resources, sections, clear }) {
   const [showResources, setShowResources] = useState(false);
   const [showBlockchain, setShowBlockchain] = useState(false);
   const [showSections, setShowSections] = useState(false);
 
   useEffect(() => {
-    const sections = resources.filter((res) => res.id);
     setShowResources(resources.length > 0);
     setShowSections(chapters.length > 0 || sections.length > 0);
     setShowBlockchain(blockchains.length > 0);
-  }, [blockchains, chapters, resources]);
+  }, [blockchains, chapters, resources, sections]);
   return (
     <div className={styles.results}>
       <div className={styles.content}>
@@ -30,7 +29,7 @@ export default function SearchResult({ blockchains, chapters, resources, clear }
           <div className={styles.section}>
             <h4>Resources</h4>
             {resources.map(({ title, Icon, logo, url }) => (
-              <>{url && <SearchItem clear={clear} href={url} key={url} logo={logo} Icon={Icon} title={title} />}</>
+              <SearchItem clear={clear} href={url} key={url} logo={logo} Icon={Icon} title={title} />
             ))}
           </div>
         )}
@@ -41,8 +40,8 @@ export default function SearchResult({ blockchains, chapters, resources, clear }
             {chapters.map(({ id, title, Icon }) => (
               <SearchItem clear={clear} href={id} key={id} Icon={Icon} title={title} />
             ))}
-            {resources.map(({ id, title, Icon, logo }) => (
-              <>{id && <SearchItem clear={clear} href={id} key={id} logo={logo} Icon={Icon} title={title} />}</>
+            {sections.map(({ id, title, Icon, logo }) => (
+              <SearchItem clear={clear} href={id} key={id} logo={logo} Icon={Icon} title={title} />
             ))}
           </div>
         )}
@@ -55,5 +54,6 @@ SearchResult.propTypes = {
   resources: PropTypes.array,
   blockchains: PropTypes.array,
   chapters: PropTypes.array,
+  sections: PropTypes.array,
   clear: PropTypes.func,
 };

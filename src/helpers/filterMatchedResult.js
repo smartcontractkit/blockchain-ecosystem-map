@@ -1,5 +1,5 @@
 function checkDuplicate(target, value) {
-  const result = target.find((res) => res.title === value.title && res.url === value.url);
+  const result = target.find((res) => res.title === value.title || res.url === value.url);
   return result;
 }
 const filterMatchedResult = (payload) => {
@@ -7,8 +7,10 @@ const filterMatchedResult = (payload) => {
   payload.forEach((res) => {
     const { item, matches } = res;
     const { id, name, title, Icon, url, logo, items } = item;
+
     matches.forEach(({ refIndex, value }) => {
       let data = null;
+      /* If what is matched is a content in an array then there sill be a refIndex which will help get the exact item matched, if not that means its the object itself*/
       if (refIndex !== null && refIndex !== undefined) {
         const myItem = items[refIndex];
         data = myItem;

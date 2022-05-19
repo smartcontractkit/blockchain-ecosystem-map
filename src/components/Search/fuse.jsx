@@ -35,8 +35,6 @@ export const searchItem = (value) => {
   const resourcesFuseData = resourcesFuse.search(value).map((res) => res);
   const blockchainFuseData = blockchainFuse.search(value).map((res) => res);
 
-  // console.log(chaptersFuseData);
-
   return {
     resource: resourcesFuseData,
     blockchain: blockchainFuseData,
