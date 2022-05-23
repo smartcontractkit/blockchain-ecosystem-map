@@ -6,6 +6,11 @@
   max-width: 1276px;
   align-items: center;
   margin: 10px auto;
+  padding-inline: 1rem;
+
+  @media (min-width: 1276px) {
+    padding-inline: 0;
+  }
 
   & .close {
     margin-left: 1rem;
@@ -63,4 +68,6 @@
       top: 30%;
     }
   }
+
+  
 }

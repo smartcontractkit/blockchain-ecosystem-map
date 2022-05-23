@@ -1,59 +1,91 @@
-import React, { useEffect } from 'react';
+import React, { Fragment, useCallback, useRef } from 'react';
 import PropTypes from 'prop-types';
 import styles from './SearchResult.module.scss';
 import SearchItem from '../SearchItem';
-import { useState } from 'react';
 
-export default function SearchResult({ blockchains, chapters, resources, sections, clear }) {
-  const [showResources, setShowResources] = useState(false);
-  const [showBlockchain, setShowBlockchain] = useState(false);
-  const [showSections, setShowSections] = useState(false);
+import { useFocusTrap } from '@/helpers/useFocusTrap';
+import { useOutsideClick } from '@/helpers/clickOutside';
 
-  useEffect(() => {
-    setShowResources(resources.length > 0);
-    setShowSections(chapters.length > 0 || sections.length > 0);
-    setShowBlockchain(blockchains.length > 0);
-  }, [blockchains, chapters, resources, sections]);
+export default function SearchResult({ hasBlockchains, hasResources, hasSections, clear, data }) {
+  const resultRef = useRef(null);
+  const [focus, setFocus] = useFocusTrap(data.length);
+
+  const handleClick = useCallback(
+    (target, value) => {
+      const index = data.findIndex((res) => res[target] === value);
+
+      setFocus(index);
+    },
+    [focus, data]
+  );
+
+  useOutsideClick(resultRef, () => clear());
+
   return (
-    <div className={styles.results}>
+    <div ref={resultRef} className={styles.results}>
       <div className={styles.content}>
-        {showBlockchain && (
-          <div className={styles.section}>
-            <h4>Blockchain</h4>
-            {blockchains.map(({ url, logo, title }) => (
-              <SearchItem clear={clear} href={url} key={url} logo={logo} title={title} />
-            ))}
-          </div>
-        )}
-        {showResources && (
-          <div className={styles.section}>
-            <h4>Resources</h4>
-            {resources.map(({ title, Icon, logo, url }) => (
-              <SearchItem clear={clear} href={url} key={url} logo={logo} Icon={Icon} title={title} />
-            ))}
-          </div>
-        )}
-
-        {showSections && (
-          <div className={styles.section}>
-            <h4>Sections</h4>
-            {chapters.map(({ id, title, Icon }) => (
-              <SearchItem clear={clear} href={id} key={id} Icon={Icon} title={title} />
-            ))}
-            {sections.map(({ id, title, Icon, logo }) => (
-              <SearchItem clear={clear} href={id} key={id} logo={logo} Icon={Icon} title={title} />
-            ))}
-          </div>
-        )}
+        <div className={styles.section}>
+          {hasBlockchains && <h4>Blockchain</h4>}
+          {data.map(({ title, Icon, logo, url, heading }) => (
+            <Fragment key={url}>
+              {heading === 'blockchains' && (
+                <SearchItem
+                  focus={data[focus] && data[focus]['url'] === url}
+                  setFocus={() => handleClick('url', url)}
+                  clear={clear}
+                  href={url}
+                  Icon={Icon}
+                  key={url}
+                  logo={logo}
+                  title={title}
+                />
+              )}
+            </Fragment>
+          ))}
+          {hasResources && <h4>Resources</h4>}
+          {data.map(({ title, Icon, logo, url, heading }) => (
+            <Fragment key={url}>
+              {heading === 'resources' && (
+                <SearchItem
+                  focus={data[focus] && data[focus]['url'] === url}
+                  setFocus={() => handleClick('url', url)}
+                  clear={clear}
+                  href={url}
+                  Icon={Icon}
+                  key={url}
+                  logo={logo}
+                  title={title}
+                />
+              )}
+            </Fragment>
+          ))}
+          {hasSections && <h4>Sections</h4>}
+          {data.map(({ title, Icon, logo, id, heading }) => (
+            <Fragment key={id}>
+              {heading === 'sections' && (
+                <SearchItem
+                  focus={data[focus] && data[focus]['id'] === id}
+                  setFocus={() => handleClick('id', id)}
+                  clear={clear}
+                  href={id}
+                  Icon={Icon}
+                  key={id}
+                  logo={logo}
+                  title={title}
+                />
+              )}
+            </Fragment>
+          ))}
+        </div>
       </div>
     </div>
   );
 }
 
 SearchResult.propTypes = {
-  resources: PropTypes.array,
-  blockchains: PropTypes.array,
-  chapters: PropTypes.array,
-  sections: PropTypes.array,
+  hasBlockchains: PropTypes.bool,
+  hasResources: PropTypes.bool,
+  hasSections: PropTypes.bool,
+  data: PropTypes.array,
   clear: PropTypes.func,
 };

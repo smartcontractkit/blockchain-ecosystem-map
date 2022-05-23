@@ -2,7 +2,7 @@ function checkDuplicate(target, value) {
   const result = target.find((res) => res.title === value.title || res.url === value.url);
   return result;
 }
-const filterMatchedResult = (payload) => {
+const filterMatchedResult = (payload, heading) => {
   let result = [];
   payload.forEach((res) => {
     const { item, matches } = res;
@@ -14,6 +14,10 @@ const filterMatchedResult = (payload) => {
       if (refIndex !== null && refIndex !== undefined) {
         const myItem = items[refIndex];
         data = myItem;
+        data.heading = heading;
+        if (!data.url) {
+          data.heading = 'sections';
+        }
       } else if (value === name || value === title) {
         data = {
           title: name ?? title,
@@ -21,7 +25,12 @@ const filterMatchedResult = (payload) => {
           url,
           logo,
           Icon,
+          heading,
         };
+
+        if (!data.url) {
+          data.heading = 'sections';
+        }
       }
 
       if (data) {
