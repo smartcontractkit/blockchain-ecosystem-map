@@ -4,7 +4,7 @@ import styles from './SearchResult.module.scss';
 import SearchItem from '../SearchItem';
 
 import { useFocusTrap } from '@/helpers/useFocusTrap';
-import { useOutsideClick } from '@/helpers/clickOutside';
+import { useOutsideClick } from '@/helpers/useOutsideClick';
 
 export default function SearchResult({ hasBlockchains, hasResources, hasSections, clear, data }) {
   const resultRef = useRef(null);

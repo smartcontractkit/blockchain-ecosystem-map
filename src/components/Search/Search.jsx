@@ -8,7 +8,7 @@ import filterMatchedResult from '@/helpers/filterMatchedResult';
 import SearchResult from './SearchResult';
 
 export default function Search() {
-  const inputRef = useRef(null);
+  const inputRef = useRef();
   const [focus, setFocus] = useState(false);
   const [hasContents, setHasContents] = useState(false);
   const [search, setSearch] = useState('');
@@ -20,7 +20,9 @@ export default function Search() {
 
   const handleSearch = (e) => {
     // Remove the scroll padding top to prevent scroll on key press
-    e.nativeEvent.path[6].style.scrollPaddingTop = 'unset';
+    if (e.nativeEvent.path[6].style) {
+      e.nativeEvent.path[6].style.scrollPaddingTop = 'unset';
+    }
 
     const value = e.target.value;
     setSearch(value);
@@ -46,7 +48,9 @@ export default function Search() {
 
       // return the scroll padding top to its normal value
       setTimeout(() => {
-        e.nativeEvent.path[6].style.scrollPaddingTop = '12rem';
+        if (e.nativeEvent.path[6].style) {
+          e.nativeEvent.path[6].style.scrollPaddingTop = '12rem';
+        }
       });
     }
   };
@@ -59,10 +63,17 @@ export default function Search() {
       const f = e.keyCode === 70;
       const ctrl = e.ctrlKey;
       const f3 = e.keyCode === 114;
+      const esc = e.keyCode === 27;
 
       if (f3 || (ctrl && f)) {
         e.preventDefault();
         inputRef.current.focus();
+      }
+
+      if (esc) {
+        e.preventDefault();
+        inputRef.current.blur();
+        clear();
       }
     });
 
@@ -74,6 +85,7 @@ export default function Search() {
     <div className={styles.search}>
       <div className={clsx(styles.search_container, { [styles.focused]: focus })}>
         <input
+          ref={inputRef}
           type="text"
           autoFocus
           aria-label="Enter a search term"

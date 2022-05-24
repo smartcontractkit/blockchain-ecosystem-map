@@ -1,8 +1,10 @@
-// import Search from './Search';
+import Search from './Search';
 
-// export default {
-//   title: 'Component/Search Box',
-//   component: Search,
-// }
+export default {
+  title: 'Component/Search Box',
+  component: Search,
+};
 
-// const Template =
+const Template = () => <Search />;
+
+export const Default = Template.bind({});

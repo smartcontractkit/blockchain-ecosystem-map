@@ -5,15 +5,15 @@ export const useFocusTrap = (size, initialFocus = -1) => {
 
   const handleKeyDown = useCallback(
     (e) => {
-      const keyUp = e.keyCode === 38;
-      const keyDown = e.keyCode === 40;
+      const isKeyUp = e.keyCode === 38;
+      const isKeyDown = e.keyCode === 40;
 
       if (size) {
-        if (keyDown) {
+        if (isKeyDown) {
           // Down arrow
           e.preventDefault();
           setCurrentFocus((currentFocus) => (currentFocus === size - 1 ? 0 : currentFocus + 1));
-        } else if (keyUp) {
+        } else if (isKeyUp) {
           // Up arrow
           e.preventDefault();
           setCurrentFocus((currentFocus) => (currentFocus === 0 ? size - 1 : currentFocus - 1));
