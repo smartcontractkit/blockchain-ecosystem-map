@@ -25,57 +25,71 @@ export default function SearchResult({ hasBlockchains, hasResources, hasSections
     <div ref={resultRef} className={styles.results}>
       <div className={styles.content}>
         <div className={styles.section}>
-          {hasBlockchains && <h4>Blockchain</h4>}
-          {data.map(({ title, Icon, logo, url, heading }) => (
-            <Fragment key={url}>
-              {heading === 'blockchains' && (
-                <SearchItem
-                  focus={data[focus] && data[focus]['url'] === url}
-                  setFocus={() => handleClick('url', url)}
-                  clear={clear}
-                  href={url}
-                  Icon={Icon}
-                  key={url}
-                  logo={logo}
-                  title={title}
-                />
-              )}
-            </Fragment>
-          ))}
-          {hasResources && <h4>Resources</h4>}
-          {data.map(({ title, Icon, logo, url, heading }) => (
-            <Fragment key={url}>
-              {heading === 'resources' && (
-                <SearchItem
-                  focus={data[focus] && data[focus]['url'] === url}
-                  setFocus={() => handleClick('url', url)}
-                  clear={clear}
-                  href={url}
-                  Icon={Icon}
-                  key={url}
-                  logo={logo}
-                  title={title}
-                />
-              )}
-            </Fragment>
-          ))}
-          {hasSections && <h4>Sections</h4>}
-          {data.map(({ title, Icon, logo, id, heading }) => (
-            <Fragment key={id}>
-              {heading === 'sections' && (
-                <SearchItem
-                  focus={data[focus] && data[focus]['id'] === id}
-                  setFocus={() => handleClick('id', id)}
-                  clear={clear}
-                  href={id}
-                  Icon={Icon}
-                  key={id}
-                  logo={logo}
-                  title={title}
-                />
-              )}
-            </Fragment>
-          ))}
+          {hasBlockchains && (
+            <div className={styles.section_content}>
+              <h4>Blockchain</h4>
+              {data.map(({ title, Icon, logo, url, heading }) => (
+                <Fragment key={url}>
+                  {heading === 'blockchains' && (
+                    <SearchItem
+                      focus={data[focus] && data[focus]['url'] === url}
+                      setFocus={() => handleClick('url', url)}
+                      clear={clear}
+                      href={url}
+                      Icon={Icon}
+                      key={url}
+                      logo={logo}
+                      title={title}
+                    />
+                  )}
+                </Fragment>
+              ))}
+            </div>
+          )}
+
+          {hasResources && (
+            <div className={styles.section_content}>
+              <h4>Resources</h4>
+              {data.map(({ title, Icon, logo, url, heading }) => (
+                <Fragment key={url}>
+                  {heading === 'resources' && (
+                    <SearchItem
+                      focus={data[focus] && data[focus]['url'] === url}
+                      setFocus={() => handleClick('url', url)}
+                      clear={clear}
+                      href={url}
+                      Icon={Icon}
+                      key={url}
+                      logo={logo}
+                      title={title}
+                    />
+                  )}
+                </Fragment>
+              ))}
+            </div>
+          )}
+
+          {hasSections && (
+            <div className={styles.section_content}>
+              <h4>Sections</h4>
+              {data.map(({ title, Icon, logo, id, heading }) => (
+                <Fragment key={id}>
+                  {heading === 'sections' && (
+                    <SearchItem
+                      focus={data[focus] && data[focus]['id'] === id}
+                      setFocus={() => handleClick('id', id)}
+                      clear={clear}
+                      href={id}
+                      Icon={Icon}
+                      key={id}
+                      logo={logo}
+                      title={title}
+                    />
+                  )}
+                </Fragment>
+              ))}
+            </div>
+          )}
         </div>
       </div>
     </div>

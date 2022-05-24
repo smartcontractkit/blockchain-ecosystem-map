@@ -38,8 +38,10 @@
       }
 
        & > .section {
-         &:not(:last-child) {
-           border-bottom: 1px solid $divider;
+         & > .section_content {
+           &:not(:last-child) {
+             border-bottom: 1px solid $divider;
+           }
          }
       }
   }
