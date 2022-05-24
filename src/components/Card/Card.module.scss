@@ -14,6 +14,7 @@
   text-align: center;
   padding: 0.5rem;
   background-color: #FFFFFF;
+  position: relative;
 
   &__small {
     width: 7.38875rem;
@@ -27,14 +28,51 @@
     font-size: 1.125rem;
   }
 
-  &:hover {
+  .favourite {
+    position: absolute;
+    top: 1px;
+    right: -5px;
+    z-index: -2;
+    transition: all 0.2s ease-in-out;
+    background-color: transparent;
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    overflow: hidden;
+   
+
+    svg {
+       font-size: 4rem;
+    }
+
+    &.active {
+      svg {
+        color: $brand-900;
+      }
+    }
+
+    &:focus {
+      z-index: 1;
+    }
+    
+  }
+
+
+  &:hover, &:focus {
     background-color: $brand-100;
+
+    .favourite {
+      z-index: 1;
+    }
   }
 
   &:active {
     background-color: $brand-200;
   }
 
+  
   img {
     width: 3.5rem;
     height: 3.5rem;

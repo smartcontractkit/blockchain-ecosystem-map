@@ -25,6 +25,8 @@ export default function Home() {
 
   const chaptersKeys = Object.keys(chapters);
 
+  const [favourites, setFavourites] = useState([]);
+
   const saveExpanded = (value) => {
     localStorage.setItem('opened', JSON.stringify(value));
     setIsExpanded(value);
@@ -73,6 +75,7 @@ export default function Home() {
 
     setAllSubsections(subSectionsId);
   };
+
   const getAllExpanded = () => allSubsections.length === isExpanded.length;
 
   const toggleExpandAll = () => {
@@ -83,7 +86,22 @@ export default function Home() {
       saveExpanded(allSubsections);
     }
   };
+  const getFavourite = (url) => {
+    return favourites.includes(url);
+  };
 
+  const addToFavourite = (url) => {
+    let newFav = favourites;
+    if (getFavourite(url)) {
+      newFav = newFav.filter((res) => res !== url);
+    } else if (newFav.length) {
+      newFav = [...newFav, url];
+    } else {
+      newFav = [url];
+    }
+
+    setFavourites(newFav);
+  };
   useEffect(() => {
     const DEFAULT_ACCORDION_ID = 'general-learning-resources';
     const { asPath } = router;
@@ -142,10 +160,24 @@ export default function Home() {
                       <Fragment key={item.url}>
                         {item.description ? (
                           <Tooltip content={getDescription(item.description)} arrowSize={6}>
-                            <Card title={item.title} imageSrc={item.logo} url={item.url} size="small" />
+                            <Card
+                              addFavourite={addToFavourite}
+                              favourite={getFavourite(item.url)}
+                              title={item.title}
+                              imageSrc={item.logo}
+                              url={item.url}
+                              size="small"
+                            />
                           </Tooltip>
                         ) : (
-                          <Card title={item.title} imageSrc={item.logo} url={item.url} size="small" />
+                          <Card
+                            addFavourite={addToFavourite}
+                            favourite={getFavourite(item.url)}
+                            title={item.title}
+                            imageSrc={item.logo}
+                            url={item.url}
+                            size="small"
+                          />
                         )}
                       </Fragment>
                     ))}
