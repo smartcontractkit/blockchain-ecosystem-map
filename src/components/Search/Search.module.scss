@@ -1,0 +1,73 @@
+@import '@/styles/colors.scss';
+
+.search {
+  display: flex;
+  justify-items: center;
+  max-width: 1276px;
+  align-items: center;
+  margin: 10px auto;
+  padding-inline: 1rem;
+
+  @media (min-width: 1276px) {
+    padding-inline: 0;
+  }
+
+  & .close {
+    margin-left: 1rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+}
+
+.search_container {
+  width: 100%;
+  height: 56px;
+  background-color: $brand-100;
+ 
+  border-radius: 0.5rem;
+  padding-inline: 1rem 3rem;
+  display: flex;
+  align-items: center;
+  color: $neutral-900;
+  position: relative;
+
+  & > input {
+    width: 100%;
+    background: transparent;
+    border: none;
+    outline: none;
+    color: $neutral-900;
+
+    font-weight: 500;
+      font-size: 18px;
+      line-height: 124%;
+      letter-spacing: -0.01em;
+
+    &::placeholder {
+      color: $neutral-600;
+    }
+
+  }
+
+ 
+
+  & > .search_icon {
+    color: $neutral-600;
+    position: absolute;
+    right: 1.21875rem;
+    top: 30%;
+    transition:all 0.5s ease-in-out;
+  }
+
+   &.focused {
+      & > .search_icon {
+      color: $neutral-900;
+      position: absolute;
+      right: 1.21875rem;
+      top: 30%;
+    }
+  }
+
+  
+}

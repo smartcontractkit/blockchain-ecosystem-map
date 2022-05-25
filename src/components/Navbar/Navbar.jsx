@@ -7,6 +7,7 @@ import styles from './Navbar.module.scss';
 import { useStateValue } from '@/context/StateProvider';
 import NavbarItemList from '@/components/NavbarItemList';
 import Githublogo from '@/icons/github-logo.svg';
+import Search from '@/components/Search';
 
 function Navbar() {
   const ref = useRef();
@@ -90,6 +91,7 @@ function Navbar() {
         </div>
         <NavigationProgressBar progress={progress} />
       </nav>
+      <Search />
       <a href={github_repo_url} target="_blank" rel="noopener noreferrer" className={styles.github_logo} id="github">
         <Githublogo />
       </a>

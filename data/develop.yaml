@@ -77,7 +77,7 @@
       logo: '/logos/ganache.png'
       url: 'https://trufflesuite.com/ganache/'
       description: null
-    - title: 'Dapptools'
+    - title: 'Dapp Tools'
       logo: '/logos/dapptools.png'
       url: 'https://dapp.tools/'
       description: null
