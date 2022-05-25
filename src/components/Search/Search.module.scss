@@ -12,12 +12,6 @@
     padding-inline: 0;
   }
 
-  & .close {
-    margin-left: 1rem;
-    background: none;
-    border: none;
-    cursor: pointer;
-  }
 }
 
 .search_container {
@@ -52,7 +46,7 @@
 
  
 
-  & > .search_icon {
+  & > .search_icon, & > .close {
     color: $neutral-600;
     position: absolute;
     right: 1.21875rem;
@@ -63,10 +57,17 @@
    &.focused {
       & > .search_icon {
       color: $neutral-900;
-      position: absolute;
-      right: 1.21875rem;
-      top: 30%;
     }
+  }
+
+
+  & >  .close {
+    color: $neutral-900;
+    background: none;
+    border: none;
+    cursor: pointer;
+    top: 20%;
+    right: .5rem;
   }
 
   

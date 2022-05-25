@@ -94,9 +94,16 @@ export default function Search() {
           onFocus={() => setFocus(true)}
           value={search}
         />
-        <span className={styles.search_icon}>
-          <SearchIcon />
-        </span>
+
+        {search.length > 0 ? (
+          <button onClick={clear} className={styles.close}>
+            <CloseIcon />
+          </button>
+        ) : (
+          <span className={styles.search_icon}>
+            <SearchIcon />
+          </span>
+        )}
 
         {hasContents && search.length > 0 && (
           <SearchResult
@@ -108,11 +115,6 @@ export default function Search() {
           />
         )}
       </div>
-      {search.length > 0 && (
-        <button onClick={clear} className={styles.close}>
-          <CloseIcon />
-        </button>
-      )}
     </div>
   );
 }
