@@ -1,11 +1,16 @@
 import Navbar from './Navbar';
+import { StateProvider } from '@/context/StateProvider';
 
 export default {
   title: 'component/Navbar',
   component: Navbar,
 };
 
-const Template = (args) => <Navbar {...args} />;
+const Template = (args) => (
+  <StateProvider>
+    <Navbar {...args} />
+  </StateProvider>
+);
 
 export const Default = Template.bind({});
 
