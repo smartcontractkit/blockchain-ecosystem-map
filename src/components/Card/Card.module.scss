@@ -39,11 +39,15 @@
     align-items: center;
     cursor: pointer;
     opacity: 0;
+
+     svg {
+        color: $neutral-600;
+      }
     
     &.active {
      opacity: 1;
       svg {
-        color: $brand-900;
+        color: $brand-600;
       }
     }
     
