@@ -24,12 +24,11 @@ export default function Home() {
   const [isExpanded, setIsExpanded] = useState([]);
   const [allSubsections, setAllSubsections] = useState([]);
   const [introSteps, setIntroSteps] = useState(steps);
+  const [tooltip, setToolTip] = useState(null);
 
   const chaptersKeys = Object.keys(chapters);
 
   const [{ favourites }, dispatch] = useStateValue();
-
-  // const [favourites, setFavourites] = useState([]);
 
   const saveExpanded = (value) => {
     localStorage.setItem('opened', JSON.stringify(value));
@@ -173,7 +172,11 @@ export default function Home() {
                     {sortItem(data.items).map((item) => (
                       <Fragment key={item.url}>
                         {item.description ? (
-                          <Tooltip content={getDescription(item.description)} arrowSize={6}>
+                          <Tooltip
+                            isOpen={tooltip === item.url}
+                            content={getDescription(item.description)}
+                            arrowSize={6}
+                          >
                             <Card
                               addFavourite={() => addToFavourite(item)}
                               favourite={getFavourite(item.url) ? true : false}
@@ -181,6 +184,7 @@ export default function Home() {
                               imageSrc={item.logo}
                               url={item.url}
                               size="small"
+                              showTip={setToolTip}
                             />
                           </Tooltip>
                         ) : (
@@ -191,6 +195,7 @@ export default function Home() {
                             imageSrc={item.logo}
                             url={item.url}
                             size="small"
+                            showTip={setToolTip}
                           />
                         )}
                       </Fragment>

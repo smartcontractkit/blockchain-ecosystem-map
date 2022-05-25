@@ -5,7 +5,7 @@ import clsx from 'clsx';
 import Favourite from '@/icons/star.svg';
 import NotFavourite from '@/icons/star-outline.svg';
 
-function Card({ title, size = 'large', imageSrc, url, favourite, addFavourite }) {
+function Card({ title, size = 'large', imageSrc, url, favourite, addFavourite, showTip }) {
   return (
     <a
       href={url}
@@ -16,6 +16,8 @@ function Card({ title, size = 'large', imageSrc, url, favourite, addFavourite })
         [styles.animate_not_favourite]: !favourite,
       })}
       onClick={(e) => e.stopPropagation()}
+      onMouseOver={() => showTip(url)}
+      onMouseLeave={() => showTip(null)}
     >
       <img src={imageSrc} alt={title} />
       {title}
@@ -41,6 +43,7 @@ Card.propTypes = {
   url: PropTypes.string.isRequired,
   favourite: PropTypes.bool,
   addFavourite: PropTypes.func,
+  showTip: PropTypes.func,
 };
 
 Card.defaultProps = {
