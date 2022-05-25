@@ -3,7 +3,8 @@ import { useEffect } from 'react';
 export const useOutsideClick = (containerRef, clickHandler) => {
   useEffect(() => {
     const handleClickOutside = (event) => {
-      if (containerRef.current && !containerRef.current.contains(event.target)) {
+      const isInput = event.target.nodeName.toLowerCase() === 'input';
+      if (containerRef.current && !containerRef.current.contains(event.target) && !isInput) {
         clickHandler();
       }
     };
