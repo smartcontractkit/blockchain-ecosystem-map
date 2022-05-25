@@ -12,6 +12,8 @@ import Tooltip from 'react-tooltip-lite';
 import dynamic from 'next/dynamic';
 import steps from '@/data/intro-steps';
 import ExpandCollapseAllButton from '@/components/ExpandCollapseAllButton';
+import { useStateValue } from '@/context/StateProvider';
+import { TOGGLE_FAVOURITES } from '@/context/types';
 
 const Intro = dynamic(() => import('@/components/Intro'), {
   ssr: false,
@@ -25,7 +27,9 @@ export default function Home() {
 
   const chaptersKeys = Object.keys(chapters);
 
-  const [favourites, setFavourites] = useState([]);
+  const [{ favourites }, dispatch] = useStateValue();
+
+  // const [favourites, setFavourites] = useState([]);
 
   const saveExpanded = (value) => {
     localStorage.setItem('opened', JSON.stringify(value));
@@ -87,21 +91,31 @@ export default function Home() {
     }
   };
   const getFavourite = (url) => {
-    return favourites.includes(url);
+    return favourites.find((res) => res.url === url);
   };
 
-  const addToFavourite = (url) => {
-    let newFav = favourites;
-    if (getFavourite(url)) {
-      newFav = newFav.filter((res) => res !== url);
-    } else if (newFav.length) {
-      newFav = [...newFav, url];
-    } else {
-      newFav = [url];
-    }
-
-    setFavourites(newFav);
+  const addToFavourite = (item) => {
+    dispatch({ type: TOGGLE_FAVOURITES, payload: item });
   };
+
+  const sortItem = (items) => {
+    let favouriteItems = [];
+    let nonFavouriteItems = [];
+
+    items.forEach((item) => {
+      let isFavourite = getFavourite(item.url);
+
+      if (isFavourite) {
+        favouriteItems.push(item);
+        favouriteItems.sort((a, b) => (a.title > b.title ? 1 : -1));
+      } else {
+        nonFavouriteItems.push(item);
+      }
+    });
+
+    return [...favouriteItems, ...nonFavouriteItems];
+  };
+
   useEffect(() => {
     const DEFAULT_ACCORDION_ID = 'general-learning-resources';
     const { asPath } = router;
@@ -156,13 +170,13 @@ export default function Home() {
                   expandToggle={expandPanel}
                 >
                   <div className={styles.accordion_contents}>
-                    {data.items.map((item) => (
+                    {sortItem(data.items).map((item) => (
                       <Fragment key={item.url}>
                         {item.description ? (
                           <Tooltip content={getDescription(item.description)} arrowSize={6}>
                             <Card
-                              addFavourite={addToFavourite}
-                              favourite={getFavourite(item.url)}
+                              addFavourite={() => addToFavourite(item)}
+                              favourite={getFavourite(item.url) ? true : false}
                               title={item.title}
                               imageSrc={item.logo}
                               url={item.url}
@@ -171,8 +185,8 @@ export default function Home() {
                           </Tooltip>
                         ) : (
                           <Card
-                            addFavourite={addToFavourite}
-                            favourite={getFavourite(item.url)}
+                            addFavourite={() => addToFavourite(item)}
+                            favourite={getFavourite(item.url) ? true : false}
                             title={item.title}
                             imageSrc={item.logo}
                             url={item.url}

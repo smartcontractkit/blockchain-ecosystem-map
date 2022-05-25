@@ -15,7 +15,7 @@
   padding: 0.5rem;
   background-color: #FFFFFF;
   position: relative;
-
+  
   &__small {
     width: 7.38875rem;
     height: 8rem;
@@ -32,39 +32,33 @@
     position: absolute;
     top: 1px;
     right: -5px;
-    z-index: -2;
-    transition: all 0.2s ease-in-out;
     background-color: transparent;
     border: none;
     display: flex;
     justify-content: center;
     align-items: center;
-
-    overflow: hidden;
-   
-
-    svg {
-       font-size: 4rem;
-    }
-
+    cursor: pointer;
+    opacity: 0;
+    
     &.active {
+     opacity: 1;
       svg {
         color: $brand-900;
       }
     }
-
-    &:focus {
-      z-index: 1;
-    }
     
-  }
+    &:focus {
+      opacity: 1;
+    }
+    transition: opacity 0.2s ease-in-out;
+}
 
 
   &:hover, &:focus {
     background-color: $brand-100;
 
     .favourite {
-      z-index: 1;
+       opacity: 1;
     }
   }
 
@@ -78,4 +72,67 @@
     height: 3.5rem;
     object-fit: contain;
   }
+
+
+   &.animate_favourite {
+    animation-name: favourite_card;
+    animation-duration: 1s;
+    animation-iteration-count: 1;
+    animation-timing-function: ease-in-out;
+  }
+
+  &.animate_favourite, &.animate_not_favourite {
+      .favourite {
+      & svg {
+         animation-name: scale_animation;
+          animation-duration: 1s;
+          animation-iteration-count: 1;
+          animation-timing-function: ease-in-out;
+      }
+    }
+  }
+
+  &.animate_not_favourite {
+    animation-name: notfavourite_card;
+    animation-duration: 1s;
+    animation-iteration-count: 1;
+    animation-timing-function: ease-in-out;
+  }
+}
+
+@keyframes favourite_card {
+  0%{
+    transform: translateX(-2px);
+  }
+  50%{
+    transform: translateX(2px);
+  }
+  100%{
+    transform: translateX(0px);
+  }
+}
+
+@keyframes notfavourite_card {
+  0%{
+    transform: translateX(2px);
+  }
+  50%{
+    transform: translateX(-2px);
+  }
+  100%{
+    transform: translateX(0px);
+  }
+}
+
+
+@keyframes scale_animation {
+  0%{
+    transform: scale(1.2);
+}
+  50%{
+    transform: translateX(0.9px);
+}
+  100%{
+    transform: translateX(1);
+}
 }

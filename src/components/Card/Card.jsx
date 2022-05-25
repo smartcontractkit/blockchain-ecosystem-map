@@ -11,7 +11,10 @@ function Card({ title, size = 'large', imageSrc, url, favourite, addFavourite })
       href={url}
       target="_blank"
       rel="noopener noreferrer"
-      className={clsx(styles.container, styles[`container__${size}`])}
+      className={clsx(styles.container, styles[`container__${size}`], {
+        [styles.animate_favourite]: favourite,
+        [styles.animate_not_favourite]: !favourite,
+      })}
       onClick={(e) => e.stopPropagation()}
     >
       <img src={imageSrc} alt={title} />
@@ -21,6 +24,7 @@ function Card({ title, size = 'large', imageSrc, url, favourite, addFavourite })
         className={clsx(styles.favourite, { [styles.active]: favourite })}
         onClick={(e) => {
           e.preventDefault();
+          e.stopPropagation();
           addFavourite(url);
         }}
       >
@@ -37,6 +41,10 @@ Card.propTypes = {
   url: PropTypes.string.isRequired,
   favourite: PropTypes.bool,
   addFavourite: PropTypes.func,
+};
+
+Card.defaultProps = {
+  favourite: false,
 };
 
 export default Card;
