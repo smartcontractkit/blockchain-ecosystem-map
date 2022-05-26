@@ -1,10 +1,18 @@
-import { SET_ACTIVE_SECTION, SET_PROGRESS, SET_VISIBLE, SET_NOT_VISIBLE, SET_MORE_ENTITY_SHADOW } from './types';
+import {
+  SET_ACTIVE_SECTION,
+  SET_PROGRESS,
+  SET_VISIBLE,
+  SET_NOT_VISIBLE,
+  SET_MORE_ENTITY_SHADOW,
+  SET_LINK_CLICKED,
+} from './types';
 
 export const initialState = {
   visible: [],
   activeSection: null,
   progress: 0,
   showShadow: true,
+  linkClicked: false,
 };
 
 const addVisible = (array, value) => {
@@ -49,6 +57,11 @@ function reducer(state, action) {
       return {
         ...state,
         showShadow: action.payload,
+      };
+    case SET_LINK_CLICKED:
+      return {
+        ...state,
+        linkClicked: action.payload,
       };
 
     default:

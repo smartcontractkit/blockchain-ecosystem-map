@@ -1,15 +1,20 @@
 import React, { useRef, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { useStateValue } from '@/context/StateProvider';
-import { SET_ACTIVE_SECTION, SET_MORE_ENTITY_SHADOW, SET_PROGRESS } from '@/context/types';
+import { SET_ACTIVE_SECTION, SET_LINK_CLICKED, SET_MORE_ENTITY_SHADOW, SET_PROGRESS } from '@/context/types';
 import useIntersection from '@/helpers/useIntersection';
 import useScrollDirection from '@/helpers/useScrollDirection';
 
 export default function NavbarItemList({ id, navbar, navWidth, children }) {
   const ref = useRef();
   const isVisible = useIntersection(ref, navbar);
-  const [{ visible, activeSection }, dispatch] = useStateValue();
+  const [{ visible, activeSection, linkClicked }, dispatch] = useStateValue();
   const { scrolledUp } = useScrollDirection();
+
+  /* Helps the navbar and navitem to separate scroll from click event */
+  const toggleLinkClicked = (value) => {
+    dispatch({ type: SET_LINK_CLICKED, payload: value });
+  };
 
   useEffect(() => {
     const updateProgress = (section_id, addedValue) => {
@@ -26,7 +31,7 @@ export default function NavbarItemList({ id, navbar, navWidth, children }) {
         dispatch({ type: SET_PROGRESS, payload: progressWidth });
         dispatch({ type: SET_ACTIVE_SECTION, payload: section_id });
         /* It will only scroll to the link of an active header if that link isn't visible on the navbar, this helps us scroll only when neccessary */
-        if (!isVisible) {
+        if (!isVisible && !linkClicked) {
           const defaultScrollLeftMargin = -10;
           navbar.current.scrollTo({
             top: 0,
@@ -34,6 +39,10 @@ export default function NavbarItemList({ id, navbar, navWidth, children }) {
             behavior: 'smooth',
           });
         }
+
+        setTimeout(() => {
+          toggleLinkClicked(false);
+        }, 500);
 
         /* Update the URL with the active section */
         window.history.replaceState({}, null, `#${section_id}`);
@@ -69,7 +78,7 @@ export default function NavbarItemList({ id, navbar, navWidth, children }) {
     }
 
     responsiveness();
-  }, [visible, navWidth]);
+  }, [visible, navWidth, linkClicked]);
 
   useEffect(() => {
     if (ref.current.id === 'market-li') {
@@ -82,7 +91,7 @@ export default function NavbarItemList({ id, navbar, navWidth, children }) {
   }, [isVisible]);
 
   return (
-    <li id={`${id}-li`} ref={ref}>
+    <li id={`${id}-li`} onClick={() => toggleLinkClicked(true)} ref={ref}>
       {children}
     </li>
   );
