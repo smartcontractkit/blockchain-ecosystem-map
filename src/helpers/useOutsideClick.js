@@ -3,7 +3,9 @@ import { useEffect } from 'react';
 export const useOutsideClick = (containerRef, clickHandler) => {
   useEffect(() => {
     const handleClickOutside = (event) => {
-      if (containerRef.current && !containerRef.current.contains(event.target)) {
+      const isInput = event.target.nodeName.toLowerCase() === 'input';
+      const isSvg = event.target.nodeName.toLowerCase() === 'svg';
+      if (containerRef.current && !containerRef.current.contains(event.target) && !isInput && !isSvg) {
         clickHandler();
       }
     };
