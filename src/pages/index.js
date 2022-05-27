@@ -12,6 +12,8 @@ import Tooltip from 'react-tooltip-lite';
 import dynamic from 'next/dynamic';
 import steps from '@/data/intro-steps';
 import ExpandCollapseAllButton from '@/components/ExpandCollapseAllButton';
+import { useStateValue } from '@/context/StateProvider';
+import { TOGGLE_FAVOURITES } from '@/context/types';
 
 const Intro = dynamic(() => import('@/components/Intro'), {
   ssr: false,
@@ -22,8 +24,11 @@ export default function Home() {
   const [isExpanded, setIsExpanded] = useState([]);
   const [allSubsections, setAllSubsections] = useState([]);
   const [introSteps, setIntroSteps] = useState(steps);
+  const [tooltip, setToolTip] = useState(null);
 
   const chaptersKeys = Object.keys(chapters);
+
+  const [{ favourites }, dispatch] = useStateValue();
 
   const saveExpanded = (value) => {
     localStorage.setItem('opened', JSON.stringify(value));
@@ -73,6 +78,7 @@ export default function Home() {
 
     setAllSubsections(subSectionsId);
   };
+
   const getAllExpanded = () => allSubsections.length === isExpanded.length;
 
   const toggleExpandAll = () => {
@@ -82,6 +88,31 @@ export default function Home() {
     } else {
       saveExpanded(allSubsections);
     }
+  };
+  const getFavourite = (url) => {
+    return favourites.find((res) => res.url === url);
+  };
+
+  const addToFavourite = (item) => {
+    dispatch({ type: TOGGLE_FAVOURITES, payload: item });
+  };
+
+  const sortItem = (items) => {
+    let favouriteItems = [];
+    let nonFavouriteItems = [];
+
+    items.forEach((item) => {
+      let isFavourite = getFavourite(item.url);
+
+      if (isFavourite) {
+        favouriteItems.push(item);
+        favouriteItems.sort((a, b) => (a.title > b.title ? 1 : -1));
+      } else {
+        nonFavouriteItems.push(item);
+      }
+    });
+
+    return [...favouriteItems, ...nonFavouriteItems];
   };
 
   useEffect(() => {
@@ -138,14 +169,34 @@ export default function Home() {
                   expandToggle={expandPanel}
                 >
                   <div className={styles.accordion_contents}>
-                    {data.items.map((item) => (
+                    {sortItem(data.items).map((item) => (
                       <Fragment key={item.url}>
                         {item.description ? (
-                          <Tooltip content={getDescription(item.description)} arrowSize={6}>
-                            <Card title={item.title} imageSrc={item.logo} url={item.url} size="small" />
+                          <Tooltip
+                            isOpen={tooltip === item.url}
+                            content={getDescription(item.description)}
+                            arrowSize={6}
+                          >
+                            <Card
+                              addFavourite={() => addToFavourite(item)}
+                              favourite={getFavourite(item.url) ? true : false}
+                              title={item.title}
+                              imageSrc={item.logo}
+                              url={item.url}
+                              size="small"
+                              showTip={setToolTip}
+                            />
                           </Tooltip>
                         ) : (
-                          <Card title={item.title} imageSrc={item.logo} url={item.url} size="small" />
+                          <Card
+                            addFavourite={() => addToFavourite(item)}
+                            favourite={getFavourite(item.url) ? true : false}
+                            title={item.title}
+                            imageSrc={item.logo}
+                            url={item.url}
+                            size="small"
+                            showTip={setToolTip}
+                          />
                         )}
                       </Fragment>
                     ))}

@@ -46,6 +46,7 @@
   &.active {
     max-height: 1000px;
     margin-bottom: 1rem;
+    transition: all 1s ease-in-out;
   }
   & > * {
     margin: 0;
