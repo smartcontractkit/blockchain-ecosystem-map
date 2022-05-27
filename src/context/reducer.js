@@ -20,7 +20,7 @@ const addVisible = (array, value) => {
   if (Array.isArray(arr) && arr.indexOf(value) <= -1) {
     arr = [...arr, value];
   }
-  return arr;
+  return arr ?? [];
 };
 
 const removeVisible = (array, value) => {
@@ -28,7 +28,7 @@ const removeVisible = (array, value) => {
   if (Array.isArray(arr) && arr.length) {
     arr = arr.filter((res) => res !== value);
   }
-  return arr;
+  return arr ?? [];
 };
 
 function reducer(state, action) {
