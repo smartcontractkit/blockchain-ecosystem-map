@@ -4,6 +4,7 @@ import clsx from 'clsx';
 
 import Favourite from '@/icons/star.svg';
 import NotFavourite from '@/icons/star-outline.svg';
+import truncateString from '@/helpers/truncateString';
 
 function Card({ title, size = 'large', imageSrc, url, favourite, addFavourite, showTip }) {
   return (
@@ -20,7 +21,7 @@ function Card({ title, size = 'large', imageSrc, url, favourite, addFavourite, s
       onMouseLeave={() => showTip(null)}
     >
       <img src={imageSrc} alt={title} />
-      {title}
+      {truncateString(title, 32)}
       <button
         aria-label="favourite"
         className={clsx(styles.favourite, { [styles.active]: favourite })}
