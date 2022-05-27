@@ -5,6 +5,8 @@ import {
   SET_NOT_VISIBLE,
   SET_MORE_ENTITY_SHADOW,
   SET_LINK_CLICKED,
+  SET_FAVOURITES,
+  TOGGLE_FAVOURITES,
 } from './types';
 
 export const initialState = {
@@ -13,6 +15,7 @@ export const initialState = {
   progress: 0,
   showShadow: true,
   linkClicked: false,
+  favourites: [],
 };
 
 const addVisible = (array, value) => {
@@ -31,6 +34,23 @@ const removeVisible = (array, value) => {
   return arr ?? [];
 };
 
+const getFavourite = (favourites, url) => {
+  return favourites.find((res) => res.url === url);
+};
+
+const addToFavourite = (favourites, value) => {
+  let newFav = favourites;
+  if (newFav.length && getFavourite(favourites, value.url)) {
+    newFav = newFav.filter((res) => res.url !== value.url);
+  } else if (newFav.length) {
+    newFav = [...newFav, value];
+  } else {
+    newFav = [value];
+  }
+
+  return newFav;
+};
+
 function reducer(state, action) {
   switch (action.type) {
     case SET_VISIBLE:
@@ -42,6 +62,16 @@ function reducer(state, action) {
       return {
         ...state,
         visible: removeVisible(state.visible, action.payload),
+      };
+    case SET_FAVOURITES:
+      return {
+        ...state,
+        favourites: action.payload,
+      };
+    case TOGGLE_FAVOURITES:
+      return {
+        ...state,
+        favourites: addToFavourite(state.favourites, action.payload),
       };
     case SET_PROGRESS:
       return {
