@@ -12,8 +12,7 @@ import Tooltip from 'react-tooltip-lite';
 import dynamic from 'next/dynamic';
 import steps from '@/data/intro-steps';
 import ExpandCollapseAllButton from '@/components/ExpandCollapseAllButton';
-import { useStateValue } from '@/context/StateProvider';
-import { SET_FAVOURITES, TOGGLE_FAVOURITES } from '@/context/types';
+import useFavourite from '@/helpers/useFavourite';
 
 const Intro = dynamic(() => import('@/components/Intro'), {
   ssr: false,
@@ -28,7 +27,7 @@ export default function Home() {
 
   const chaptersKeys = Object.keys(chapters);
 
-  const [{ favourites }, dispatch] = useStateValue();
+  const { getFavourite, addToFavourite, sortItem } = useFavourite();
 
   const saveExpanded = (value) => {
     localStorage.setItem('opened', JSON.stringify(value));
@@ -89,36 +88,6 @@ export default function Home() {
       saveExpanded(allSubsections);
     }
   };
-  const getFavourite = (url) => {
-    return favourites.find((res) => res.url === url);
-  };
-
-  const addToFavourite = (item) => {
-    dispatch({ type: TOGGLE_FAVOURITES, payload: item });
-  };
-
-  const initiateFavourite = () => {
-    const storedFavourites = JSON.parse(localStorage.getItem('favourites'));
-    dispatch({ type: SET_FAVOURITES, payload: storedFavourites ?? [] });
-  };
-
-  const sortItem = (items) => {
-    let favouriteItems = [];
-    let nonFavouriteItems = [];
-
-    items.forEach((item) => {
-      let isFavourite = getFavourite(item.url);
-
-      if (isFavourite) {
-        favouriteItems.push(item);
-        favouriteItems.sort((a, b) => (a.title > b.title ? 1 : -1));
-      } else {
-        nonFavouriteItems.push(item);
-      }
-    });
-
-    return [...favouriteItems, ...nonFavouriteItems];
-  };
 
   useEffect(() => {
     const DEFAULT_ACCORDION_ID = 'general-learning-resources';
@@ -147,7 +116,6 @@ export default function Home() {
 
     regulateSteps();
     getAllSubSections();
-    initiateFavourite();
   }, []);
 
   return (
