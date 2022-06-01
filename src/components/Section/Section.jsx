@@ -42,7 +42,7 @@ function Section({ title, id, children, Icon, expandToggle, expandedIds }) {
 
   return (
     <div className={styles.container} role="region" onClick={toggle} id={`${id}-section`}>
-      <h3 id={id} ref={ref} className={styles.title}>
+      <h2 id={id} ref={ref} className={styles.title}>
         <button
           aria-expanded={isOpen}
           className={clsx({ [styles.active]: visible[0] === id })}
@@ -52,7 +52,7 @@ function Section({ title, id, children, Icon, expandToggle, expandedIds }) {
           <ArrowDrop style={{ transform: isOpen ? 'rotate(90deg)' : 'rotate(0deg)' }} />
           {title}
         </button>
-      </h3>
+      </h2>
       <div className={styles.body}>{children}</div>
       <div className={styles.timelineIcon}>
         <TimelineIcon isActive={visible[0] === id}>
