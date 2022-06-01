@@ -41,14 +41,14 @@ function Section({ title, id, children, Icon, expandToggle, expandedIds }) {
   }, [expandedIds]);
 
   return (
-    <div className={styles.container} role="region" onClick={toggle}>
+    <div className={styles.container} role="region" onClick={toggle} id={`${id}-section`}>
       <h3 id={id} ref={ref} className={styles.title}>
         <button
           type="button"
           aria-expanded={isOpen}
           aria-pressed={isOpen}
           className={clsx({ [styles.active]: visible[0] === id })}
-          aria-controls={`${id}-section`}
+          aria-controls={`${id}-section-content`}
           aria-label={title}
           onClick={toggle}
         >
@@ -56,7 +56,7 @@ function Section({ title, id, children, Icon, expandToggle, expandedIds }) {
           {title}
         </button>
       </h3>
-      <div className={styles.body} id={`${id}-section`} role="region">
+      <div className={styles.body} id={`${id}-section-content`} role="region">
         {children}
       </div>
       <div className={styles.timelineIcon}>
