@@ -40,15 +40,13 @@
     cursor: pointer;
     opacity: 0;
 
-     svg {
-        color: $neutral-600;
-      }
+    img {
+      width: 1.5rem;
+      height: 1.5rem;
+    }
     
     &.active {
      opacity: 1;
-      svg {
-        color: $brand-600;
-      }
     }
     
     &:focus {
