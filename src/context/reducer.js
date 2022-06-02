@@ -4,6 +4,7 @@ import {
   SET_VISIBLE,
   SET_NOT_VISIBLE,
   SET_MORE_ENTITY_SHADOW,
+  SET_LINK_CLICKED,
   SET_FAVOURITES,
   TOGGLE_FAVOURITES,
 } from './types';
@@ -13,6 +14,7 @@ export const initialState = {
   activeSection: null,
   progress: 0,
   showShadow: true,
+  linkClicked: false,
   favourites: [],
 };
 
@@ -21,7 +23,7 @@ const addVisible = (array, value) => {
   if (Array.isArray(arr) && arr.indexOf(value) <= -1) {
     arr = [...arr, value];
   }
-  return arr;
+  return arr ?? [];
 };
 
 const removeVisible = (array, value) => {
@@ -29,7 +31,7 @@ const removeVisible = (array, value) => {
   if (Array.isArray(arr) && arr.length) {
     arr = arr.filter((res) => res !== value);
   }
-  return arr;
+  return arr ?? [];
 };
 
 const getFavourite = (favourites, url) => {
@@ -87,6 +89,11 @@ function reducer(state, action) {
       return {
         ...state,
         showShadow: action.payload,
+      };
+    case SET_LINK_CLICKED:
+      return {
+        ...state,
+        linkClicked: action.payload,
       };
 
     default:
