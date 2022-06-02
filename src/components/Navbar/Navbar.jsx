@@ -50,7 +50,7 @@ function Navbar() {
     >
       <nav id="nav" ref={ref} className={styles.navbar}>
         <div className={styles.navbar__group}>
-          <h3>Get Started</h3>
+          <p>Get Started</p>
           <ul>
             {get_started.map(({ title, id, Icon }, index) => (
               <NavbarItemList id={id} key={index} navbar={ref} navWidth={navWidth}>
@@ -63,7 +63,7 @@ function Navbar() {
           </ul>
         </div>
         <div className={styles.navbar__group}>
-          <h3>Development Cycle</h3>
+          <p>Development Cycle</p>
           <ul>
             {development_cycle.map(({ title, id, Icon }, index) => (
               <NavbarItemList id={id} key={index} navbar={ref} navWidth={navWidth}>
@@ -77,7 +77,7 @@ function Navbar() {
         </div>
 
         <div className={styles.navbar__group}>
-          <h3>Share</h3>
+          <p>Share</p>
           <ul>
             {share.map(({ title, id, Icon }, index) => (
               <NavbarItemList id={id} key={index} navbar={ref} navWidth={navWidth}>
@@ -92,7 +92,14 @@ function Navbar() {
         <NavigationProgressBar progress={progress} />
       </nav>
       <Search />
-      <a href={github_repo_url} target="_blank" rel="noopener noreferrer" className={styles.github_logo} id="github">
+      <a
+        href={github_repo_url}
+        target="_blank"
+        rel="noopener noreferrer"
+        title="Ecosystem Map Repository"
+        className={styles.github_logo}
+        id="github"
+      >
         <Githublogo />
       </a>
     </header>

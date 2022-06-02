@@ -18,4 +18,8 @@ module.exports = {
   env: {
     NEXT_PUBLIC_GOOGLE_ANALYTICS_TRACKING: process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_TRACKING,
   },
+  i18n: {
+    locales: ['en'],
+    defaultLocale: 'en',
+  },
 };

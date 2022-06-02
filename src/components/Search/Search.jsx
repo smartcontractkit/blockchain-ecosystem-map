@@ -6,6 +6,7 @@ import clsx from 'clsx';
 import { searchItem } from './fuse';
 import filterMatchedResult from '@/helpers/filterMatchedResult';
 import SearchResult from './SearchResult';
+import { useFocusOut } from '@/helpers/useFocusOut';
 
 export default function Search() {
   const inputRef = useRef();
@@ -18,11 +19,20 @@ export default function Search() {
   const [showBlockchain, setShowBlockchain] = useState(false);
   const [showSections, setShowSections] = useState(false);
 
+  const removeScrollPadding = (target) => {
+    if (target.style) {
+      target.style.scrollPaddingTop = 'unset';
+    }
+  };
+  const addScrollPadding = (target) => {
+    if (target.style) {
+      target.style.scrollPaddingTop = '12rem';
+    }
+  };
+
   const handleSearch = (e) => {
     // Remove the scroll padding top to prevent scroll on key press
-    if (e.nativeEvent.path[6].style) {
-      e.nativeEvent.path[6].style.scrollPaddingTop = 'unset';
-    }
+    removeScrollPadding(e.nativeEvent?.path[6]);
 
     const value = e.target.value;
     setSearch(value);
@@ -48,9 +58,7 @@ export default function Search() {
 
       // return the scroll padding top to its normal value
       setTimeout(() => {
-        if (e.nativeEvent.path[6].style) {
-          e.nativeEvent.path[6].style.scrollPaddingTop = '12rem';
-        }
+        addScrollPadding(e.nativeEvent?.path[6]);
       });
     }
   };
@@ -58,12 +66,15 @@ export default function Search() {
     setSearch('');
   };
 
+  useFocusOut(inputRef, clear);
+
   useEffect(() => {
     window.addEventListener('keydown', (e) => {
       const f = e.keyCode === 70;
       const ctrl = e.ctrlKey;
       const f3 = e.keyCode === 114;
       const esc = e.keyCode === 27;
+      const tab = e.keyCode === 9;
 
       if (f3 || (ctrl && f)) {
         e.preventDefault();
@@ -74,6 +85,12 @@ export default function Search() {
         e.preventDefault();
         inputRef.current.blur();
         clear();
+      }
+      if (tab && e.path[6]) {
+        removeScrollPadding(e.path[6]);
+        setTimeout(() => {
+          addScrollPadding(e.path[6]);
+        }, 1000);
       }
     });
 
