@@ -5,8 +5,9 @@ export const useOutsideClick = (containerRef, clickHandler) => {
     const handleClickOutside = (event) => {
       const isInput = event.target.nodeName.toLowerCase() === 'input';
       const isSvg = event.target.nodeName.toLowerCase() === 'svg';
+
       if (containerRef.current && !containerRef.current.contains(event.target) && !isInput && !isSvg) {
-        clickHandler();
+        clickHandler(); //callback function
       }
     };
 
