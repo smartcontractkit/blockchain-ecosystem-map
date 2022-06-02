@@ -92,7 +92,14 @@ function Navbar() {
         <NavigationProgressBar progress={progress} />
       </nav>
       <Search />
-      <a href={github_repo_url} target="_blank" rel="noopener noreferrer" className={styles.github_logo} id="github">
+      <a
+        href={github_repo_url}
+        target="_blank"
+        rel="noopener noreferrer"
+        title="Ecosystem Map Repository"
+        className={styles.github_logo}
+        id="github"
+      >
         <Githublogo />
       </a>
     </header>

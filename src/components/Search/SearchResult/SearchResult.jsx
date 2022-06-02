@@ -19,8 +19,7 @@ export default function SearchResult({ hasBlockchains, hasResources, hasSections
     [focus, data]
   );
 
-  useOutsideClick(resultRef, () => clear());
-
+  useOutsideClick(resultRef, clear);
   return (
     <div ref={resultRef} className={styles.results}>
       <div className={styles.content}>
