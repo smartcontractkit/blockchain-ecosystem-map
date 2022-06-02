@@ -21,7 +21,7 @@ function Card({ title, size = 'large', imageSrc, url, favourite, addFavourite, s
       onMouseLeave={() => showTip(null)}
     >
       <img src={imageSrc} alt={title} />
-      {truncateString(title, 32)}
+      {truncateString(title, 14)}
       <button
         aria-label="favourite"
         className={clsx(styles.favourite, { [styles.active]: favourite })}
