@@ -46,6 +46,8 @@ const addToFavourite = (favourites, value) => {
     newFav = [value];
   }
 
+  localStorage.setItem('favourites', JSON.stringify(newFav));
+
   return newFav;
 };
 
