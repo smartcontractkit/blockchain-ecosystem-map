@@ -27,7 +27,10 @@ function Card({ title, size = 'large', imageSrc, url, favourite, addFavourite, s
           addFavourite(url);
         }}
       >
-        <img src={`/images/${favourite ? 'star.svg' : 'star-outline.svg'}`} alt="non favourite" />
+        <img
+          src={`/images/${favourite ? 'star.svg' : 'star-outline.svg'}`}
+          alt={favourite ? 'Favourite icon' : 'non favourite icon'}
+        />
       </button>
     </a>
   );
