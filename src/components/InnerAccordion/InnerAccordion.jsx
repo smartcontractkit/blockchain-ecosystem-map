@@ -13,7 +13,7 @@ export default function InnerAccordion({ title, id, children, expanded, expandTo
 
   return (
     <section>
-      <h4 id={id} className={styles.accordion__header}>
+      <h3 id={id} className={styles.accordion__header}>
         <a
           href={`#${id}`}
           className={clsx('text__short--lg', styles.trigger)}
@@ -27,7 +27,7 @@ export default function InnerAccordion({ title, id, children, expanded, expandTo
           </span>
           {title}
         </a>
-      </h4>
+      </h3>
       <div
         role="region"
         id={`${id}-sect`}
