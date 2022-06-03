@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 import styles from './Card.module.scss';
 import clsx from 'clsx';
+import truncateString from '@/helpers/truncateString';
 
 function Card({ title, size = 'large', imageSrc, url, favourite, addFavourite, showTip }) {
   return (
@@ -17,7 +18,7 @@ function Card({ title, size = 'large', imageSrc, url, favourite, addFavourite, s
       onMouseLeave={() => showTip(null)}
     >
       <img src={imageSrc} alt={title} />
-      {title}
+      {truncateString(title, 28)}
       <button
         aria-label="favourite"
         className={clsx(styles.favourite, { [styles.active]: favourite })}
