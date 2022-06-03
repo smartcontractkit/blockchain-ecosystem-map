@@ -1,4 +1,9 @@
-module.exports = {
+const withPWA = require('next-pwa');
+
+module.exports = withPWA({
+  pwa: {
+    dest: 'public',
+  },
   reactStrictMode: true,
   webpack: (config) => {
     config.module.rules.push(
@@ -22,4 +27,4 @@ module.exports = {
     locales: ['en'],
     defaultLocale: 'en',
   },
-};
+});
