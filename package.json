@@ -1,5 +1,5 @@
 {
-  "name": "chainlink-ecosystem-map",
+  "name": "blockchain-ecosystem-map",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -10,6 +10,7 @@
     "prettier": "prettier --ignore-path .gitignore \"**/*.{js,jsx,json,md,mdx}\"",
     "format": "npm run prettier -- --write",
     "check-format": "npm run prettier -- --check",
+    "test": "jest",
     "validate": "npm run check-format && npm run lint",
     "prepare": "husky install",
     "storybook": "start-storybook -p 6006 -s ./public",
@@ -23,7 +24,7 @@
     "next-seo": "^5.4.0",
     "nookies": "^2.5.2",
     "react": "18.1.0",
-    "react-dom": "17.0.2",
+    "react-dom": "18.1.0",
     "react-gtm-module": "^2.0.11",
     "react-tooltip-lite": "^1.12.0",
     "sass": "^1.51.0",
@@ -38,7 +39,7 @@
     "@storybook/builder-webpack5": "^6.4.19",
     "@storybook/manager-webpack5": "^6.4.19",
     "@storybook/preset-scss": "^1.0.3",
-    "@storybook/react": "^6.4.19",
+    "@storybook/react": "^6.1.21",
     "@storybook/testing-library": "^0.0.9",
     "@svgr/webpack": "^6.2.1",
     "babel-loader": "^8.2.4",
@@ -48,6 +49,9 @@
     "eslint-plugin-storybook": "^0.5.11",
     "eslint-plugin-unused-imports": "^2.0.0",
     "husky": "^7.0.4",
+    "jest": "^27.5.1",
+    "jest-environment-jsdom": "^28.1.0",
+    "jest-transform-yaml": "^1.0.0",
     "prettier": "^2.6.1",
     "yaml-loader": "^0.8.0"
   }

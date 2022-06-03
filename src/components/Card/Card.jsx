@@ -1,9 +1,7 @@
 import PropTypes from 'prop-types';
 import styles from './Card.module.scss';
 import clsx from 'clsx';
-
-import Favourite from '@/icons/star.svg';
-import NotFavourite from '@/icons/star-outline.svg';
+import truncateString from '@/helpers/truncateString';
 
 function Card({ title, size = 'large', imageSrc, url, favourite, addFavourite, showTip }) {
   return (
@@ -20,7 +18,7 @@ function Card({ title, size = 'large', imageSrc, url, favourite, addFavourite, s
       onMouseLeave={() => showTip(null)}
     >
       <img src={imageSrc} alt="" />
-      {title}
+      {truncateString(title, 28)}
       <button
         aria-label="favourite"
         className={clsx(styles.favourite, { [styles.active]: favourite })}
@@ -30,7 +28,10 @@ function Card({ title, size = 'large', imageSrc, url, favourite, addFavourite, s
           addFavourite(url);
         }}
       >
-        {favourite ? <Favourite /> : <NotFavourite />}
+        <img
+          src={`/images/${favourite ? 'star.svg' : 'star-outline.svg'}`}
+          alt={favourite ? 'Favourite icon' : 'non favourite icon'}
+        />
       </button>
     </a>
   );
