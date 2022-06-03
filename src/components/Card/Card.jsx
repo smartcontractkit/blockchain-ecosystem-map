@@ -17,7 +17,7 @@ function Card({ title, size = 'large', imageSrc, url, favourite, addFavourite, s
       onMouseOver={() => showTip(url)}
       onMouseLeave={() => showTip(null)}
     >
-      <img src={imageSrc} alt={title} />
+      <img src={imageSrc} alt="" />
       {truncateString(title, 28)}
       <button
         aria-label="favourite"

@@ -9,7 +9,7 @@ function Hero() {
         src={'/images/bg-hero.png'}
         layout="fill"
         objectFit="cover"
-        alt="hero image"
+        alt=""
         objectPosition="center"
         priority
         quality="100"
