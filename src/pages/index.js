@@ -3,7 +3,6 @@ import { useRouter } from 'next/router';
 import Blockchains from '@/components/Blockchains';
 import Chapter from '@/components/Chapter';
 import Section from '@/components/Section';
-import Hero from '@/components/Hero';
 import InnerAccordion from '@/components/InnerAccordion';
 import styles from '@/styles/Home.module.scss';
 import chapters from '@/data/chapters';
@@ -122,7 +121,6 @@ export default function Home() {
     <div className={styles.container}>
       <Intro steps={introSteps} />
 
-      <Hero />
       {chaptersKeys.map((chapter, index) => (
         <Chapter key={index}>
           {chapters[chapter].map((section) => (
