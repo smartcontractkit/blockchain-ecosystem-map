@@ -10,7 +10,7 @@
 .timeline {
   height: 95%;
   width: 2px;
-  background-color: $brand-200;
+  background-color: $neutral-945;
   position: absolute;
   left: 1rem;
   top: 2rem;
@@ -21,7 +21,8 @@
     position: absolute;
     width: 0.7rem;
     height: 0.7rem;
-    border: 2px solid $brand-200;
+    border: 2px solid $neutral-945;
+    background: $neutral-943;
     border-radius: 50%;
     left: -0.35rem;
   }
