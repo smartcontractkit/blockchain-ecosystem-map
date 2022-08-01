@@ -17,13 +17,15 @@
 .search_container {
   width: 100%;
   height: 56px;
-  background-color: $brand-100;
+  background: $neutral-950;
+  backdrop-filter: blur(32px);
+  border: 1px solid $white-8;
  
   border-radius: 0.5rem;
   padding-inline: 1rem 3rem;
   display: flex;
   align-items: center;
-  color: $neutral-900;
+  color: $brand-200;
   position: relative;
 
   & > input {
@@ -31,7 +33,7 @@
     background: transparent;
     border: none;
     outline: none;
-    color: $neutral-900;
+    color: $brand-200;
 
     font-weight: 500;
       font-size: 18px;

@@ -1,19 +1,19 @@
 @import '@/styles/colors';
 
 .container {
-  color: $neutral-800;
+  color: #FFF;
   font-weight: 600;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   gap: 1rem;
-  border: 1px solid $brand-200;
+  border: 1px solid $white-8;
   border-radius: 0.75rem;
   transition: all 0.2s ease-in-out;
   text-align: center;
   padding: 0.5rem;
-  background-color: #FFFFFF;
+  background-color: $white-4;
   position: relative;
   
   &__small {
@@ -57,7 +57,7 @@
 
 
   &:hover, &:focus {
-    background-color: $brand-100;
+    background-color: $white-12;
 
     .favourite {
        opacity: 1;
@@ -65,7 +65,7 @@
   }
 
   &:active {
-    background-color: $brand-200;
+    background-color: $white-12;
   }
 
   

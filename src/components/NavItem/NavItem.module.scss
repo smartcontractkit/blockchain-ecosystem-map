@@ -1,24 +1,24 @@
 @import '@/styles/colors.scss';
 
 .navItem {
-  border: 1px solid $brand-200;
+  border: 1px solid $brand-400-light;
   border-radius: 8px;
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 0.7rem 0.8rem;
-  color: $brand-800;
+  color: $brand-200;
   width: fit-content;
   font-size: 0.9rem;
   transition:all 0.5s ease-in-out;
   height: 3rem;
   
   &:hover{
-    background-color: $brand-100;
+    background-color: $brand-400-light;
   }
 
   &:active {
-    background-color: $brand-200;
+    background-color: $brand-600;
   }
 
   & > svg {
