@@ -21,7 +21,7 @@
       &::after {
       content: '';
       position: absolute;
-      background-image: linear-gradient(to right,rgba(255,255,255,0) 85%,#ffffff 100%);
+      background-image: linear-gradient(to right,rgba(255, 255, 255, 0) 85%, $neutral-950 100%);
       background-color: transparent;
       height: 100%;
       left: 0;
