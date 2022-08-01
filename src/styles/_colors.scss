@@ -1,14 +1,36 @@
+$white-4: rgba(255, 255, 255, 0.04);
+$white-8: rgba(255, 255, 255, 0.08);
+$white-12: rgba(255, 255, 255, 0.12);
+
+$bg: #15171A;
+
 $neutral-100: #F9FAFB;
 $neutral-600: #848D9A;
 $neutral-700: #3B4554;
 $neutral-800: #212C3B;
 $neutral-900: #101B2A;
+$neutral-940: rgba(29, 39, 52, 0.48);
+$neutral-943: #3D4D61;
+$neutral-945: #273340;
+$neutral-950: rgba(15, 20, 26, 0.6);
 
 $brand-50: #FAFCFF;
 $brand-100: #F0F6FF;
 $brand-200: #D1E9FF;
+$brand-400-light: rgba(90, 169, 242, 0.4);
 $brand-600: #1570EF;
+$brand-620: #437BCA;
+$brand-650: #1053C6;
 $brand-800: #1849A9;
 $brand-900: #194185;
+$brand-920: #003684;
+$brand-950: #0C2755;
+
+$brown-800: #B76202;
+$brown-900: #6F420F;
+
+$dark-blue-gradient: linear-gradient(90deg, $brand-920 0%, $brand-950 96.88%);
+$light-blue-gradient: linear-gradient(90deg, $brand-620 0%, $brand-650 96.88%);
+$dark-brown-gradient: linear-gradient(90deg, $brown-800 0%, $brown-900 96.88%);
 
 $divider: #E5E5E5;

@@ -1,8 +1,8 @@
 @import '@/styles/colors.scss';
 
 .timeline__icon {
-  color: $brand-800;
-  background-color: $brand-200;
+  color: #FFF;
+  background: $dark-blue-gradient;
   width: 3rem;
   height: 3rem;
   border-radius: 0.5rem;
@@ -18,7 +18,7 @@
     content:"";
     position: absolute;
     transform: rotate(45deg);
-    background-color: $brand-200;
+    background: $brand-950;
     right: -0.3rem;
     width: 18px;
     height: 18px;
@@ -29,9 +29,9 @@
 
   &.active {
     color: #FFFFFF;
-    background-color: $brand-600;
+    background: $light-blue-gradient;
     &:after {
-      background-color: $brand-600;
+      background: $brand-920;
     }
   }
 
