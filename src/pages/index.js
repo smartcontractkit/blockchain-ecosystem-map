@@ -3,7 +3,6 @@ import { useRouter } from 'next/router';
 import Blockchains from '@/components/Blockchains';
 import Chapter from '@/components/Chapter';
 import Section from '@/components/Section';
-import Hero from '@/components/Hero';
 import InnerAccordion from '@/components/InnerAccordion';
 import styles from '@/styles/Home.module.scss';
 import chapters from '@/data/chapters';
@@ -76,6 +75,8 @@ export default function Home() {
     const subSectionsId = chaptersData.flat().map((res) => res.id);
 
     setAllSubsections(subSectionsId);
+
+    return subSectionsId;
   };
 
   const getAllExpanded = () => allSubsections.length === isExpanded.length;
@@ -90,12 +91,12 @@ export default function Home() {
   };
 
   useEffect(() => {
-    const DEFAULT_ACCORDION_ID = 'general-learning-resources';
+    const DEFAULT_ACCORDION_ID = getAllSubSections();
     const { asPath } = router;
     router.replace(asPath);
 
     let openedChapters = JSON.parse(localStorage.getItem('opened'));
-    openedChapters = openedChapters && openedChapters.length ? openedChapters : [DEFAULT_ACCORDION_ID];
+    openedChapters = openedChapters && openedChapters.length ? openedChapters : [...DEFAULT_ACCORDION_ID];
     saveExpanded(openedChapters);
 
     /* For the Inrojs */
@@ -122,7 +123,6 @@ export default function Home() {
     <div className={styles.container}>
       <Intro steps={introSteps} />
 
-      <Hero />
       {chaptersKeys.map((chapter, index) => (
         <Chapter key={index}>
           {chapters[chapter].map((section) => (
