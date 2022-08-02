@@ -92,8 +92,14 @@ export default function Home() {
 
   useEffect(() => {
     const DEFAULT_ACCORDION_ID = getAllSubSections();
-    const { asPath } = router;
-    router.replace(asPath);
+    let mounted = true;
+    let { asPath } = router;
+    asPath = asPath.split('/');
+    asPath = asPath.length > 0 ? asPath[1] : '/';
+
+    if (!mounted) {
+      router.replace(asPath || '/');
+    }
 
     let openedChapters = JSON.parse(localStorage.getItem('opened'));
     openedChapters = openedChapters && openedChapters.length ? openedChapters : [...DEFAULT_ACCORDION_ID];
@@ -117,6 +123,8 @@ export default function Home() {
 
     regulateSteps();
     getAllSubSections();
+
+    return () => (mounted = false);
   }, []);
 
   return (
