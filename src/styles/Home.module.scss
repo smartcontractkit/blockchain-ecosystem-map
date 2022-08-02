@@ -2,6 +2,24 @@
 
 .container {
   max-width: 1276px;
-  margin: 2rem auto 20rem;
+  margin: 2rem auto;
   padding-inline: 1rem;
+  color: $white-12;
+}
+
+.wrapper {
+  display: flex;
+  flex-flow: row wrap;
+}
+
+.banner {
+  width: 100%;
+  max-width: 22.8125rem;
+  border: 1px solid $brand-400-light;
+  padding: 2rem;
+}
+.contents {
+  flex: 1;
+  border: 1px solid $brown-800;
+  padding: 2rem;
 }

@@ -93,8 +93,12 @@ export default function Map() {
 
   useEffect(() => {
     const DEFAULT_ACCORDION_ID = getAllSubSections();
-    const { asPath } = router;
-    router.replace(asPath);
+    let mounted = true;
+    let { asPath } = router;
+
+    if (!mounted) {
+      router.replace(asPath || '/');
+    }
 
     let openedChapters = JSON.parse(localStorage.getItem('opened'));
     openedChapters = openedChapters && openedChapters.length ? openedChapters : [...DEFAULT_ACCORDION_ID];
@@ -118,6 +122,7 @@ export default function Map() {
 
     regulateSteps();
     getAllSubSections();
+    return () => (mounted = false);
   }, []);
 
   return (
