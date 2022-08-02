@@ -33,7 +33,7 @@
       }
 
       &::-webkit-scrollbar-thumb {
-        background-color: $neutral-600;
+        background-color: $neutral-500;
         border-radius: 20px;
       }
 
@@ -50,7 +50,7 @@
   & h4{
     @extend .text__short--md;
     line-height: 132%;
-    color: $neutral-600;
+    color: $neutral-500;
     margin-bottom: 0.75rem;
     margin-left: 1.25rem;
   }

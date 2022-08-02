@@ -2,7 +2,7 @@
 @import "@/styles/_typography.scss";
 
 .container {
-  border: 1px solid $white-8;
+  border: 1px solid $opacity-08;
   border-radius: 0.75rem;
   margin-top: 1.5625rem;
   position: relative;
@@ -17,7 +17,7 @@
 
 .title {
   margin: 0;
-  border-bottom: 1px solid $white-8;
+  border-bottom: 1px solid $opacity-08;
   
   button {
     color: #FFF;
@@ -37,7 +37,7 @@
 
     &.active {
       color: #FFF;
-      background-color: $white-12;
+      background-color: $opacity-12;
 
       svg {
         color: #FFF;

@@ -17,7 +17,7 @@ export default function Colors() {
         </div>
         <div>
           <div className={clsx(styles.box, styles.neutral__700)}></div>
-          <small>$neutral-600</small>
+          <small>$neutral-500</small>
         </div>
         <div>
           <div className={clsx(styles.box, styles.neutral__100)}></div>

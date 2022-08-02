@@ -8,12 +8,12 @@
   justify-content: center;
   align-items: center;
   gap: 1rem;
-  border: 1px solid $white-8;
+  border: 1px solid $opacity-08;
   border-radius: 0.75rem;
   transition: all 0.2s ease-in-out;
   text-align: center;
   padding: 0.5rem;
-  background-color: $white-4;
+  background-color: $opacity-04;
   position: relative;
   
   &__small {
@@ -57,7 +57,7 @@
 
 
   &:hover, &:focus {
-    background-color: $white-12;
+    background-color: $opacity-12;
 
     .favourite {
        opacity: 1;
@@ -65,7 +65,7 @@
   }
 
   &:active {
-    background-color: $white-12;
+    background-color: $opacity-12;
   }
 
   
