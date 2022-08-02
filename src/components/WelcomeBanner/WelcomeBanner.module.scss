@@ -1,0 +1,47 @@
+@import '@/styles/_colors.scss';
+@import '@/styles/_typography.scss';
+
+
+.container, .content, .get_started{
+  display: flex;
+  flex-direction: column;
+}
+
+.heading {
+  @extend  .heading__700;
+  font-weight: 700;
+  color: $white;
+  margin: 1rem 0 4.5rem;
+}
+
+.label {
+  @extend .text__short--md;
+  font-size: 0.65rem;
+  color: $pink;
+  text-transform: uppercase;
+}
+
+.get_started {
+  @extend .text__short--md;
+  background: $white;
+  border-radius: 0.75rem;
+  color: $brand-800;
+  padding: 1.25rem 1.5rem;
+  max-width:  141px;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.overview {
+  @extend .text__long--md;
+  width: 100%;
+  color: $neutral-200;
+  font-weight: 400;
+}
+
+@media (min-width: 1280px) {
+  .overview {
+    width: 15.25rem;
+  }
+}
