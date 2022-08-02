@@ -1,0 +1,21 @@
+@import './colors';
+
+.container {
+  max-width: 1276px;
+  margin: 2rem auto 20rem;
+  padding-inline: 1rem;
+}
+.accordion_contents {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    gap: 0.5rem;
+
+    @media (min-width: 1024px) {
+      justify-content: start;
+    }
+
+    & > span {
+      position: relative;
+    }
+  }
