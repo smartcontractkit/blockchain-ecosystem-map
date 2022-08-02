@@ -93,10 +93,12 @@ export default function Home() {
   useEffect(() => {
     const DEFAULT_ACCORDION_ID = getAllSubSections();
     let mounted = true;
+    let { asPath } = router;
+    asPath = asPath.split('/');
+    asPath = asPath.length > 0 ? asPath[1] : '/';
 
     if (!mounted) {
-      const { asPath } = router;
-      router.push(asPath || '/');
+      router.replace(asPath || '/');
     }
 
     let openedChapters = JSON.parse(localStorage.getItem('opened'));
