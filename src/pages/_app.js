@@ -1,4 +1,3 @@
-import Navbar from '@/components/Navbar';
 import '@/styles/globals.scss';
 import { DefaultSeo } from 'next-seo';
 import SEO from '../../next-seo.config';
@@ -12,11 +11,8 @@ function MyApp({ Component, pageProps }) {
 
   return (
     <StateProvider>
-      <Navbar />
       <DefaultSeo {...SEO} />
-      <main>
-        <Component {...pageProps} />
-      </main>
+      <Component {...pageProps} />
     </StateProvider>
   );
 }

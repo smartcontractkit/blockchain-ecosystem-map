@@ -1,4 +1,4 @@
-import { Fragment, useEffect, useState } from 'react';
+import React, { Fragment, useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import Blockchains from '@/components/Blockchains';
 import Chapter from '@/components/Chapter';
@@ -12,6 +12,7 @@ import dynamic from 'next/dynamic';
 import steps from '@/data/intro-steps';
 import ExpandCollapseAllButton from '@/components/ExpandCollapseAllButton';
 import useFavourite from '@/helpers/useFavourite';
+import Navbar from '@/components/Navbar';
 
 const Intro = dynamic(() => import('@/components/Intro'), {
   ssr: false,
@@ -120,71 +121,76 @@ export default function Map() {
   }, []);
 
   return (
-    <div className={styles.container}>
-      <Intro steps={introSteps} />
+    <React.Fragment>
+      <Navbar />
+      <main>
+        <div className={styles.container}>
+          <Intro steps={introSteps} />
 
-      {chaptersKeys.map((chapter, index) => (
-        <Chapter key={index}>
-          {chapters[chapter].map((section) => (
-            <Section
-              key={section.id}
-              title={section.title}
-              id={section.id}
-              Icon={section.Icon}
-              expandToggle={sectionExpand}
-              expandedIds={isExpanded}
-            >
-              {section.data.map((data) => (
-                <InnerAccordion
-                  key={data.id}
-                  title={data.name}
-                  id={data.id}
-                  expanded={getExpanded(data.id)}
-                  expandToggle={expandPanel}
+          {chaptersKeys.map((chapter, index) => (
+            <Chapter key={index}>
+              {chapters[chapter].map((section) => (
+                <Section
+                  key={section.id}
+                  title={section.title}
+                  id={section.id}
+                  Icon={section.Icon}
+                  expandToggle={sectionExpand}
+                  expandedIds={isExpanded}
                 >
-                  <div className={styles.accordion_contents}>
-                    {sortItem(data.items).map((item) => (
-                      <Fragment key={item.url}>
-                        {item.description ? (
-                          <Tooltip
-                            isOpen={tooltip === item.url}
-                            content={getDescription(item.description)}
-                            arrowSize={6}
-                          >
-                            <Card
-                              addFavourite={() => addToFavourite(item)}
-                              favourite={getFavourite(item.url) ? true : false}
-                              title={item.title}
-                              imageSrc={item.logo}
-                              url={item.url}
-                              size="small"
-                              showTip={setToolTip}
-                            />
-                          </Tooltip>
-                        ) : (
-                          <Card
-                            addFavourite={() => addToFavourite(item)}
-                            favourite={getFavourite(item.url) ? true : false}
-                            title={item.title}
-                            imageSrc={item.logo}
-                            url={item.url}
-                            size="small"
-                            showTip={setToolTip}
-                          />
-                        )}
-                      </Fragment>
-                    ))}
-                  </div>
-                </InnerAccordion>
+                  {section.data.map((data) => (
+                    <InnerAccordion
+                      key={data.id}
+                      title={data.name}
+                      id={data.id}
+                      expanded={getExpanded(data.id)}
+                      expandToggle={expandPanel}
+                    >
+                      <div className={styles.accordion_contents}>
+                        {sortItem(data.items).map((item) => (
+                          <Fragment key={item.url}>
+                            {item.description ? (
+                              <Tooltip
+                                isOpen={tooltip === item.url}
+                                content={getDescription(item.description)}
+                                arrowSize={6}
+                              >
+                                <Card
+                                  addFavourite={() => addToFavourite(item)}
+                                  favourite={getFavourite(item.url) ? true : false}
+                                  title={item.title}
+                                  imageSrc={item.logo}
+                                  url={item.url}
+                                  size="small"
+                                  showTip={setToolTip}
+                                />
+                              </Tooltip>
+                            ) : (
+                              <Card
+                                addFavourite={() => addToFavourite(item)}
+                                favourite={getFavourite(item.url) ? true : false}
+                                title={item.title}
+                                imageSrc={item.logo}
+                                url={item.url}
+                                size="small"
+                                showTip={setToolTip}
+                              />
+                            )}
+                          </Fragment>
+                        ))}
+                      </div>
+                    </InnerAccordion>
+                  ))}
+                </Section>
               ))}
-            </Section>
+            </Chapter>
           ))}
-        </Chapter>
-      ))}
 
-      <Blockchains />
+          <Blockchains />
 
-      <ExpandCollapseAllButton expanded={getAllExpanded()} toggleExpanded={toggleExpandAll} />
-    </div>
+          <ExpandCollapseAllButton expanded={getAllExpanded()} toggleExpanded={toggleExpandAll} />
+        </div>
+      </main>
+    </React.Fragment>
   );
 }
