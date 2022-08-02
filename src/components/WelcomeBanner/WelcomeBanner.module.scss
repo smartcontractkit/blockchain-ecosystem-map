@@ -1,0 +1,8 @@
+@import '@/styles/_colors.scss';
+@import '@/styles/_typography.scss';
+
+.heading {
+  @extend  .heading__700;
+  font-weight: 700;
+  color: #FFF;
+}
