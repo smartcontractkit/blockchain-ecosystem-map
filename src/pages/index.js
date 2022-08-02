@@ -90,8 +90,12 @@ export default function Home() {
 
   useEffect(() => {
     const DEFAULT_ACCORDION_ID = 'general-learning-resources';
-    const { asPath } = router;
-    router.replace(asPath);
+    let mounted = true;
+
+    if (!mounted) {
+      const { asPath } = router;
+      router.push(asPath || '/');
+    }
 
     let openedChapters = JSON.parse(localStorage.getItem('opened'));
     openedChapters = openedChapters && openedChapters.length ? openedChapters : [DEFAULT_ACCORDION_ID];
@@ -115,6 +119,8 @@ export default function Home() {
 
     regulateSteps();
     getAllSubSections();
+
+    return () => (mounted = false);
   }, []);
 
   return (
