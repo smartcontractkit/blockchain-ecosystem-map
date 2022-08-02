@@ -75,6 +75,8 @@ export default function Home() {
     const subSectionsId = chaptersData.flat().map((res) => res.id);
 
     setAllSubsections(subSectionsId);
+
+    return subSectionsId;
   };
 
   const getAllExpanded = () => allSubsections.length === isExpanded.length;
@@ -89,12 +91,12 @@ export default function Home() {
   };
 
   useEffect(() => {
-    const DEFAULT_ACCORDION_ID = 'general-learning-resources';
+    const DEFAULT_ACCORDION_ID = getAllSubSections();
     const { asPath } = router;
     router.replace(asPath);
 
     let openedChapters = JSON.parse(localStorage.getItem('opened'));
-    openedChapters = openedChapters && openedChapters.length ? openedChapters : [DEFAULT_ACCORDION_ID];
+    openedChapters = openedChapters && openedChapters.length ? openedChapters : [...DEFAULT_ACCORDION_ID];
     saveExpanded(openedChapters);
 
     /* For the Inrojs */
