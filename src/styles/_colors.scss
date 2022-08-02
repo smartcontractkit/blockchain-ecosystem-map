@@ -1,11 +1,20 @@
-$white-4: rgba(255, 255, 255, 0.04);
-$white-8: rgba(255, 255, 255, 0.08);
-$white-12: rgba(255, 255, 255, 0.12);
+$white: #FFFFFF;
 
-$bg: #15171A;
+$bg: #1A1C1F;
+
+$opacity-04: rgba(255, 255, 255, 0.04);
+$opacity-08: rgba(255, 255, 255, 0.08);
+$opacity-12: rgba(255, 255, 255, 0.12);
+$opacity-40B: rgba(90, 169, 242, 0.4);
+$opacity-40BG: rgba(33, 44, 59, 0.4);
+
 
 $neutral-100: #F9FAFB;
-$neutral-600: #848D9A;
+$neutral-200: #e7eaee;
+$neutral-300: #d0d5dc;
+$neutral-400: #aeb6c2;
+$neutral-500: #848D9A;
+$neutral-600: #5a6472;
 $neutral-700: #3B4554;
 $neutral-800: #212C3B;
 $neutral-900: #101B2A;
@@ -17,7 +26,7 @@ $neutral-950: rgba(15, 20, 26, 0.6);
 $brand-50: #FAFCFF;
 $brand-100: #F0F6FF;
 $brand-200: #D1E9FF;
-$brand-400-light: rgba(90, 169, 242, 0.4);
+$brand-500: #2E90FA;
 $brand-600: #1570EF;
 $brand-620: #437BCA;
 $brand-650: #1053C6;
@@ -28,6 +37,19 @@ $brand-950: #0C2755;
 
 $brown-800: #B76202;
 $brown-900: #6F420F;
+
+$accent-200: #FDF8F6;
+$accent-500: #EE602B;
+
+$pink: #D469A3;
+$beige: #FEF9F0;
+
+$error: #EF2E43;
+$warning: #FCAD1D;
+$success: #1DA54F;
+
+$hint-light: #AB8A62;
+$hint-dark: #4D463E;
 
 $dark-blue-gradient: linear-gradient(90deg, $brand-920 0%, $brand-950 96.88%);
 $light-blue-gradient: linear-gradient(90deg, $brand-620 0%, $brand-650 96.88%);

@@ -5,8 +5,11 @@ import styles from './WelcomeBanner.module.scss';
 
 export default function WelcomeBanner() {
   return (
-    <div>
-      <h1 className={styles.heading}>Everything you need to start developing blockchain apps</h1>
+    <div className={styles.container}>
+      <div>
+        <span className={styles.label}>smart contracts ecosystem</span>
+        <h1 className={styles.heading}>Everything you need to start developing blockchain apps</h1>
+      </div>
 
       <div className="content">
         <Link href="/map" passHref>

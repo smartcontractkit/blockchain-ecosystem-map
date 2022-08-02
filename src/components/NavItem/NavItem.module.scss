@@ -1,7 +1,7 @@
 @import '@/styles/colors.scss';
 
 .navItem {
-  border: 1px solid $brand-400-light;
+  border: 1px solid $opacity-40B;
   border-radius: 8px;
   display: flex;
   align-items: center;
@@ -14,7 +14,7 @@
   height: 3rem;
   
   &:hover{
-    background-color: $brand-400-light;
+    background-color: $opacity-40B;
   }
 
   &:active {

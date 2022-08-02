@@ -1,8 +1,21 @@
 @import '@/styles/_colors.scss';
 @import '@/styles/_typography.scss';
 
+
+.container{
+  display: flex;
+  flex-direction: column;
+}
+
 .heading {
   @extend  .heading__700;
   font-weight: 700;
   color: #FFF;
+}
+
+.label {
+  @extend .text__short--md;
+  font-size: 0.65rem;
+  color: $pink;
+  text-transform: uppercase;
 }
