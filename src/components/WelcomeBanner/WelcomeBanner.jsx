@@ -11,12 +11,12 @@ export default function WelcomeBanner() {
         <h1 className={styles.heading}>Everything you need to start developing blockchain apps</h1>
       </div>
 
-      <div className="content">
+      <div className={styles.content}>
         <Link href="/map" passHref>
-          <a className="get_started">Get started</a>
+          <a className={styles.get_started}>Get started</a>
         </Link>
-        <div className="overview">
-          Explore the ecosystem map to get familiar with the landscape of hundreds of tools.
+        <div className={styles.overview}>
+          Explore the ecosystem map to get familiar with the landscape of <strong>hundreds of tools.</strong>
         </div>
       </div>
     </div>

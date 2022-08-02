@@ -3,7 +3,7 @@
 .accordion__header {
   margin: 0;
   & > .trigger {
-    color: #FFF;
+    color: $white;
     font-weight: 600;
     background-color: $opacity-08;
     display: flex;

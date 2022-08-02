@@ -20,7 +20,7 @@
   border-bottom: 1px solid $opacity-08;
   
   button {
-    color: #FFF;
+    color: $white;
     font-size: 1.125rem;
     font-weight: 600;
     letter-spacing: 0.5px;
@@ -36,17 +36,17 @@
     transition:all 0.5s ease-in-out;
 
     &.active {
-      color: #FFF;
+      color: $white;
       background-color: $opacity-12;
 
       svg {
-        color: #FFF;
+        color: $white;
       }
     }
 
     svg {
       font-size: 1.5rem;
-      color: #FFF;
+      color: $white;
       transform: rotate(0deg);
       transition: all 0.2s ease-in-out;
     }
