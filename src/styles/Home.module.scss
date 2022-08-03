@@ -10,6 +10,7 @@
 .wrapper {
   display: flex;
   flex-flow: row wrap;
+  gap: 2rem;
 }
 
 .banner {
@@ -20,9 +21,13 @@
 
 .contents {
   flex: 1;
-  border: 1px solid $brown-800;
-  padding: 2rem;
   display: flex;
   flex-direction: column;
   gap: 2rem;
+}
+
+.divider {
+  svg {
+    width: 100%;
+  }
 }
