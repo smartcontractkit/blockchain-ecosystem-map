@@ -1,0 +1,113 @@
+@import '@/styles/_colors.scss';
+@import '@/styles/_typography.scss';
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 4rem;
+  width: 100%;
+}
+
+.tag {
+  transform: matrix(1, 0, 0, 1, 0, 0);
+  background: $brand-50;
+  color: $white;
+  width: fit-content;
+  max-width: 154px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  padding: 0.6875rem 0.4rem 0.6875rem 0.75rem;
+  font-weight: 700;
+  font-size: 10px;
+  line-height: 100%;
+  text-transform: uppercase;
+  position: relative;
+  
+  .subtract {
+    content: "";
+    position: absolute;
+    right: -1.86rem;
+    height: 100%;
+
+    svg {
+      color: $brand-50;
+      height: 100%;
+      width: 100%;
+    }
+  }
+
+  &--fundamentals {
+    background: rgba(46, 155, 255, 0.5);
+    .subtract {
+      svg {
+        color: rgba(46, 155, 255, 0.5);
+      }
+    }
+  }
+  
+  &--development {
+    background: rgba(255, 184, 0, 0.5);
+    .subtract {
+      svg {
+        color: rgba(255, 184, 0, 0.5);
+      }
+    }
+  }
+  
+  &--share {
+    color: $neutral-700;
+  }
+
+
+  & > span {
+    &:first-child {
+      margin-right: .5rem;
+    }
+  }
+  border-radius: 0.625rem 0 0 0;
+}
+
+.container {
+  background: $opacity-04;
+  border: 1px solid $opacity-12;
+  backdrop-filter: blur(40px);
+  width: 100%;
+  max-width: 816px;
+  min-width: 300px;
+  min-height: 340px;
+  padding: 1rem;
+
+  @media (min-width: 1280px) {
+    padding: 3rem;
+  }
+  
+  &--fundamentals {
+    background: rgba(84, 159, 227, 0.08);
+  }
+
+  &--development {
+    background: rgba(204, 154, 25, 0.06);
+  }
+  
+  .counter {
+    @extend .text__short--sm;
+    background: $opacity-08;
+    border-radius: 0.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0.125rem 0.5rem;
+  }
+  
+  @media (min-width: 1280px) {
+    padding-inline: 3rem;
+  }
+  border-radius: 0 0.75rem 0.75rem;
+}
+
+@media (min-width: 1280px) {
+  .container {
+    padding-inline: 3rem;
+  }
+}
