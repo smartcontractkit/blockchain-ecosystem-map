@@ -4,14 +4,41 @@
 
 .wrapper {
   width: 100%;
+  min-width: 224px;
   max-width: 224px;
+  flex: 1;
+  margin-bottom: 1rem;
 }
 
-.icon {
-  svg {
-    
+.info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: $white;
+  @extend .text__short--sm;
+
+  .title {
+    display: flex;
+    .icon {
+      margin-right: 0.875rem;
+      svg {
+        color: $opacity-08;
+      }
+    }
   }
+  
+  .count {
+    background: $opacity-08;
+    border-radius: 0.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0.125rem 0.5rem;
+    transform: translateY(-0.2rem);
+} 
+  margin-bottom: 0.75rem;
 }
+
 
 .card {
   width: 100%;
@@ -19,8 +46,10 @@
   overflow-y: auto;
   scrollbar-width: none;
   padding: 1.5rem 1.5rem 0;
-
+  background: $opacity-08;
+  border: 1px solid $opacity-08;
   &::-webkit-scrollbar { 
     display: none;
   }
+  border-radius: 0.75rem;
 }
