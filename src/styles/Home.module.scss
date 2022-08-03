@@ -2,8 +2,8 @@
 
 .container {
   max-width: 1276px;
-  margin: 2rem auto;
-  padding-inline: 1rem;
+  margin: 6.8125rem auto 0;
+  padding-inline: 1.5rem;
   color: $opacity-12;
 }
 
@@ -15,11 +15,14 @@
 .banner {
   width: 100%;
   max-width: 22.8125rem;
-  border: 1px solid $opacity-40B;
-  padding: 2rem;
+  margin-bottom: 2rem;
 }
+
 .contents {
   flex: 1;
   border: 1px solid $brown-800;
   padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
 }

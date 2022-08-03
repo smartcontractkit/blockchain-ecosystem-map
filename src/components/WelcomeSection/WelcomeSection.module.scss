@@ -1,0 +1,14 @@
+@import '@/styles/_colors.scss';
+@import '@/styles/_typography.scss';
+
+.container {
+  border-radius: 0 0.75rem 0.75rem;
+  border: 1px solid $opacity-12;
+  backdrop-filter: blur(40px);
+}
+
+@media (min-width: 1280px) {
+  .container {
+    padding-inline: 3rem;
+  }
+}

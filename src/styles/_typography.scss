@@ -1,5 +1,9 @@
 .heading {
   font-weight: 500;
+  &__700 {
+    font-size: 2.75rem;
+    line-height: 1.24;
+  }
   &__600 {
     font-size: 2.5rem;
     line-height: 1.12;

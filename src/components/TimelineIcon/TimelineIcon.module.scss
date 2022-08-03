@@ -1,7 +1,7 @@
 @import '@/styles/colors.scss';
 
 .timeline__icon {
-  color: #FFF;
+  color: $white;
   background: $dark-blue-gradient;
   width: 3rem;
   height: 3rem;
@@ -28,7 +28,7 @@
 
 
   &.active {
-    color: #FFFFFF;
+    color: $white;
     background: $light-blue-gradient;
     &:after {
       background: $brand-920;
