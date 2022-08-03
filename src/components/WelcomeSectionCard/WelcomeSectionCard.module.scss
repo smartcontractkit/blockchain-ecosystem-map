@@ -3,8 +3,22 @@
 
 
 .wrapper {
+  width: 100%;
+  max-width: 224px;
+}
+
+.icon {
+  svg {
+    
+  }
+}
+
+.card {
+  width: 100%;
+  height: 224px;
   overflow-y: auto;
   scrollbar-width: none;
+  padding: 1.5rem 1.5rem 0;
 
   &::-webkit-scrollbar { 
     display: none;
