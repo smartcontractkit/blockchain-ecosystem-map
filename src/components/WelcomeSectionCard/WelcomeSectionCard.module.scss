@@ -1,6 +1,11 @@
 @import '@/styles/_colors.scss';
 @import '@/styles/_typography.scss';
 
+.overlay, .link, .info, .count {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
 .wrapper {
   width: 100%;
@@ -8,83 +13,94 @@
   max-width: 224px;
   flex: 1;
   margin-bottom: 1rem;
-}
 
-.overlay, .link, .info, .count {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.info {
-  justify-content: space-between;
-  color: $white;
-  @extend .text__short--sm;
-
-  .title {
-    display: flex;
-    .icon {
-      margin-right: 0.875rem;
-      svg {
-        color: $opacity-08;
+  .info {
+    justify-content: space-between;
+    color: $white;
+    @extend .text__short--sm;
+  
+    .title {
+      display: flex;
+      .icon {
+        margin-right: 0.875rem;
+        svg {
+          color: $opacity-08;
+          transition: all 0.2s ease-in-out;
+        }
       }
     }
+    
+    .count {
+      background: $opacity-08;
+      border-radius: 0.5rem;
+      padding: 0.125rem 0.5rem;
+      transform: translateY(-0.2rem);
+      transition: all 0.2s ease-in-out;
+   } 
+    margin-bottom: 0.75rem;
   }
   
-  .count {
-    background: $opacity-08;
-    border-radius: 0.5rem;
-    padding: 0.125rem 0.5rem;
-    transform: translateY(-0.2rem);
-} 
-  margin-bottom: 0.75rem;
-}
-
-
-.card {
-  position: relative;
-  width: 100%;
-  height: 224px;
-  overflow-y: auto;
-  scrollbar-width: none;
-  padding: 1.5rem 1.5rem 0;
-  background: $opacity-08;
-  border: 1px solid $opacity-08;
-  &::-webkit-scrollbar { 
-    display: none;
-  }
-  border-radius: 0.75rem;
-
   
-  .overlay {
-    opacity: 0;
-    position: absolute;
-    top: 0;
-    left: 0;
+  .card {
+    position: relative;
     width: 100%;
-    height: 100%;
+    height: 224px;
+    overflow-y: auto;
+    scrollbar-width: none;
+    padding: 1.5rem 1.5rem 0;
     background: $opacity-08;
-    border: 1px solid $white;
-    backdrop-filter: blur(4px);
-
-    & > .link {
-      background: $white;
-      width: 3rem;
-      height: 3rem;
-      border-radius: 50%;
-
-      svg {
-        color: $brand-600;
+    border: 1px solid $opacity-08;
+    &::-webkit-scrollbar { 
+      display: none;
+    }
+    border-radius: 0.75rem;
+  
+    
+    .overlay {
+      opacity: 0;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: $opacity-08;
+      border: 1px solid $white;
+      backdrop-filter: blur(4px);
+  
+      & > .link {
+        background: $white;
+        width: 3rem;
+        height: 3rem;
+        border-radius: 50%;
+  
+        svg {
+          color: $brand-600;
+        }
+      }
+  
+      border-radius: 0.75rem;
+      transition: all 0.2s ease-in-out;
+  }
+  
+    &:hover {
+      .overlay {
+        opacity: 1;
       }
     }
-
-    border-radius: 0.75rem;
-    transition: all 0.2s ease-in-out;
-}
+  }
 
   &:hover {
-    .overlay {
-      opacity: 1;
+    .info {
+      .title {
+        svg {
+          color: $white;
+        }
+      }
+    }
+
+    .count {
+      color: $black;
     }
   }
 }
+
