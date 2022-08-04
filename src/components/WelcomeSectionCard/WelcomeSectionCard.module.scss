@@ -1,7 +1,9 @@
 @import '@/styles/_colors.scss';
 @import '@/styles/_typography.scss';
 
-.overlay, .link, .info, .count {
+$card_height: 14rem;
+
+.overlay, .link, .info, .count, .card_item {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -13,6 +15,7 @@
   max-width: 224px;
   flex: 1;
   margin-bottom: 1rem;
+  position: relative;
 
   .info {
     justify-content: space-between;
@@ -42,12 +45,11 @@
   
   
   .card {
-    position: relative;
     width: 100%;
-    height: 224px;
+    height: $card_height;
     overflow-y: auto;
     scrollbar-width: none;
-    padding: 1.5rem 1.5rem 0;
+    padding: 1.5rem 1.5rem;
     background: $opacity-08;
     border: 1px solid $opacity-08;
     &::-webkit-scrollbar { 
@@ -59,11 +61,11 @@
     .overlay {
       opacity: 0;
       position: absolute;
-      top: 0;
+      height: $card_height;
       left: 0;
-      width: 100%;
-      height: 100%;
-      background: $opacity-08;
+      bottom: 0;
+      right: 0;
+      background: $overlay-08;
       border: 1px solid $white;
       backdrop-filter: blur(4px);
   
@@ -86,6 +88,23 @@
       .overlay {
         opacity: 1;
       }
+    }
+
+    display: grid;
+    grid-template-columns: repeat(4, 2rem);
+    gap: 1rem;
+    grid-auto-rows: 2rem;
+
+    .card_item {
+      height: 2rem;
+      background: $white;
+      overflow: hidden;
+      img {
+        width: 100%;
+        height: 100%;
+        // object-fit: contain;
+      }
+      border-radius: 0.5rem;
     }
   }
 
