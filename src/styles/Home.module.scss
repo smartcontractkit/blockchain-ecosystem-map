@@ -11,12 +11,19 @@
   display: flex;
   flex-flow: row wrap;
   gap: 2rem;
+
+   @media (min-width: 940px) {
+    flex-flow: row nowrap;
+  }
 }
 
 .banner {
   width: 100%;
-  max-width: 22.8125rem;
   margin-bottom: 2rem;
+
+  @media (min-width: 940px) {
+    max-width: 22.8125rem;
+  }
 }
 
 .contents {
