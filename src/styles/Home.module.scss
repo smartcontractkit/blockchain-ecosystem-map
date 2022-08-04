@@ -3,14 +3,16 @@
 .container {
   max-width: 1276px;
   margin: 6.8125rem auto 0;
-  padding-inline: 1.5rem;
   color: $opacity-12;
 }
 
 .wrapper {
   display: flex;
   flex-flow: row wrap;
+  justify-content: center;
   gap: 2rem;
+  padding-inline: 1.5rem;
+  overflow-x: hidden;
 
    @media (min-width: 940px) {
     flex-flow: row nowrap;

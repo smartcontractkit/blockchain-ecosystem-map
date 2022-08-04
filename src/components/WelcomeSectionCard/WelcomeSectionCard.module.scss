@@ -12,10 +12,11 @@ $card_height: 14rem;
 .wrapper {
   width: 100%;
   min-width: 224px;
-  max-width: 224px;
+  max-width: 250px;
   flex: 1;
   margin-bottom: 1rem;
   position: relative;
+  margin-inline: auto;
 
   .info {
     justify-content: space-between;
@@ -61,7 +62,7 @@ $card_height: 14rem;
     .overlay {
       opacity: 0;
       position: absolute;
-      height: $card_height;
+      top: 2.3rem;
       left: 0;
       bottom: 0;
       right: 0;
@@ -83,17 +84,12 @@ $card_height: 14rem;
       border-radius: 0.75rem;
       transition: all 0.2s ease-in-out;
   }
-  
-    &:hover {
-      .overlay {
-        opacity: 1;
-      }
-    }
 
-    display: grid;
+    display: inline-grid;
     grid-template-columns: repeat(4, 2rem);
     gap: 1rem;
     grid-auto-rows: 2rem;
+    justify-content: center;
 
     .card_item {
       height: 2rem;
@@ -102,7 +98,6 @@ $card_height: 14rem;
       img {
         width: 100%;
         height: 100%;
-        // object-fit: contain;
       }
       border-radius: 0.5rem;
     }
@@ -120,6 +115,18 @@ $card_height: 14rem;
     .count {
       color: $black;
     }
+
+    .overlay {
+      opacity: 1;
+    }
+  }
+
+  @media (min-width: 820px) {
+    margin-inline: 0;
+  }
+
+  @media (min-width: 1200px) {
+    max-width: 224px;
   }
 }
 

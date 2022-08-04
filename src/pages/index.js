@@ -4,6 +4,7 @@ import styles from '@/styles/Home.module.scss';
 
 import chapters from '@/data/chapters';
 import WelcomeSectionCard from '@/components/WelcomeSectionCard';
+import { countItems, getItems } from '@/helpers/getCardData';
 
 export default function Home() {
   const { get_started, development_cycle, share } = chapters;
@@ -23,12 +24,6 @@ export default function Home() {
     },
   ];
 
-  const getCardDatas = (data) => {
-    const cardData = data.map((res) => res.items).flat();
-    return cardData;
-  };
-  const countCardData = (data) => getCardDatas(data).length;
-
   return (
     <div className={styles.container}>
       <div className={styles.wrapper}>
@@ -39,7 +34,7 @@ export default function Home() {
           {sections.map(({ tag, content }, index) => (
             <WelcomeSection key={index + tag} tag={tag}>
               {content.map(({ id, title, data, Icon }) => (
-                <WelcomeSectionCard key={id} title={title} totalItem={countCardData(data)} items={getCardDatas(data)}>
+                <WelcomeSectionCard key={id} title={title} totalItem={countItems(data)} items={getItems(data)}>
                   <Icon />
                 </WelcomeSectionCard>
               ))}
