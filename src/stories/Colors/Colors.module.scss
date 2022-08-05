@@ -8,13 +8,14 @@
 
 .heading {
   color: $white;
-  margin-top: 2rem;
+  margin-top: 4rem;
 }
 
 .box {
   border-radius: 6px;
   height: 100px;
   box-shadow: 0 0 10px rgba(0,0,0,0.3);
+  backdrop-filter: blur(4px);
   &~small{
     display: block;
     color: white;
@@ -23,37 +24,160 @@
 }
 
   .brand {
+      &__950 {
+        background: $brand-950;
+      }
+      &__920 {
+        background: $brand-920;
+      }
       &__900 {
-        background-color: $brand-900;
+        background: $brand-900;
       }
       &__800{
-        background-color: $brand-800;
+        background: $brand-800;
+      }
+      &__620{
+        background: $brand-620;
+      }
+      &__650{
+        background: $brand-650;
       }
       &__600{
-        background-color: $brand-600;
+        background: $brand-600;
+      }
+      &__500{
+        background: $brand-500;
       }
       &__200{
-        background-color: $brand-200;
+        background: $brand-200;
       }
       &__100{
-        background-color: $brand-100;
+        background: $brand-100;
       }
       &__50{
-        background-color: $brand-50;
+        background: $brand-50;
       }
     }
 
     .neutral {
+      &__950 {
+        background: $neutral-950;
+      }
+      &__940 {
+        background: $neutral-940;
+      }
       &__900 {
-        background-color: $neutral-900;
+        background: $neutral-900;
       }
       &__800{
-        background-color: $neutral-800;
+        background: $neutral-800;
+      }
+      &__750 {
+        background: $neutral-750;
+      }
+      &__720 {
+        background: $neutral-720;
       }
       &__700{
-        background-color: $neutral-700;
+        background: $neutral-700;
+      }
+      &__600{
+        background: $neutral-600;
+      }
+      &__500{
+        background: $neutral-500;
+      }
+      &__400{
+        background: $neutral-400;
+      }
+      &__300{
+        background: $neutral-300;
+      }
+      &__200{
+        background: $neutral-200;
       }
       &__100{
-        background-color: $neutral-100;
+        background: $neutral-100;
+      }
+    }
+
+    .opacity {
+      &__04 {
+        background: $opacity-04;
+      }
+      &__08 {
+        background: $opacity-08;
+      }
+      &__12 {
+        background: $opacity-12;
+      }
+      &__40B {
+        background: $opacity-40B;
+      }
+      &__40BG {
+        background: $opacity-40BG;
+      }
+    }
+
+    .overlay {
+      &__08 {
+        background: $overlay-08;
+      }
+    }
+
+    .brown {
+      &__900 {
+        background: $brown-900;
+      }
+      &__800 {
+        background: $brown-800;
+      }
+    }
+
+    .accent {
+      &__500 {
+        background: $accent-500;
+      }
+      &__200 {
+        background: $accent-200;
+      }
+    }
+
+    .pink {
+      background: $pink;
+    }
+
+    .beige {
+      background: $beige;
+    }
+
+    .error {
+      background: $error;
+    }
+    .warning {
+      background: $warning;
+    }
+    .success {
+      background: $success;
+    }
+
+    .hint {
+      &__light {
+        background: $hint-light;
+      }
+      &__dark {
+        background: $hint-dark;
+      }
+    }
+
+    .gradient {
+      &.dark-blue {
+        background: $dark-blue-gradient;
+      }
+      &.light-blue {
+        background: $light-blue-gradient;
+      }
+      &.dark-brown {
+        background: $dark-brown-gradient;
       }
     }
