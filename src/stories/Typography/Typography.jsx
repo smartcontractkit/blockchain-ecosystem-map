@@ -2,10 +2,16 @@ import React from 'react';
 
 export default function Typography() {
   return (
-    <div>
+    <div style={{ color: 'white' }}>
       <h2>Headings</h2>
       <div>
-        <span className="heading heading__600">h600</span>
+        <span className="heading heading__700">h700</span>
+        &nbsp; &nbsp;
+        <small>.heading .heading__700</small>
+      </div>
+      <br />
+      <div>
+        <span className="heading heading__700">h600</span>
         &nbsp; &nbsp;
         <small>.heading .heading__600</small>
       </div>
