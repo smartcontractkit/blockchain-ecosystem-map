@@ -1,7 +1,6 @@
 import React from 'react';
 import styles from './WelcomeSectionCard.module.scss';
 import PropTypes from 'prop-types';
-import Link from 'next/link';
 import NewTabIcon from '@/icons/new-tab.svg';
 
 export default function WelcomeSectionCard({ title, totalItem, items, children }) {
@@ -17,13 +16,11 @@ export default function WelcomeSectionCard({ title, totalItem, items, children }
         <div className={styles.count}>{totalItem}</div>
       </div>
       <div className={styles.card}>
-        <Link href={`/map#${linkText}`} passHref>
-          <a className={styles.overlay}>
-            <span className={styles.link}>
-              <NewTabIcon />
-            </span>
-          </a>
-        </Link>
+        <a href={`/map#${linkText}`} className={styles.overlay}>
+          <span className={styles.link}>
+            <NewTabIcon />
+          </span>
+        </a>
         {items.map(({ url, logo, title }) => (
           <div key={url + title} className={styles.card_item}>
             <img src={logo} alt={title + 'logo'} />

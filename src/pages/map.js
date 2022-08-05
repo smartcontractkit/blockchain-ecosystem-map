@@ -1,5 +1,4 @@
 import React, { Fragment, useEffect, useState } from 'react';
-import { useRouter } from 'next/router';
 import Blockchains from '@/components/Blockchains';
 import Chapter from '@/components/Chapter';
 import Section from '@/components/Section';
@@ -19,7 +18,6 @@ const Intro = dynamic(() => import('@/components/Intro'), {
 });
 
 export default function Map() {
-  const router = useRouter();
   const [isExpanded, setIsExpanded] = useState([]);
   const [allSubsections, setAllSubsections] = useState([]);
   const [introSteps, setIntroSteps] = useState(steps);
@@ -93,12 +91,6 @@ export default function Map() {
 
   useEffect(() => {
     const DEFAULT_ACCORDION_ID = getAllSubSections();
-    let mounted = true;
-    let { asPath } = router;
-
-    if (!mounted) {
-      router.replace(asPath || '/');
-    }
 
     let openedChapters = JSON.parse(localStorage.getItem('opened'));
     openedChapters = openedChapters && openedChapters.length ? openedChapters : [...DEFAULT_ACCORDION_ID];
@@ -122,7 +114,6 @@ export default function Map() {
 
     regulateSteps();
     getAllSubSections();
-    return () => (mounted = false);
   }, []);
 
   return (
