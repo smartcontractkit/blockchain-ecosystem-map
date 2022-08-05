@@ -2,7 +2,7 @@ import Navbar from './Navbar';
 import { StateProvider } from '@/context/StateProvider';
 
 export default {
-  title: 'component/Navbar',
+  title: 'components/Navbar',
   component: Navbar,
 };
 

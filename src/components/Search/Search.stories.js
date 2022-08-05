@@ -1,7 +1,7 @@
 import Search from './Search';
 
 export default {
-  title: 'Component/Search Box',
+  title: 'components/Search Box',
   component: Search,
 };
 
