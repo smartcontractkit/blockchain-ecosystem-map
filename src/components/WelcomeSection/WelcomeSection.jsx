@@ -3,12 +3,7 @@ import styles from './WelcomeSection.module.scss';
 import clsx from 'clsx';
 import PropTypes from 'prop-types';
 import Subtract from '@/icons/tag-subtract.svg';
-
-const TAGS = {
-  fundamentals: '01',
-  development: '02',
-  share: '03',
-};
+import { TAGS } from './data';
 
 export default function WelcomeSection({ tag, children }) {
   return (

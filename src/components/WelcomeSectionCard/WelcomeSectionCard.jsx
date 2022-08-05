@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import Link from 'next/link';
 import NewTabIcon from '@/icons/new-tab.svg';
 
-export default function WelcomeSectionCard({ title, totalItem, children }) {
+export default function WelcomeSectionCard({ title, totalItem, items, children }) {
   const linkText = title.toLowerCase();
 
   return (
@@ -24,6 +24,11 @@ export default function WelcomeSectionCard({ title, totalItem, children }) {
             </span>
           </a>
         </Link>
+        {items.map(({ url, logo, title }) => (
+          <div key={url + title} className={styles.card_item}>
+            <img src={logo} alt={title + 'logo'} />
+          </div>
+        ))}
       </div>
     </div>
   );
@@ -33,4 +38,9 @@ WelcomeSectionCard.propTypes = {
   title: PropTypes.string.isRequired,
   totalItem: PropTypes.number,
   children: PropTypes.node,
+  items: PropTypes.array,
+};
+
+WelcomeSectionCard.defaultProps = {
+  items: [],
 };
