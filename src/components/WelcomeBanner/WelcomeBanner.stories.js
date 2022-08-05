@@ -1,7 +1,7 @@
 import WelcomeBanner from './WelcomeBanner';
 
 export default {
-  title: 'component/WelcomeBanner',
+  title: 'components/WelcomeBanner',
   component: WelcomeBanner,
 };
 

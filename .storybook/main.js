@@ -37,7 +37,7 @@ module.exports = {
   },
   webpackFinal: async (config) => {
     const rules = config.module.rules;
-    const fileLoaderRule = rules.find((rule) => rule.test.test('.svg'));
+    const fileLoaderRule = rules.find((rule) => rule.test && rule.test.test('.svg'));
     fileLoaderRule.exclude = pathToInlineSvg;
 
     rules.push(
@@ -48,14 +48,7 @@ module.exports = {
       {
         test: /\.svg$/,
         include: pathToInlineSvg,
-        use: [
-          {
-            loader: '@svgr/webpack',
-            options: {
-              icon: true,
-            },
-          },
-        ],
+        use: ['@svgr/webpack'],
       }
     );
     config.resolve.alias = {

@@ -7,7 +7,7 @@ const { get_started } = chapters;
 const [{ title, data, Icon }] = get_started;
 
 export default {
-  title: 'component/ Welcome Section Card',
+  title: 'components/ Welcome Section Card',
   component: WelcomeSectionCard,
   argTypes: {},
 };
