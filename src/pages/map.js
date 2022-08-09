@@ -53,7 +53,7 @@ export default function Map() {
 
     if (action === 'add') {
       /* Adds the first id in the section */
-      newExpandedValues = [...newExpandedValues, payload];
+      newExpandedValues = [...newExpandedValues, ...payload];
     } else {
       /* Removes every id tied to that section when closed */
       newExpandedValues = newExpandedValues.filter((arr) => {
