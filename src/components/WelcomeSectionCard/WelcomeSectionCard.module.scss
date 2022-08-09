@@ -75,10 +75,17 @@ $card_height: 14rem;
         width: 3rem;
         height: 3rem;
         border-radius: 50%;
-  
+        color: $brand-600;
+
         svg {
-          color: $brand-600;
+          transition: all 0.1s ease-in-out;
         }
+
+        &:hover {
+          background: $light-blue-gradient;
+          color: $white;
+        }
+        transition: all 0.2s ease-in-out;
       }
   
       border-radius: 0.75rem;
