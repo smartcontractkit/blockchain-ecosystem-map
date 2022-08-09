@@ -119,7 +119,8 @@ $card_height: 14rem;
     }
 
     .count {
-      color: $black;
+      background: $white;
+      color: $neutral-800;
     }
 
     .overlay {
@@ -134,5 +135,7 @@ $card_height: 14rem;
   @media (min-width: 1200px) {
     max-width: 224px;
   }
+
+  transition: all 0.2s ease-in-out;
 }
 
