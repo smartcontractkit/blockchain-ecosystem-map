@@ -33,12 +33,16 @@
   flex-direction: row;
   flex-wrap: nowrap;
   margin-bottom: 1rem;
+
+  svg {
+    transition: all 0.1s ease-in-out;
+  }
   
   &:hover {
     background: $light-blue-gradient;
     color: $white;
   }
-  transition: all 0.2s ease-out;
+  transition: all 0.2s ease-in-out;
 }
 
 .overview {
