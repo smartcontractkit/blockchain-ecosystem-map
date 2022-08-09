@@ -22,15 +22,27 @@
 }
 
 .get_started {
-  @extend .text__short--md;
+  @extend.text__short--md;
   background: $white;
   border-radius: 0.75rem;
   color: $brand-800;
   padding: 1.25rem 1.5rem;
-  max-width:  141px;
-  justify-content: center;
+  max-width:  163px;
+  justify-content: space-between;
   align-items: center;
+  flex-direction: row;
+  flex-wrap: nowrap;
   margin-bottom: 1rem;
+
+  svg {
+    transition: all 0.1s ease-in-out;
+  }
+  
+  &:hover {
+    background: $light-blue-gradient;
+    color: $white;
+  }
+  transition: all 0.2s ease-in-out;
 }
 
 .overview {
