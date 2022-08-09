@@ -28,7 +28,7 @@ $card_height: 14rem;
       .icon {
         margin-right: 0.875rem;
         svg {
-          color: $opacity-08;
+          color: $opacity-40;
           transition: all 0.2s ease-in-out;
         }
       }
@@ -68,17 +68,23 @@ $card_height: 14rem;
       right: 0;
       background: $overlay-08;
       border: 1px solid $white;
-      backdrop-filter: blur(4px);
   
       & > .link {
         background: $white;
         width: 3rem;
         height: 3rem;
         border-radius: 50%;
-  
+        color: $brand-600;
+
         svg {
-          color: $brand-600;
+          transition: all 0.1s ease-in-out;
         }
+
+        &:hover {
+          background: $light-blue-gradient;
+          color: $white;
+        }
+        transition: all 0.2s ease-in-out;
       }
   
       border-radius: 0.75rem;
@@ -113,7 +119,8 @@ $card_height: 14rem;
     }
 
     .count {
-      color: $black;
+      background: $white;
+      color: $neutral-800;
     }
 
     .overlay {
@@ -128,5 +135,7 @@ $card_height: 14rem;
   @media (min-width: 1200px) {
     max-width: 224px;
   }
+
+  transition: all 0.2s ease-in-out;
 }
 

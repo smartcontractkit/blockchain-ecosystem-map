@@ -20,7 +20,7 @@ function Section({ title, id, children, Icon, expandToggle, expandedIds }) {
       expandToggle(childrenIds, 'clear');
       setIsOpen(false);
     } else {
-      expandToggle(childrenIds[0], 'add');
+      expandToggle(childrenIds, 'add');
       setIsOpen(true);
     }
   };
