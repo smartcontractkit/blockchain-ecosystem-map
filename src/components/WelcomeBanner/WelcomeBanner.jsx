@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import React from 'react';
-
+import Arrow from '@/icons/arrow-forward.svg';
 import styles from './WelcomeBanner.module.scss';
 
 export default function WelcomeBanner() {
@@ -13,7 +13,10 @@ export default function WelcomeBanner() {
 
       <div className={styles.content}>
         <Link href="/map" passHref>
-          <a className={styles.get_started}>Get started</a>
+          <a className={styles.get_started}>
+            Get started
+            <Arrow />
+          </a>
         </Link>
         <div className={styles.overview}>
           Explore the ecosystem map to get familiar with the landscape of <strong>hundreds of tools.</strong>
