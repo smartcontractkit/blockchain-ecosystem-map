@@ -6,7 +6,7 @@ import styles from './WelcomeBanner.module.scss';
 export default function WelcomeBanner() {
   return (
     <div className={styles.container}>
-      <div>
+      <div className={styles.heading_container}>
         <span className={styles.label}>smart contracts ecosystem</span>
         <h1 className={styles.heading}>Everything you need to start developing blockchain apps</h1>
       </div>
