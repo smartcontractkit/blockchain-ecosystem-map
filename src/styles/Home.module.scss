@@ -6,7 +6,6 @@
   color: $opacity-12;
 
   &:after {
-    content: "";
     background: radial-gradient(31.63% 31.63% at 42.81% 48.91%, rgba(208, 21, 239, 0.7) 0%, rgba(166, 43, 154, 0) 100%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */;
     opacity: 0.1;
     transform: rotate(151.27deg);
@@ -18,7 +17,6 @@
     z-index: -1;
   }
   &:before {
-    content: "";
     background: radial-gradient(31.63% 31.63% at 42.81% 48.91%, rgba(21, 112, 239, 0.7) 0%, rgba(46, 43, 166, 0) 100%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */;
     opacity: 0.3;
     transform: rotate(151.27deg);
@@ -33,24 +31,16 @@
 
 .wrapper {
   display: flex;
-  flex-flow: row wrap;
+  flex-direction: column;
   justify-content: center;
   gap: 2rem;
   padding-inline: 1.5rem;
   overflow-x: hidden;
-
-   @media (min-width: 940px) {
-    flex-flow: row nowrap;
-  }
 }
 
 .banner {
   width: 100%;
-  margin-bottom: 2rem;
-
-  @media (min-width: 940px) {
-    max-width: 22.8125rem;
-  }
+  margin-bottom: 7.5rem;
 }
 
 .contents {

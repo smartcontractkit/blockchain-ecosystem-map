@@ -6,12 +6,25 @@
   display: flex;
   flex-direction: column;
 }
+.container {
+  width: 100%;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  align-items: center;
+}
 
+.heading_container {
+  width: 100%;
+  
+  @media (min-width: 1280px) {
+    max-width: 27.25rem;
+  }
+}
 .heading {
-  @extend  .heading__700;
-  font-weight: 700;
+  @extend  .heading__600;
+  font-weight: 600;
   color: $white;
-  margin: 1rem 0 4.5rem;
+  margin: 1rem 0 3rem;
 }
 
 .label {
@@ -26,7 +39,7 @@
   background: $white;
   border-radius: 0.75rem;
   color: $brand-800;
-  padding: 1.25rem 1.5rem;
+  padding: 1rem 1.5rem;
   max-width:  163px;
   justify-content: space-between;
   align-items: center;
@@ -54,6 +67,6 @@
 
 @media (min-width: 1280px) {
   .overview {
-    width: 15.25rem;
+    width: 25.25rem;
   }
 }
