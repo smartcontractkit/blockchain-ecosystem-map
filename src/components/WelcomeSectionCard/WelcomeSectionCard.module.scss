@@ -12,11 +12,9 @@ $card_height: 14rem;
 .wrapper {
   width: 100%;
   min-width: 224px;
-  max-width: 250px;
   flex: 1;
   margin-bottom: 1rem;
   position: relative;
-  margin-inline: auto;
 
   .info {
     justify-content: space-between;
@@ -128,12 +126,68 @@ $card_height: 14rem;
     }
   }
 
+  &::after {
+    content: url(/images/double-arrow.svg);
+    position: absolute;
+    transform: rotate(90deg);
+    bottom: -2.5rem;
+    left: 45%;
+    @media (min-width: 768px) {
+      right: -1.6rem;
+      top: 53%;
+      bottom: unset;
+      left: unset;
+      transform: rotate(0deg);
+    }
+}
+
   @media (min-width: 820px) {
-    margin-inline: 0;
+    max-width: 224px;
+  }
+  @media (min-width: 900px) {
+    max-width: 270px;
   }
 
   @media (min-width: 1200px) {
     max-width: 224px;
+  }
+
+  &:last-child {
+      &::after {
+        display: none;
+      }
+  }
+
+  @media (min-width: 768px) {
+    &:nth-child(even) {
+      &::after {
+        display: none;
+      }
+    }
+  }
+  @media (min-width: 800px) {
+    &:nth-child(even) {
+      &::after {
+        display: block;
+      }
+    }
+    &:nth-child(3n+3), &:last-child {
+      &::after {
+        display: none;
+      }
+    }
+  }
+  @media (min-width: 1276px) {
+    &:nth-child(3n+3), &:last-child {
+      &::after {
+        display: block;
+      }
+    }
+    &:nth-child(5n+5) {
+      &::after {
+        display: none;
+      }
+    }
   }
 
   transition: all 0.2s ease-in-out;
