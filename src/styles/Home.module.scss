@@ -5,26 +5,16 @@
   margin: 6.8125rem auto 0;
   color: $opacity-12;
 
-  &:after {
-    background: radial-gradient(31.63% 31.63% at 42.81% 48.91%, rgba(208, 21, 239, 0.7) 0%, rgba(166, 43, 154, 0) 100%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */;
-    opacity: 0.1;
-    transform: rotate(151.27deg);
-    width: 871.9px;
-    height: 975.2px;
-    position: absolute;
-    left: -60%;
-    top: 0%;
-    z-index: -1;
-  }
   &:before {
+    content: "";
     background: radial-gradient(31.63% 31.63% at 42.81% 48.91%, rgba(21, 112, 239, 0.7) 0%, rgba(46, 43, 166, 0) 100%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */;
-    opacity: 0.3;
+    opacity: 0.5;
     transform: rotate(151.27deg);
-    width: 1628.73px;
-    height: 1821.69px;
-    position: absolute;
-    left: -60%;
-    top: 10%;
+    width: 1442.68px;
+    height: 1613.6px;
+    position: fixed;
+    right: -25rem;
+    top: -50rem;
     z-index: -1;
   }
 }
