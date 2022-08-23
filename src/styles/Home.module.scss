@@ -36,6 +36,10 @@
   gap: 2rem;
   padding-inline: 1.5rem;
   overflow-x: hidden;
+
+  @media (min-width: 1280px) {
+    padding-inline: 0.8rem;
+  }
 }
 
 .banner {
