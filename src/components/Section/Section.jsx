@@ -7,11 +7,11 @@ import { useStateValue } from '@/context/StateProvider';
 import useToggleVisibility from '@/helpers/useToggleVisibility';
 import clsx from 'clsx';
 
-function Section({ title, id, children, Icon, expandToggle, expandedIds }) {
+function Section({ title, id, children, Icon, expandToggle, expandedIds, bodyHeight }) {
   const [isOpen, setIsOpen] = useState(false);
   const ref = useRef();
   const [{ visible }] = useStateValue();
-  useToggleVisibility(ref);
+  useToggleVisibility(ref, bodyHeight);
 
   const childrenIds = children.map((child) => child.props.id);
 
@@ -38,7 +38,7 @@ function Section({ title, id, children, Icon, expandToggle, expandedIds }) {
     } else {
       setIsOpen(false);
     }
-  }, [expandedIds]);
+  }, [expandedIds, bodyHeight]);
 
   return (
     <div className={styles.container} role="region" onClick={toggle} id={`${id}-section`}>
@@ -75,6 +75,7 @@ Section.propTypes = {
   Icon: PropTypes.elementType.isRequired,
   expandToggle: PropTypes.func.isRequired,
   expandedIds: PropTypes.array,
+  bodyHeight: PropTypes.number,
 };
 
 export default Section;

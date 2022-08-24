@@ -21,8 +21,8 @@ export default function WelcomeSectionCard({ title, totalItem, items, children }
             <NewTabIcon />
           </span>
         </a>
-        {items.map(({ url, logo, title }) => (
-          <div key={url + title} className={styles.card_item}>
+        {items.map(({ url, logo, title }, index) => (
+          <div key={url + title + index} className={styles.card_item}>
             <img src={logo} alt={title + 'logo'} />
           </div>
         ))}

@@ -7,7 +7,7 @@ import useScrollDirection from '@/helpers/useScrollDirection';
 
 export default function NavbarItemList({ id, navbar, navWidth, children }) {
   const ref = useRef();
-  const isVisible = useIntersection(ref, navbar);
+  const isVisible = useIntersection(ref, navbar, null);
   const [{ visible, activeSection, linkClicked }, dispatch] = useStateValue();
   const { scrolledUp } = useScrollDirection();
 

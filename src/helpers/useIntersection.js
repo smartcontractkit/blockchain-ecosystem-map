@@ -1,11 +1,11 @@
 import { useState, useEffect } from 'react';
 
-const useIntersection = (element, root = null) => {
+const useIntersection = (element, root = null, margin) => {
   const [isVisible, setState] = useState(false);
 
   useEffect(() => {
     const section = element.current;
-    const navHeight = !root ? '-100px' : '-30px';
+    const rootMargin = !root ? margin : '-30px';
     const rootElement = root?.current;
 
     const observer = new IntersectionObserver(
@@ -14,7 +14,7 @@ const useIntersection = (element, root = null) => {
       },
       {
         root: rootElement,
-        rootMargin: navHeight,
+        rootMargin,
       }
     );
 

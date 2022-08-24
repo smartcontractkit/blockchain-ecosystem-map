@@ -3,9 +3,11 @@ import useIntersection from '@/helpers/useIntersection';
 import { useStateValue } from '@/context/StateProvider';
 import { SET_NOT_VISIBLE, SET_VISIBLE } from '@/context/types';
 
-export default function useToggleVisibility(ref) {
+export default function useToggleVisibility(ref, bodyHeight) {
   const [{ visible }, dispatch] = useStateValue();
-  const isVisible = useIntersection(ref);
+  const LEAST_EXPECTED_HEIGHT = 200;
+  const margin = bodyHeight >= LEAST_EXPECTED_HEIGHT ? '-100px' : '-20px';
+  const isVisible = useIntersection(ref, null, margin);
 
   useEffect(() => {
     const id = ref.current.id;
