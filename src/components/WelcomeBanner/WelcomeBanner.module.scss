@@ -15,7 +15,9 @@
 
 .content {
   flex: 1;
-  margin-left: 2rem;
+  @media (min-width: 760px) {
+    margin-left: 2rem;
+  }
 
   @media (min-width: 1024px) {
     flex: 0 40%;
@@ -28,7 +30,7 @@
 .heading_container {
   width: 100%;
   
-  @media (min-width: 768px) {
+  @media (min-width: 760px) {
     max-width: 27.25rem;
   }
 }
