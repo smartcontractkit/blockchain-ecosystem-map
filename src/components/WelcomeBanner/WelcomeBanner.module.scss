@@ -13,10 +13,14 @@
   align-items: center;
 }
 
+.content {
+  flex: 1;
+}
+
 .heading_container {
   width: 100%;
   
-  @media (min-width: 1276px) {
+  @media (min-width: 768px) {
     max-width: 27.25rem;
   }
 }
