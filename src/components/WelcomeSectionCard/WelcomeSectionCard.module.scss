@@ -148,16 +148,25 @@ $card_height: 14rem;
   @media (min-width: 820px) {
     max-width: 250px;
   }
+
   @media (min-width: 900px) {
     max-width: 270px;
+  }
+
+  @media (min-width: 1020px) {
+    max-width: 300px;
   }
 
   @media (min-width: 1040px) {
     max-width: 224px;
   }
 
+  @media (min-width: 1080px) {
+    max-width: 250px;
+  }
+
   @media (min-width: 1200px) {
-    max-width: 224px;
+    max-width: 270px;
   }
 
   &:last-child {
