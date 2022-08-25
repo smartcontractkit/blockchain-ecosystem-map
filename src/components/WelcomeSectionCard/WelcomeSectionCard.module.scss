@@ -38,7 +38,11 @@ $card_height: 14rem;
       padding: 0.125rem 0.5rem;
       transform: translateY(-0.2rem);
       transition: all 0.2s ease-in-out;
-   } 
+   }
+
+   .title, .count {
+    cursor: pointer;
+   }
     margin-bottom: 0.75rem;
   }
   
