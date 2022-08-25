@@ -7,27 +7,29 @@ export default function WelcomeSectionCard({ title, totalItem, items, children }
   const linkText = title.toLowerCase();
 
   return (
-    <div className={styles.wrapper}>
-      <div className={styles.info}>
-        <div className={styles.title}>
-          <span className={styles.icon}>{children}</span>
-          {title}
-        </div>
-        <div className={styles.count}>{totalItem}</div>
-      </div>
-      <div className={styles.card}>
-        <a href={`/map#${linkText}`} className={styles.overlay}>
-          <span className={styles.link}>
-            <NewTabIcon />
-          </span>
-        </a>
-        {items.map(({ url, logo, title }) => (
-          <div key={url + title} className={styles.card_item}>
-            <img src={logo} alt={title + 'logo'} />
+    <a href={`/map#${linkText}`}>
+      <div className={styles.wrapper}>
+        <div className={styles.info}>
+          <div className={styles.title}>
+            <span className={styles.icon}>{children}</span>
+            {title}
           </div>
-        ))}
+          <div className={styles.count}>{totalItem}</div>
+        </div>
+        <div className={styles.card}>
+          <div className={styles.overlay}>
+            <span className={styles.link}>
+              <NewTabIcon />
+            </span>
+          </div>
+          {items.map(({ url, logo, title }) => (
+            <div key={url + title} className={styles.card_item}>
+              <img src={logo} alt={title + 'logo'} />
+            </div>
+          ))}
+        </div>
       </div>
-    </div>
+    </a>
   );
 }
 
