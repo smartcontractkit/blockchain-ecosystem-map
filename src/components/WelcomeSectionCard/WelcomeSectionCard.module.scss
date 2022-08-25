@@ -131,7 +131,7 @@ $card_height: 14rem;
     position: absolute;
     transform: rotate(90deg);
     bottom: -2.5rem;
-    left: 45%;
+    left: 47%;
     @media (min-width: 768px) {
       right: -1.6rem;
       top: 53%;
@@ -142,10 +142,14 @@ $card_height: 14rem;
 }
 
   @media (min-width: 820px) {
-    max-width: 224px;
+    max-width: 250px;
   }
   @media (min-width: 900px) {
     max-width: 270px;
+  }
+
+  @media (min-width: 1040px) {
+    max-width: 224px;
   }
 
   @media (min-width: 1200px) {
@@ -158,27 +162,25 @@ $card_height: 14rem;
       }
   }
 
-  @media (min-width: 768px) {
-    &:nth-child(even) {
-      &::after {
-        display: none;
-      }
+  @media (min-width: 540px) {
+    &::after {
+      display: none;
     }
   }
-  @media (min-width: 800px) {
-    &:nth-child(even) {
-      &::after {
-        display: block;
-      }
+  @media (min-width: 1040px) {
+    &::after {
+      display: block;
     }
-    &:nth-child(3n+3), &:last-child {
+
+    &:nth-child(4n+4){
       &::after {
         display: none;
       }
     }
   }
   @media (min-width: 1276px) {
-    &:nth-child(3n+3), &:last-child {
+
+    &:nth-child(3n+3), &:nth-child(4n+4), &:last-child {
       &::after {
         display: block;
       }
