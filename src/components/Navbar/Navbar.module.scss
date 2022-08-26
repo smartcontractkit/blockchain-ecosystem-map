@@ -1,5 +1,6 @@
 @import "@/styles/_typography.scss";
 @import "@/styles/colors.scss";
+@import '@/styles/_breakPoints.scss';
 
 .container {
    background: $neutral-950;
@@ -66,7 +67,7 @@
   }
 
 
-  @media (min-width: 1280px) {
+  @media (min-width: $xl) {
     max-width: 1276px;
     justify-content: center;
     overflow-x: hidden;
@@ -81,15 +82,15 @@
   display: none;
   width: 30px;
 
-  @media (min-width: 768px) {
+  @media (min-width: $tablet) {
     display: block;
   }
   
-  @media (min-width: 1276px) {
+  @media (min-width: $xl) {
     display: none;
   }
   
-  @media (min-width: 1380px) {
+  @media (min-width: $xxl) {
     display: block;
   }
 }

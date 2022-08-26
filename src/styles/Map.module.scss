@@ -1,7 +1,8 @@
 @import './colors';
+@import '@/styles/_breakPoints.scss';
 
 .container {
-  max-width: 1276px;
+  max-width: $xl;
   margin: 2rem auto 20rem;
   padding-inline: 1rem;
 
@@ -41,7 +42,7 @@
     justify-content: center;
     gap: 0.5rem;
 
-    @media (min-width: 1024px) {
+    @media (min-width: $laptop) {
       justify-content: start;
     }
 

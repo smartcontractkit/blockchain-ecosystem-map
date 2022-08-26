@@ -1,6 +1,6 @@
 @import '@/styles/_colors.scss';
 @import '@/styles/_typography.scss';
-
+@import '@/styles/_breakPoints.scss';
 
 .container, .content, .get_started{
   display: flex;
@@ -15,14 +15,14 @@
 
 .content {
   flex: 1;
-  @media (min-width: 760px) {
+  @media (min-width: $tablet) {
     margin-left: 2rem;
   }
 
-  @media (min-width: 1024px) {
+  @media (min-width: $laptop) {
     flex: 0 40%;
   }
-  @media (min-width: 1276px) {
+  @media (min-width: $xl) {
     flex: 0;
   }
 }
@@ -30,7 +30,7 @@
 .heading_container {
   width: 100%;
   
-  @media (min-width: 760px) {
+  @media (min-width: $tablet) {
     max-width: 27.25rem;
   }
 }
@@ -40,7 +40,7 @@
   color: $white;
   margin: 1rem 0 3rem;
 
-  @media (min-width: 768px) {
+  @media (min-width: $tablet) {
     margin: 1rem 0 1.5rem;
   }
 }
@@ -83,7 +83,7 @@
   font-weight: 400;
 }
 
-@media (min-width: 1280px) {
+@media (min-width: $xl) {
   .overview {
     width: 25.25rem;
   }
