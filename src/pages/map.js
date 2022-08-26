@@ -22,7 +22,6 @@ export default function Map() {
   const [allSubsections, setAllSubsections] = useState([]);
   const [introSteps, setIntroSteps] = useState(steps);
   const [tooltip, setToolTip] = useState(null);
-  const [pageLoading, setPageLoading] = useState(true);
   const [bodyHeight, setBodyHeight] = useState(0);
 
   const chaptersKeys = Object.keys(chapters);
@@ -116,7 +115,6 @@ export default function Map() {
 
     const handleResize = () => {
       const height = 'innerHeight' in window ? window.innerHeight : document.documentElement.offsetHeight;
-      setPageLoading(false);
       setBodyHeight(height);
     };
 
@@ -204,7 +202,6 @@ export default function Map() {
           <ExpandCollapseAllButton expanded={getAllExpanded()} toggleExpanded={toggleExpandAll} />
         </div>
       </main>
-      {pageLoading && <div className={styles.loading_page}>Loading...</div>}
     </React.Fragment>
   );
 }
