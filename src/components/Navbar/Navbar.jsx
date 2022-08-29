@@ -30,14 +30,14 @@ function Navbar() {
     };
     const handleNavWidth = () => setNavWidth(ref.current.offsetWidth);
 
-    handleNavWidth();
-
     window.addEventListener('scroll', handleScroll);
     window.addEventListener('resize', handleNavWidth, true);
+    window.addEventListener('load', handleNavWidth, true);
 
     return () => {
       window.removeEventListener('scroll', handleScroll);
       window.removeEventListener('resize', handleNavWidth, true);
+      window.removeEventListener('load', handleNavWidth, true);
     };
   }, []);
 
