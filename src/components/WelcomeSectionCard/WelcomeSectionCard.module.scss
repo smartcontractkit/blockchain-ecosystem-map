@@ -1,5 +1,6 @@
 @import '@/styles/_colors.scss';
 @import '@/styles/_typography.scss';
+@import '@/styles/_breakpoints.scss';
 
 $card_height: 14rem;
 
@@ -135,8 +136,8 @@ $card_height: 14rem;
     position: absolute;
     transform: rotate(90deg);
     bottom: -2.5rem;
-    left: 45%;
-    @media (min-width: 768px) {
+    left: 47%;
+    @media (min-width: $tablet) {
       right: -1.6rem;
       top: 53%;
       bottom: unset;
@@ -145,15 +146,20 @@ $card_height: 14rem;
     }
 }
 
-  @media (min-width: 820px) {
-    max-width: 224px;
+  @media (min-width: $tablet) {
+    max-width: 250px;
   }
-  @media (min-width: 900px) {
+
+  @media (min-width: $laptop) {
     max-width: 270px;
   }
 
-  @media (min-width: 1200px) {
-    max-width: 224px;
+  @media (min-width: $laptop) and (max-width: $desktop) {
+    max-width: 250px;
+  }
+
+  @media (min-width: $desktop) {
+    max-width: 270px;
   }
 
   &:last-child {
@@ -162,27 +168,38 @@ $card_height: 14rem;
       }
   }
 
-  @media (min-width: 768px) {
-    &:nth-child(even) {
+  
+  @media (min-width: $mobile-lg){
+    &::after {
+      display: none;
+    }
+  }
+
+  @media (max-width: $laptop) {
+    &::after {
+      display: none;
+    }
+  }
+ 
+  @media (min-width: $laptop) and (max-width: $xl) {
+    &::after {
+      display: block;
+    }
+
+    &:nth-child(4n+4){
       &::after {
         display: none;
       }
     }
   }
-  @media (min-width: 800px) {
-    &:nth-child(even) {
-      &::after {
-        display: block;
-      }
+
+  @media (min-width: $xl) {
+
+    &::after {
+      display: block;
     }
-    &:nth-child(3n+3), &:last-child {
-      &::after {
-        display: none;
-      }
-    }
-  }
-  @media (min-width: 1276px) {
-    &:nth-child(3n+3), &:last-child {
+
+    &:nth-child(3n+3), &:nth-child(4n+4), &:last-child {
       &::after {
         display: block;
       }
@@ -191,6 +208,12 @@ $card_height: 14rem;
       &::after {
         display: none;
       }
+    }
+  }
+
+  @media (max-width: $mobile-lg){
+    &::after {
+      display: block;
     }
   }
 

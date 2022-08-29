@@ -1,5 +1,6 @@
 @import '@/styles/colors.scss';
 @import '@/styles/typography.scss';
+@import '@/styles/_breakpoints.scss';
 
 .container {
   margin: auto;
@@ -22,7 +23,7 @@
     }
   }
 
-  @media (min-width: 1024px) {
+  @media (min-width: $laptop) {
     padding: 4rem 0;
 
     .contents * {

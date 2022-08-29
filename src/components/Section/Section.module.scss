@@ -1,5 +1,6 @@
 @import '@/styles/_colors.scss';
 @import "@/styles/_typography.scss";
+@import '@/styles/_breakpoints.scss';
 
 .container {
   border: 1px solid $opacity-08;
@@ -64,7 +65,7 @@
   display: none;
 }
 
-@media (min-width: 1024px) {  
+@media (min-width: $laptop) {  
   .timelineIcon {
     display: block;
   }

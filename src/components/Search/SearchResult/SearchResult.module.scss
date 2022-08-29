@@ -1,5 +1,6 @@
 @import "@/styles/_colors.scss";
 @import "@/styles/_typography.scss";
+@import '@/styles/_breakpoints.scss';
 
 .results {
   position: absolute;
@@ -10,7 +11,7 @@
   
   padding-inline: 0.5rem;
 
-  @media (min-width: 1276px) {
+  @media (min-width: $xl) {
     right: 50%;
     border: 0.125rem solid #EBF3FF;
   }

@@ -1,4 +1,5 @@
 @import '@/styles/colors.scss';
+@import '@/styles/_breakpoints.scss';
 
 .navItem {
   border: 1px solid $opacity-40B;
@@ -30,7 +31,7 @@
   }
 
 
-  @media (min-width: 1276px) {
+  @media (min-width: $xl) {
     & > svg {
       margin-right: 0.874375rem;
     }
