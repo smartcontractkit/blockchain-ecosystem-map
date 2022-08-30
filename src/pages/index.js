@@ -13,6 +13,9 @@ export default function Home() {
   return (
     <div className={styles.container}>
       <div className={styles.wrapper}>
+        <div className={styles.logo}>
+          <img src="/eco-map-logo.png" alt="eco map logo" />
+        </div>
         <section className={styles.banner}>
           <WelcomeBanner />
         </section>
