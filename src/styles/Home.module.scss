@@ -42,9 +42,12 @@
   flex-direction: column;
   justify-content: center;
   gap: 2rem;
-  padding-inline: 1.5rem;
+  padding-inline: 1rem;
   overflow-x: hidden;
 
+  @media (min-width: $laptop) {
+    padding-inline: 1.5rem;
+  }
   @media (min-width: $xl) {
     padding-inline: 0.8rem;
   }
