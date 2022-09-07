@@ -50,7 +50,7 @@ $card_height: 14rem;
   
   .card {
     width: 100%;
-    height: $card_height;
+    max-height: $card_height;
     overflow-y: auto;
     scrollbar-width: none;
     padding: 1.5rem 1.5rem;
@@ -95,10 +95,15 @@ $card_height: 14rem;
   }
 
     display: inline-grid;
-    grid-template-columns: repeat(4, 2rem);
+    grid-template-columns: repeat(7, 2rem);
     gap: 1rem;
     grid-auto-rows: 2rem;
     justify-content: center;
+
+    @media  (min-width: $tablet) {
+      height: 100%;
+      grid-template-columns: repeat(4, 2rem);
+    }
 
     .card_item {
       height: 2rem;
@@ -174,14 +179,8 @@ $card_height: 14rem;
       display: none;
     }
   }
-
-  @media (max-width: $laptop) {
-    &::after {
-      display: none;
-    }
-  }
  
-  @media (min-width: $laptop) and (max-width: $xl) {
+  @media (min-width: $laptop-md) and (max-width: $xl) {
     &::after {
       display: block;
     }
