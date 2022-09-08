@@ -4,10 +4,6 @@
 
 _Everything you need to start building blockchain applications_
 
-## Intro
-
-Intro takes us on a tour accross the page. If you don't want intro just add `?intro=false` as part of the url.
-
 ## Contribute to the content
 
 All of the content files are located in `./data` folder
