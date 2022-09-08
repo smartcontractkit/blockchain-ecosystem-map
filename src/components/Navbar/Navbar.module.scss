@@ -37,12 +37,28 @@
 
 .navbar {
   display: flex;
+  align-items: flex-end;
   padding: 1rem;
-  gap: 1.5rem;
   position: relative;
+  overflow-x: hidden;
   width: 100%;
-  overflow-x: auto;
   margin: 0 auto;
+
+  & > &__items {
+    width: 100%;
+    display: flex;
+    align-items: flex-end;
+    padding-bottom: 1rem;
+    position: relative;
+    gap: 1.5rem;
+    overflow-x: auto;
+    -ms-overflow-style: none;
+    scrollbar-width: none; 
+
+    &::-webkit-scrollbar { 
+        display: none;
+    }
+  }
 
   &__group {
     display: flex;
@@ -64,11 +80,15 @@
       display: flex;
       gap: 0.5rem;
     }
+
+     @media (min-width: $xl) {
+       flex: none;
+    }
   }
 
 
   @media (min-width: $xl) {
-    max-width: 1276px;
+    max-width: $xl;
     justify-content: center;
     overflow-x: hidden;
   }
