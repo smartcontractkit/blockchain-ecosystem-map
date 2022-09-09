@@ -49,6 +49,7 @@ All the source code is located in `./src` folder
 ## Getting Started
 
 ```bash
+
 # To install dependencies
 npm install
 
