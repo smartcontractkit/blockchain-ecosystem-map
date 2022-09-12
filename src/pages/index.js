@@ -4,6 +4,7 @@ import styles from '@/styles/Home.module.scss';
 import chapters from '@/data/chapters';
 import WelcomeSectionCard from '@/components/WelcomeSectionCard';
 import { countItems, getItems } from '@/helpers/getCardData';
+import Logo from '@/components/Logo';
 
 export default function Home() {
   const { get_started, development_cycle, share } = chapters;
@@ -13,9 +14,7 @@ export default function Home() {
   return (
     <div className={styles.container}>
       <div className={styles.wrapper}>
-        <div className={styles.logo}>
-          <img src="/eco-map-logo.png" alt="eco map logo" />
-        </div>
+        <Logo />
         <section className={styles.banner}>
           <WelcomeBanner />
         </section>

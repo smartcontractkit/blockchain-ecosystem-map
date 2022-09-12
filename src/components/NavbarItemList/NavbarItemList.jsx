@@ -5,9 +5,9 @@ import { SET_ACTIVE_SECTION, SET_LINK_CLICKED, SET_MORE_ENTITY_SHADOW, SET_PROGR
 import useIntersection from '@/helpers/useIntersection';
 import useScrollDirection from '@/helpers/useScrollDirection';
 
-export default function NavbarItemList({ id, navbar, navWidth, children }) {
+export default function NavbarItemList({ id, navItems, navWidth, children }) {
   const ref = useRef();
-  const isVisible = useIntersection(ref, navbar, null);
+  const isVisible = useIntersection(ref, navItems, null);
   const [{ visible, activeSection, linkClicked }, dispatch] = useStateValue();
   const { scrolledUp } = useScrollDirection();
 
@@ -20,7 +20,7 @@ export default function NavbarItemList({ id, navbar, navWidth, children }) {
     const updateProgress = (section_id, addedValue) => {
       const listItem = ref.current;
 
-      if (section_id === id && navWidth && navbar) {
+      if (section_id === id && navWidth && navItems) {
         const defaultItemMargin = 4.5;
         let progressWidth = Math.floor((listItem.offsetLeft * 100) / navWidth) + defaultItemMargin;
 
@@ -33,7 +33,7 @@ export default function NavbarItemList({ id, navbar, navWidth, children }) {
         /* It will only scroll to the link of an active header if that link isn't visible on the navbar, this helps us scroll only when neccessary */
         if (!isVisible && !linkClicked) {
           const defaultScrollLeftMargin = -10;
-          navbar.current.scrollTo({
+          navItems.current.scrollTo({
             top: 0,
             left: section_id === 'learn' ? defaultScrollLeftMargin : listItem.offsetLeft + defaultScrollLeftMargin,
             behavior: 'smooth',
@@ -100,6 +100,6 @@ export default function NavbarItemList({ id, navbar, navWidth, children }) {
 NavbarItemList.propTypes = {
   id: PropTypes.string.isRequired,
   children: PropTypes.node.isRequired,
-  navbar: PropTypes.object,
+  navItems: PropTypes.object,
   navWidth: PropTypes.number,
 };
