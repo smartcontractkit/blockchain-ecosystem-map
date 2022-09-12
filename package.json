@@ -47,7 +47,7 @@
     "eslint-plugin-unused-imports": "^2.0.0",
     "husky": "^8.0.1",
     "jest": "^27.5.1",
-    "jest-environment-jsdom": "^27.5.1",
+    "jest-environment-jsdom": "^28.1.0",
     "jest-transform-yaml": "^1.0.0",
     "prettier": "^2.6.1",
     "yaml-loader": "^0.8.0"
