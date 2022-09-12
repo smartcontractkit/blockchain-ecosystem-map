@@ -7,20 +7,13 @@ import styles from '@/styles/Map.module.scss';
 import chapters from '@/data/chapters';
 import Card from '@/components/Card';
 import Tooltip from 'react-tooltip-lite';
-import dynamic from 'next/dynamic';
-import steps from '@/data/intro-steps';
 import ExpandCollapseAllButton from '@/components/ExpandCollapseAllButton';
 import useFavourite from '@/helpers/useFavourite';
 import Navbar from '@/components/Navbar';
 
-const Intro = dynamic(() => import('@/components/Intro'), {
-  ssr: false,
-});
-
 export default function Map() {
   const [isExpanded, setIsExpanded] = useState([]);
   const [allSubsections, setAllSubsections] = useState([]);
-  const [introSteps, setIntroSteps] = useState(steps);
   const [tooltip, setToolTip] = useState(null);
   const [bodyHeight, setBodyHeight] = useState(0);
 
@@ -97,28 +90,11 @@ export default function Map() {
     openedChapters = openedChapters && openedChapters.length ? openedChapters : [...DEFAULT_ACCORDION_ID];
     saveExpanded(openedChapters);
 
-    /* For the Inrojs */
-    function regulateSteps() {
-      let stepsUpdate = introSteps;
-      if (window.screen.width < 768 || (window.screen.width >= 1276 && window.screen.width < 1380)) {
-        stepsUpdate = stepsUpdate.filter((step) => step.element !== '#github');
-      } else if ((window.screen.width >= 768 && window.screen.width < 1276) || window.screen.width > 1380) {
-        if (stepsUpdate.length === 4) {
-          stepsUpdate.push({
-            element: '#github',
-            intro: 'The app is Opensource, so feel free to contribute too',
-          });
-        }
-      }
-      setIntroSteps(stepsUpdate);
-    }
-
     const handleResize = () => {
       const height = 'innerHeight' in window ? window.innerHeight : document.documentElement.offsetHeight;
       setBodyHeight(height);
     };
 
-    regulateSteps();
     getAllSubSections();
 
     window.addEventListener('resize', handleResize, true);
@@ -135,8 +111,6 @@ export default function Map() {
       <Navbar />
       <main>
         <div className={styles.container}>
-          <Intro steps={introSteps} />
-
           {chaptersKeys.map((chapter, index) => (
             <Chapter key={index}>
               {chapters[chapter].map((section) => (

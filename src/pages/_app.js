@@ -4,7 +4,6 @@ import SEO from '../../next-seo.config';
 import PropTypes from 'prop-types';
 import useGoogleTagManager from '@/helpers/useGoogleTagManager';
 import { StateProvider } from '@/context/StateProvider';
-import 'intro.js/introjs.css';
 import Head from 'next/head';
 
 function MyApp({ Component, pageProps }) {
