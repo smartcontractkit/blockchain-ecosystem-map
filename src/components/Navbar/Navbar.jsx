@@ -101,7 +101,7 @@ function Navbar() {
         href={github_repo_url}
         target="_blank"
         rel="noopener noreferrer"
-        title="Ecosystem Map Repository"
+        title="Blockchain ecosystem Repository"
         className={styles.github_logo}
         id="github"
       >

@@ -8,7 +8,8 @@ const Logo = ({ isHome, showBorder }) => {
   return (
     <Link href="/" passHref>
       <a className={clsx(styles.logo, { [styles.map_page_logo]: !isHome, [styles.logo_border]: showBorder })}>
-        <img src="/eco-map-logo.png" alt="eco map logo" />
+        <img src="/blockchain-eco-logo.png" alt="eco map logo" />
+        <span>Blockchain ecosystem</span>
       </a>
     </Link>
   );

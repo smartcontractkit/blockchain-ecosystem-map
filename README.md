@@ -1,6 +1,6 @@
 [repo]: https://github.com/thisdot/blockchain-ecosystem-map/tree/main
 
-# Blockchain Ecosystem Map
+# Blockchain ecosystem
 
 _Everything you need to start building blockchain applications_
 
