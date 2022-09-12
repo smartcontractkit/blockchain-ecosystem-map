@@ -19,7 +19,7 @@ export default function WelcomeBanner() {
           </a>
         </Link>
         <div className={styles.overview}>
-          Explore the ecosystem map to get familiar with the landscape of hundreds of tools.
+          Explore the Blockchain ecosystem to get familiar with the landscape of hundreds of tools.
         </div>
       </div>
     </div>
