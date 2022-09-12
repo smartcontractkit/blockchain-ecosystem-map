@@ -21,8 +21,5 @@ updates:
 
       # We ignore everything that hasn't yet been upgrade, this way we will
       # only get the _freshest_ of new packages to consider upgrading
-      - dependency-name: "intro.js"
-      - dependency-name: "intro.js-react"
-      - dependency-name: "nookies"
       - dependency-name: "react-gtm-module"
       - dependency-name: "react-tooltip-lite"
