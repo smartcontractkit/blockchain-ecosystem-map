@@ -8,7 +8,6 @@ jobs:
       - uses: actions/setup-node@v1
         with:
           node-version: 16.14.0
-          
       - run: CI=false && npm ci
       - run: npm run validate
       - run: npm run build
