@@ -23,3 +23,6 @@ updates:
       # only get the _freshest_ of new packages to consider upgrading
       - dependency-name: "react-gtm-module"
       - dependency-name: "react-tooltip-lite"
+      - dependency-name: "jest"
+      - dependency-name: "jest-environment-jsdom"
+      - dependency-name: "jest-transform-yaml"
