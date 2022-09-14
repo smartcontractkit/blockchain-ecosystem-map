@@ -7,7 +7,7 @@ export default function WelcomeSectionCard({ title, totalItem, items, children }
   const linkText = title.toLowerCase();
 
   return (
-    <a href={`/map#${linkText}`} className={styles.wrapper}>
+    <a href={`map#${linkText}`} className={styles.wrapper}>
       <div className={styles.info}>
         <div className={styles.title}>
           <span className={styles.icon}>{children}</span>
@@ -21,8 +21,8 @@ export default function WelcomeSectionCard({ title, totalItem, items, children }
             <NewTabIcon />
           </span>
         </div>
-        {items.map(({ url, logo, title }) => (
-          <div key={url + title} className={styles.card_item}>
+        {items.map(({ url, logo, title }, index) => (
+          <div key={url + title + index} className={styles.card_item}>
             <img src={logo} alt={title + 'logo'} />
           </div>
         ))}

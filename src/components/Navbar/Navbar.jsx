@@ -9,13 +9,13 @@ import NavbarItemList from '@/components/NavbarItemList';
 import Githublogo from '@/icons/github-logo.svg';
 import Search from '@/components/Search';
 import Logo from '../Logo';
+import { SET_PROGRESS, UPDATE_NAVBAR_WIDTH } from '@/context/types';
 
 function Navbar() {
   const navItemsRef = useRef();
   const [isScrollDown, setIsScrollDown] = useState(false);
-  const [navWidth, setNavWidth] = useState(0);
 
-  const [{ activeSection, progress, showShadow }] = useStateValue();
+  const [{ activeSection, progress, showShadow }, dispatch] = useStateValue();
 
   const { get_started, development_cycle, share } = chapters;
 
@@ -30,18 +30,23 @@ function Navbar() {
       }
     };
 
-    const handleNavWidth = () => setNavWidth(navItemsRef.current.offsetWidth);
+    const handleNavWidth = () => {
+      const width = navItemsRef.current?.offsetWidth;
+      dispatch({ type: UPDATE_NAVBAR_WIDTH, payload: width });
+      if (window.screen.width < 600) {
+        dispatch({ type: SET_PROGRESS, payload: 100 });
+      }
+    };
 
     window.addEventListener('scroll', handleScroll);
     window.addEventListener('resize', handleNavWidth, true);
-    window.addEventListener('load', handleNavWidth, true);
+    handleNavWidth();
 
     return () => {
       window.removeEventListener('scroll', handleScroll);
       window.removeEventListener('resize', handleNavWidth, true);
-      window.removeEventListener('load', handleNavWidth, true);
     };
-  }, []);
+  }, [progress]);
 
   return (
     <header
@@ -52,47 +57,50 @@ function Navbar() {
     >
       <nav id="nav" className={styles.navbar}>
         <Logo isHome={false} showBorder={progress > 0} />
-        <div ref={navItemsRef} className={styles.navbar__items}>
-          <div className={styles.navbar__group}>
-            <p>Get Started</p>
-            <ul>
-              {get_started.map(({ title, id, Icon }, index) => (
-                <NavbarItemList id={id} key={index} navWidth={navWidth} navItems={navItemsRef}>
-                  <NavItem href={`#${id}`} isSelected={activeSection === id}>
-                    <Icon />
-                    <span>{title}</span>
-                  </NavItem>
-                </NavbarItemList>
-              ))}
-            </ul>
-          </div>
-          <div className={styles.navbar__group}>
-            <p>Development Cycle</p>
-            <ul>
-              {development_cycle.map(({ title, id, Icon }, index) => (
-                <NavbarItemList id={id} key={index} navWidth={navWidth} navItems={navItemsRef}>
-                  <NavItem href={`#${id}`} isSelected={activeSection === id}>
-                    <Icon />
-                    <span>{title}</span>
-                  </NavItem>
-                </NavbarItemList>
-              ))}
-            </ul>
+        <div className={styles.progress_items_container}>
+          <div ref={navItemsRef} className={styles.navbar__items}>
+            <div className={styles.navbar__group}>
+              <p>Get Started</p>
+              <ul>
+                {get_started.map(({ title, id, Icon }, index) => (
+                  <NavbarItemList id={id} key={index} navItems={navItemsRef}>
+                    <NavItem href={`#${id}`} isSelected={activeSection === id}>
+                      <Icon />
+                      <span>{title}</span>
+                    </NavItem>
+                  </NavbarItemList>
+                ))}
+              </ul>
+            </div>
+            <div className={styles.navbar__group}>
+              <p>Development Cycle</p>
+              <ul>
+                {development_cycle.map(({ title, id, Icon }, index) => (
+                  <NavbarItemList id={id} key={index} navItems={navItemsRef}>
+                    <NavItem href={`#${id}`} isSelected={activeSection === id}>
+                      <Icon />
+                      <span>{title}</span>
+                    </NavItem>
+                  </NavbarItemList>
+                ))}
+              </ul>
+            </div>
+
+            <div className={styles.navbar__group}>
+              <p>Share</p>
+              <ul>
+                {share.map(({ title, id, Icon }, index) => (
+                  <NavbarItemList id={id} key={index} navItems={navItemsRef}>
+                    <NavItem href={`#${id}`} isSelected={activeSection === id}>
+                      <Icon />
+                      <span>{title}</span>
+                    </NavItem>
+                  </NavbarItemList>
+                ))}
+              </ul>
+            </div>
           </div>
 
-          <div className={styles.navbar__group}>
-            <p>Share</p>
-            <ul>
-              {share.map(({ title, id, Icon }, index) => (
-                <NavbarItemList id={id} key={index} navWidth={navWidth} navItems={navItemsRef}>
-                  <NavItem href={`#${id}`} isSelected={activeSection === id}>
-                    <Icon />
-                    <span>{title}</span>
-                  </NavItem>
-                </NavbarItemList>
-              ))}
-            </ul>
-          </div>
           <NavigationProgressBar progress={progress} />
         </div>
       </nav>

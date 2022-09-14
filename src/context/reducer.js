@@ -7,6 +7,7 @@ import {
   SET_LINK_CLICKED,
   SET_FAVOURITES,
   TOGGLE_FAVOURITES,
+  UPDATE_NAVBAR_WIDTH,
 } from './types';
 
 export const initialState = {
@@ -16,6 +17,7 @@ export const initialState = {
   showShadow: true,
   linkClicked: false,
   favourites: [],
+  navbarWidth: 0,
 };
 
 const addVisible = (array, value) => {
@@ -94,6 +96,11 @@ function reducer(state, action) {
       return {
         ...state,
         linkClicked: action.payload,
+      };
+    case UPDATE_NAVBAR_WIDTH:
+      return {
+        ...state,
+        navbarWidth: action.payload,
       };
 
     default:

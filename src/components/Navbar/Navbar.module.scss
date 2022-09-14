@@ -44,11 +44,17 @@
   width: 100%;
   margin: 0 auto;
 
-  & > &__items {
+  .progress_items_container {
+    width: 100%;
+    position: relative;
+  }
+
+  &__items {
     width: 100%;
     display: flex;
     align-items: flex-end;
     padding-bottom: 1rem;
+    padding-right: 2rem;
     position: relative;
     gap: 1.5rem;
     overflow-x: auto;

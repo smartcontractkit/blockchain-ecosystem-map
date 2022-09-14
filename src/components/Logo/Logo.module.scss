@@ -1,14 +1,24 @@
 @import "@/styles/colors.scss";
 @import "@/styles/_typography.scss";
+@import "@/styles/_breakpoints.scss";
 
 .logo {
   @extend .heading__700;
   display: flex;
   gap: 0.5rem;
   color: $white;
-  max-width: 9.9275rem;
+  max-width: 8.9275rem;
   font-size: 1rem;
   line-height: 1rem;
+  padding-right: 0.5rem;
+
+& > span {
+  display: none;
+
+  @media (min-width: $tablet) {
+    display: inline-block;
+  }
+}
 }
 .logo_border {
   border-bottom: 2px solid $brand-600;

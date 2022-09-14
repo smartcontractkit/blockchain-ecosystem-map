@@ -7,11 +7,15 @@ import { useStateValue } from '@/context/StateProvider';
 import useToggleVisibility from '@/helpers/useToggleVisibility';
 import clsx from 'clsx';
 
+import { useRouter } from 'next/router';
+
 function Section({ title, id, children, Icon, expandToggle, expandedIds, bodyHeight }) {
   const [isOpen, setIsOpen] = useState(false);
   const ref = useRef();
-  const [{ visible }] = useStateValue();
+  const [{ visible, navbarWidth }] = useStateValue();
   useToggleVisibility(ref, bodyHeight);
+
+  const router = useRouter();
 
   const childrenIds = children.map((child) => child.props.id);
 
@@ -38,7 +42,15 @@ function Section({ title, id, children, Icon, expandToggle, expandedIds, bodyHei
     } else {
       setIsOpen(false);
     }
-  }, [expandedIds, bodyHeight]);
+
+    if (router.asPath) {
+      const target = router.asPath.split('#')[1];
+      if (target === id && target) {
+        const element = document.getElementById(target);
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+  }, [expandedIds, bodyHeight, navbarWidth]);
 
   return (
     <div className={styles.container} role="region" onClick={toggle} id={`${id}-section`}>

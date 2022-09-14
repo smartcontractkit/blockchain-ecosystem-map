@@ -12,7 +12,7 @@ export default function WelcomeBanner() {
       </div>
 
       <div className={styles.content}>
-        <Link href="/map" passHref>
+        <Link href="map" passHref>
           <a className={styles.get_started}>
             Get started
             <Arrow />

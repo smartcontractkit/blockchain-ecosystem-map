@@ -5,7 +5,7 @@ const useIntersection = (element, root = null, margin) => {
 
   useEffect(() => {
     const section = element.current;
-    const rootMargin = !root ? margin : '-30px';
+    const rootMargin = !root ? margin : '0px';
     const rootElement = root?.current;
 
     const observer = new IntersectionObserver(
