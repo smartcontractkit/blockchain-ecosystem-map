@@ -86,23 +86,21 @@ export default function Map() {
   useEffect(() => {
     const DEFAULT_ACCORDION_ID = getAllSubSections();
 
-    let openedChapters = JSON.parse(localStorage.getItem('opened'));
-    openedChapters = openedChapters && openedChapters.length ? openedChapters : [...DEFAULT_ACCORDION_ID];
-    saveExpanded(openedChapters);
-
     const handleResize = () => {
       const height = 'innerHeight' in window ? window.innerHeight : document.documentElement.offsetHeight;
       setBodyHeight(height);
     };
 
-    getAllSubSections();
+    let openedChapters = JSON.parse(localStorage.getItem('opened'));
+    openedChapters = openedChapters && openedChapters.length ? openedChapters : [...DEFAULT_ACCORDION_ID];
+    saveExpanded(openedChapters);
 
-    window.addEventListener('resize', handleResize, true);
-    window.addEventListener('load', handleResize, true);
+    getAllSubSections();
+    handleResize();
+    window.addEventListener('resize', handleResize, false);
 
     return () => {
       window.removeEventListener('resize', handleResize, true);
-      window.removeEventListener('load', handleResize, true);
     };
   }, []);
 

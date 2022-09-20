@@ -5,10 +5,10 @@ import { SET_ACTIVE_SECTION, SET_LINK_CLICKED, SET_MORE_ENTITY_SHADOW, SET_PROGR
 import useIntersection from '@/helpers/useIntersection';
 import useScrollDirection from '@/helpers/useScrollDirection';
 
-export default function NavbarItemList({ id, navItems, navWidth, children }) {
+export default function NavbarItemList({ id, navItems, children }) {
   const ref = useRef();
   const isVisible = useIntersection(ref, navItems, null);
-  const [{ visible, activeSection, linkClicked }, dispatch] = useStateValue();
+  const [{ visible, activeSection, linkClicked, navbarWidth }, dispatch] = useStateValue();
   const { scrolledUp } = useScrollDirection();
 
   /* Helps the navbar and navitem to separate scroll from click event */
@@ -20,9 +20,9 @@ export default function NavbarItemList({ id, navItems, navWidth, children }) {
     const updateProgress = (section_id, addedValue) => {
       const listItem = ref.current;
 
-      if (section_id === id && navWidth && navItems) {
+      if (section_id === id && navbarWidth && navItems) {
         const defaultItemMargin = 4.5;
-        let progressWidth = Math.floor((listItem.offsetLeft * 100) / navWidth) + defaultItemMargin;
+        let progressWidth = Math.floor((listItem.offsetLeft * 100) / navbarWidth) + defaultItemMargin;
 
         if (addedValue) {
           progressWidth += addedValue;
@@ -45,7 +45,7 @@ export default function NavbarItemList({ id, navItems, navWidth, children }) {
         }, 500);
 
         /* Update the URL with the active section */
-        window.history.replaceState({}, null, `#${section_id}`);
+        window.history.replaceState({}, null, `map#${section_id}`);
       }
 
       if (activeSection === 'learn' && !section_id && scrolledUp) {
@@ -78,7 +78,7 @@ export default function NavbarItemList({ id, navItems, navWidth, children }) {
     }
 
     responsiveness();
-  }, [visible, navWidth, linkClicked]);
+  }, [visible, navbarWidth, linkClicked]);
 
   useEffect(() => {
     if (ref.current.id === 'market-li') {
@@ -101,5 +101,4 @@ NavbarItemList.propTypes = {
   id: PropTypes.string.isRequired,
   children: PropTypes.node.isRequired,
   navItems: PropTypes.object,
-  navWidth: PropTypes.number,
 };
