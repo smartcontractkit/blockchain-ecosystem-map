@@ -3,7 +3,7 @@ import Blockchains from '@/components/Blockchains';
 import Chapter from '@/components/Chapter';
 import Section from '@/components/Section';
 import InnerAccordion from '@/components/InnerAccordion';
-import styles from '@/styles/Map.module.scss';
+import styles from '@/styles/Ecosystem.module.scss';
 import chapters from '@/data/chapters';
 import Card from '@/components/Card';
 import Tooltip from 'react-tooltip-lite';
@@ -11,7 +11,7 @@ import ExpandCollapseAllButton from '@/components/ExpandCollapseAllButton';
 import useFavourite from '@/helpers/useFavourite';
 import Navbar from '@/components/Navbar';
 
-export default function Map() {
+export default function Ecosystem() {
   const [isExpanded, setIsExpanded] = useState([]);
   const [allSubsections, setAllSubsections] = useState([]);
   const [tooltip, setToolTip] = useState(null);

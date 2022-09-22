@@ -45,7 +45,7 @@ export default function NavbarItemList({ id, navItems, children }) {
         }, 500);
 
         /* Update the URL with the active section */
-        window.history.replaceState({}, null, `map#${section_id}`);
+        window.history.replaceState({}, null, `ecosystem#${section_id}`);
       }
 
       if (activeSection === 'learn' && !section_id && scrolledUp) {
