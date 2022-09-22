@@ -12,7 +12,7 @@
   line-height: 1rem;
   padding-right: 0.5rem;
 
-& > span {
+& > img:last-child {
   display: none;
 
   @media (min-width: $tablet) {
