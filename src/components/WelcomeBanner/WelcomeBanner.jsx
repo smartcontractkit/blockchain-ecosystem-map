@@ -7,12 +7,11 @@ export default function WelcomeBanner() {
   return (
     <div className={styles.container}>
       <div className={styles.heading_container}>
-        <span className={styles.label}>smart contracts ecosystem</span>
-        <h1 className={styles.heading}>Everything you need to start building blockchain apps</h1>
+        <h1 className={styles.heading}>Everything you need to start building blockchain dapps</h1>
       </div>
 
       <div className={styles.content}>
-        <Link href="map" passHref>
+        <Link href="ecosystem" passHref>
           <a className={styles.get_started}>
             Get started
             <Arrow />

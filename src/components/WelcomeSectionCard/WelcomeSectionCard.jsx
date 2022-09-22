@@ -7,7 +7,7 @@ export default function WelcomeSectionCard({ title, totalItem, items, children }
   const linkText = title.toLowerCase();
 
   return (
-    <a href={`map#${linkText}`} className={styles.wrapper}>
+    <a href={`ecosystem#${linkText}`} className={styles.wrapper}>
       <div className={styles.info}>
         <div className={styles.title}>
           <span className={styles.icon}>{children}</span>
