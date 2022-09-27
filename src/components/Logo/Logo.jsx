@@ -6,10 +6,10 @@ import Link from 'next/link';
 
 const Logo = ({ isHome, showBorder }) => {
   return (
-    <Link href="/" passHref>
+    <Link href="https://www.blockchain.education" passHref>
       <a className={clsx(styles.logo, { [styles.map_page_logo]: !isHome, [styles.logo_border]: showBorder })}>
-        <img src="/blockchain-eco-logo.png" alt="blockchain eco logo" />
-        <img src="/blockchain-eco-text.png" alt="blockchain eco logo text" />
+        <img src="/logo.svg" alt="blockchain logo" />
+        <img src="/blockchain-logo-text.svg" alt="blockchain logo text" />
       </a>
     </Link>
   );
