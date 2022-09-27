@@ -19,7 +19,7 @@ function Navbar() {
 
   const { get_started, development_cycle, share } = chapters;
 
-  const github_repo_url = process.env.GITHUB_REPO_URL || '#';
+  const github_repo_url = process.env.NEXT_GITHUB_REPO_URL || '#';
 
   useEffect(() => {
     const handleScroll = () => {
