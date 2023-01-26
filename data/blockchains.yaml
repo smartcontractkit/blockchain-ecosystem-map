@@ -1,13 +1,7 @@
-- name: 'BSC'
-  id: 'Bsc'
-  logo: '/logos/bsc.png'
-  url: 'https://www.bnbchain.world/en/smartChain'
-  description: null
-
-- name: 'Polygon'
-  id: 'polygon'
-  logo: '/logos/polygonscan.png'
-  url: 'https://polygon.technology/'
+- name: 'Arbitrum'
+  id: 'arbitrum'
+  logo: '/logos/arbiscan.png'
+  url: 'https://offchainlabs.com/'
   description: null
 
 - name: 'Avalanche'
@@ -16,10 +10,28 @@
   url: 'https://www.avax.network/'
   description: null
 
+- name: 'BSC'
+  id: 'Bsc'
+  logo: '/logos/bsc.png'
+  url: 'https://www.bnbchain.world/en/smartChain'
+  description: null
+
+- name: 'Ethereum'
+  id: 'ethereum'
+  logo: '/logos/ethereum.png'
+  url: 'https://ethereum.org/'
+  description: null
+
 - name: 'FantomBSC'
   id: 'fantomBSC'
   logo: '/logos/fantombsc.png'
   url: 'https://fantom.foundation/'
+  description: null
+
+- name: 'Gnosis Chain'
+  id: 'gnosis'
+  logo: '/logos/gnosis.png'
+  url: 'https://www.gnosis.io/'
   description: null
 
 - name: 'HECO'
@@ -28,28 +40,16 @@
   url: 'https://www.hecochain.com/en-us/'
   description: null
 
-- name: 'xDai'
-  id: 'xDai'
-  logo: '/logos/xdai.png'
-  url: 'https://www.xdaichain.com/'
-  description: null
-
-- name: 'Arbitrum'
-  id: 'arbitrum'
-  logo: '/logos/arbiscan.png'
-  url: 'https://offchainlabs.com/'
-  description: null
-
 - name: 'Optimism'
   id: 'optimism'
   logo: '/logos/optimisticethereum.png'
   url: 'https://www.optimism.io/'
   description: null
 
-- name: 'Terra'
-  id: 'terra'
-  logo: '/logos/terra.png'
-  url: 'https://www.terra.money/'
+- name: 'Polygon'
+  id: 'polygon'
+  logo: '/logos/polygonscan.png'
+  url: 'https://polygon.technology/'
   description: null
 
 - name: 'Solana'

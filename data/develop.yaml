@@ -41,61 +41,61 @@
 - name: 'Dev Frameworks and Libraries'
   id: 'dev-frameworks-libraries'
   items:   
-    - title: 'HardHat'
-      logo: '/logos/hardhat.png'
-      url: 'https://hardhat.org/'
-      description: 'Hardhat is an Ethereum development environment. Compile your contracts and run them on a development network. Get Solidity stack traces, console.log and more.'
-    - title: 'Truffle'
-      logo: '/logos/truffle.png'
-      url: 'https://trufflesuite.com/'
-      description: 'The Truffle Suite gets developers from idea to dapp as comfortably as possible.'
     - title: 'Brownie'
       logo: '/logos/brownie.png'
       url: 'https://github.com/eth-brownie/brownie'
-      description: 'A Python-based development and testing framework for smart contracts targeting the Ethereum Virtual Machine. - eth-brownie/brownie: A Python-based development and testing framework for smart contra...'
-    - title: 'OpenZeppelin Contracts'
-      logo: '/logos/openzeppelin.png'
-      url: 'https://openzeppelin.com/contracts/'
-      description: null
-    - title: 'Waffle'
-      logo: '/logos/waffle.png'
-      url: 'https://getwaffle.io/'
-      description: null
-    - title: 'Py-EVM'
-      logo: '/logos/logo.png'
-      url: 'https://github.com/ethereum/py-evm'
-      description: null
-    - title: 'OpenEthereum'
-      logo: '/logos/logo.png'
-      url: 'https://github.com/openethereum/openethereum'
-      description: null
-    - title: 'Embark'
-      logo: '/logos/embark.png'
-      url: 'https://framework.embarklabs.io/'
-      description: null
-    - title: 'Ganache'
-      logo: '/logos/ganache.png'
-      url: 'https://trufflesuite.com/ganache/'
+      description: 'A Python-based development and testing framework for smart contracts targeting the Ethereum Virtual Machine.'
+    - title: 'CosmWasm'
+      logo: '/logos/cosm-wasm.png'
+      url: 'https://docs.cosmwasm.com/docs/'
       description: null
     - title: 'Dapp Tools'
       logo: '/logos/dapptools.png'
       url: 'https://dapp.tools/'
       description: null
-    - title: 'Epirus'
-      logo: '/logos/epirus.png'
-      url: 'https://github.com/web3labs/epirus-free'
+    - title: 'Embark'
+      logo: '/logos/embark.png'
+      url: 'https://framework.embarklabs.io/'
       description: null
-    - title: 'Solidity Template'
+    - title: 'Foundry'
+      logo: '/logos/foundry.png'
+      url: 'https://github.com/foundry-rs'
+      description: null
+    - title: 'Ganache'
+      logo: '/logos/ganache.png'
+      url: 'https://trufflesuite.com/ganache/'
+      description: null
+    - title: 'HardHat'
+      logo: '/logos/hardhat.png'
+      url: 'https://hardhat.org/'
+      description: 'Hardhat is an Ethereum development environment. Compile your contracts and run them on a development network. Get Solidity stack traces, console.log and more.'
+    - title: 'OpenEthereum'
       logo: '/logos/logo.png'
-      url: 'https://github.com/paulrberg/solidity-template'
+      url: 'https://github.com/openethereum/openethereum'
       description: null
     - title: 'One Click Dapp'
       logo: '/logos/oneclickdapp.png'
       url: 'https://oneclickdapp.com/'
       description: null
-    - title: 'CosmWasm'
-      logo: '/logos/cosm-wasm.png'
-      url: 'https://docs.cosmwasm.com/docs/'
+    - title: 'OpenZeppelin Contracts'
+      logo: '/logos/openzeppelin.png'
+      url: 'https://openzeppelin.com/contracts/'
+      description: null
+    - title: 'Py-EVM'
+      logo: '/logos/logo.png'
+      url: 'https://github.com/ethereum/py-evm'
+      description: null
+    - title: 'Solidity Template'
+      logo: '/logos/logo.png'
+      url: 'https://github.com/paulrberg/solidity-template'
+      description: null
+    - title: 'Truffle'
+      logo: '/logos/truffle.png'
+      url: 'https://trufflesuite.com/'
+      description: 'The Truffle Suite gets developers from idea to dapp as comfortably as possible.'
+    - title: 'Waffle'
+      logo: '/logos/waffle.png'
+      url: 'https://getwaffle.io/'
       description: null
 
 - name: 'IDEs'
@@ -165,29 +165,32 @@
 - name: 'Backend Frameworks'
   id: 'backend-frameworks'
   items:
-    - title: 'Web3.py'
-      logo: '/logos/python.png'
-      url: 'https://github.com/ethereum/web3.py'
-      description: null
-    - title: 'Nethereum'
-      logo: '/logos/nethereum.png'
-      url: 'https://nethereum.com/'
-      description: null
-    - title: 'Solana-web3.js'
-      logo: '/logos/logo.png'
-      url: 'https://github.com/solana-labs/solana-web3.js'
-      description: null
-    - title: 'Alchemy Build'
+    - title: 'Alchemy'
       logo: '/logos/alchemy.png'
-      url: 'https://www.alchemy.com/build'
+      url: 'https://www.alchemy.com/'
+    - title: 'Anchor'
+      logo: '/logos/anchor.png'
+      url: 'https://github.com/project-serum/anchor'
       description: null
     - title: 'Infura'
       logo: '/logos/infura.png'
       url: 'https://infura.io/'
       description: null
-    - title: 'Anchor'
-      logo: '/logos/anchor.png'
-      url: 'https://github.com/project-serum/anchor'
+    - title: 'Nethereum'
+      logo: '/logos/nethereum.png'
+      url: 'https://nethereum.com/'
+      description: null
+    - title: 'Quicknode'
+      logo: '/logos/quicknode.png'
+      url: 'https://www.quicknode.com/'
+      description: null
+    - title: 'Solana-web3.js'
+      logo: '/logos/logo.png'
+      url: 'https://github.com/solana-labs/solana-web3.js'
+      description: null
+    - title: 'Web3.py'
+      logo: '/logos/python.png'
+      url: 'https://github.com/ethereum/web3.py'
       description: null
 
 - name: 'Fullstack Frameworks'

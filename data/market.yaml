@@ -1,49 +1,53 @@
 - name: 'Incubators & Accelerators'
   id: 'incubators-accelerators'
   items:
-    - title: 'Startup with Chainlink'
-      logo: '/logos/chainlink-startup.png'
-      url: 'https://chainlinklabs.com/startup'
-      description: null
-    - title: 'Rhapsody Ventures'
-      logo: '/logos/rhapsody-ventures.png'
-      url: 'https://rhapsodyvp.com/'
+    - title: 'AllianceDAO'
+      logo: '/logos/alliancedao.png'
+      url: 'https://alliance.xyz/'
       description: null
     - title: 'Binance Labs'
       logo: '/logos/binance-labs.png'
       url: 'https://labs.binance.com/'
       description: null
-    - title: 'Coinbase Ventures'
-      logo: '/logos/coinbase.png'
-      url: 'https://www.coinbase.com/ventures'
-      description: null
     - title: 'Blockchain Centre'
       logo: '/logos/blockchain-centre.png'
       url: 'https://blockchaincentre.io/'
+      description: null
+    - title: 'Catena Capital'
+      logo: '/logos/catena.png'
+      url: 'https://www.catena-capital.com/'
+      description: null
+    - title: 'Coinbase Ventures'
+      logo: '/logos/coinbase.png'
+      url: 'https://www.coinbase.com/ventures'
       description: null
     - title: 'CV Labs Incubator'
       logo: '/logos/cv-labs.png'
       url: 'https://cvlabs.com/incubation'
       description: null
+    - title: 'dlab'
+      logo: '/logos/dlab.png'
+      url: 'https://dlab.vc/'
+      description: null
     - title: 'Huobi Labs Incubator Program'
       logo: '/logos/huobi-labs.png'
       url: 'https://www.huobidefilabs.io/'
       description: null
-    - title: 'CATENA'
-      logo: '/logos/catena.png'
-      url: 'https://www.catena-capital.com/'
+    - title: 'Outlier Ventures'
+      logo: '/logos/outlier.png'
+      url: 'https://outlierventures.io/'
       description: null
-    - title: 'Y Combinator'
-      logo: '/logos/y-combinator.png'
-      url: 'https://www.ycombinator.com/'
+    - title: 'Rhapsody Ventures'
+      logo: '/logos/rhapsody-ventures.png'
+      url: 'https://rhapsodyvp.com/'
       description: null
     - title: 'R3 Venture Program'
       logo: '/logos/r3.png'
       url: 'https://www.r3.com/venture-development/'
       description: null
-    - title: 'dlab'
-      logo: '/logos/dlab.png'
-      url: 'https://dlab.vc/'
+    - title: 'Y Combinator'
+      logo: '/logos/y-combinator.png'
+      url: 'https://www.ycombinator.com/'
       description: null
 
 - name: 'Grant Programs'
