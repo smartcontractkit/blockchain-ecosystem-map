@@ -176,7 +176,6 @@
       logo: '/logos/anchor.png'
       url: 'https://github.com/project-serum/anchor'
       description: null
-      description: null
     - title: 'Infura'
       logo: '/logos/infura.png'
       url: 'https://infura.io/'
