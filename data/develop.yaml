@@ -97,6 +97,10 @@
       logo: '/logos/cosm-wasm.png'
       url: 'https://docs.cosmwasm.com/docs/'
       description: null
+    - title: 'Foundry'
+      logo: '/logos/foundry.png'
+      url: 'https://github.com/foundry-rs'
+      description: null
 
 - name: 'IDEs'
   id: 'ides'
@@ -165,29 +169,33 @@
 - name: 'Backend Frameworks'
   id: 'backend-frameworks'
   items:
-    - title: 'Web3.py'
-      logo: '/logos/python.png'
-      url: 'https://github.com/ethereum/web3.py'
-      description: null
-    - title: 'Nethereum'
-      logo: '/logos/nethereum.png'
-      url: 'https://nethereum.com/'
-      description: null
-    - title: 'Solana-web3.js'
-      logo: '/logos/logo.png'
-      url: 'https://github.com/solana-labs/solana-web3.js'
-      description: null
-    - title: 'Alchemy Build'
+    - title: 'Alchemy'
       logo: '/logos/alchemy.png'
-      url: 'https://www.alchemy.com/build'
+      url: 'https://www.alchemy.com/'
+    - title: 'Anchor'
+      logo: '/logos/anchor.png'
+      url: 'https://github.com/project-serum/anchor'
+      description: null
       description: null
     - title: 'Infura'
       logo: '/logos/infura.png'
       url: 'https://infura.io/'
       description: null
-    - title: 'Anchor'
-      logo: '/logos/anchor.png'
-      url: 'https://github.com/project-serum/anchor'
+    - title: 'Nethereum'
+      logo: '/logos/nethereum.png'
+      url: 'https://nethereum.com/'
+      description: null
+    - title: 'Quicknode'
+      logo: '/logos/quicknode.png'
+      url: 'https://www.quicknode.com/'
+      description: null
+    - title: 'Solana-web3.js'
+      logo: '/logos/logo.png'
+      url: 'https://github.com/solana-labs/solana-web3.js'
+      description: null
+    - title: 'Web3.py'
+      logo: '/logos/python.png'
+      url: 'https://github.com/ethereum/web3.py'
       description: null
 
 - name: 'Fullstack Frameworks'
