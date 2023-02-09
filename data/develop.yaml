@@ -1,6 +1,18 @@
 - name: 'Smart Contract Languages'
   id: 'smart-contract-languages'
   items:
+    - title: 'C / C++'
+      logo: '/logos/c-plus-plus.png'
+      url: 'https://docs.microsoft.com/en-us/cpp/?view=msvc-160'
+      description: 'Learn how to use C++ to develop applications, services, and tools for your platforms and devices.'
+    - title: 'Rust'
+      logo: '/logos/rust.png'
+      url: 'https://www.rust-lang.org/learn'
+      description: 'A language empowering everyone to build reliable and efficient software.'
+    - title: 'Serpent'
+      logo: '/logos/serpent.png'
+      url: 'https://github.com/ethereum/serpent'
+      description: 'Contribute to ethereum/serpent development by creating an account on GitHub.'
     - title: 'Solidity'
       logo: '/logos/solidity.png'
       url: 'https://docs.soliditylang.org/'
@@ -9,18 +21,6 @@
       logo: '/logos/vyper.png'
       url: 'https://vyper.readthedocs.io/'
       description: ''
-    - title: 'Serpent'
-      logo: '/logos/serpent.png'
-      url: 'https://github.com/ethereum/serpent'
-      description: 'Contribute to ethereum/serpent development by creating an account on GitHub.'
-    - title: 'Rust'
-      logo: '/logos/rust.png'
-      url: 'https://www.rust-lang.org/learn'
-      description: 'A language empowering everyone to build reliable and efficient software.'
-    - title: 'C / C++'
-      logo: '/logos/c-plus-plus.png'
-      url: 'https://docs.microsoft.com/en-us/cpp/?view=msvc-160'
-      description: 'Learn how to use C++ to develop applications, services, and tools for your platforms and devices.'
 
 - name: 'Node & Interface Languages'
   id: 'node-interface-languages'
@@ -29,18 +29,22 @@
       logo: '/logos/go.png'
       url: 'https://go.dev/'
       description: 'Go is an open source programming language that makes it easy to build simple, reliable, and efficient software.'
-    - title: 'TypeScript'
-      logo: '/logos/typescript.png'
-      url: 'https://www.typescriptlang.org/'
-      description: 'TypeScript extends JavaScript by adding types to the language. TypeScript speeds up your development experience by catching errors and providing fixes before you even run your code.'
     - title: 'JavaScript'
       logo: '/logos/javascript.png'
       url: 'https://javascript.info/js'
       description: ''
+    - title: 'TypeScript'
+      logo: '/logos/typescript.png'
+      url: 'https://www.typescriptlang.org/'
+      description: 'TypeScript extends JavaScript by adding types to the language. TypeScript speeds up your development experience by catching errors and providing fixes before you even run your code.'
 
 - name: 'Dev Frameworks and Libraries'
   id: 'dev-frameworks-libraries'
   items:   
+    - title: 'Ape'
+      logo: '/logos/apeworx.gif'
+      url: 'https://docs.apeworx.io/ape/stable/userguides/quickstart.html'
+      description: 'An easy-to-use Web3 development tool. Users can compile, test, and interact with smart contracts all in one command line session.'
     - title: 'Brownie'
       logo: '/logos/brownie.png'
       url: 'https://github.com/eth-brownie/brownie'
@@ -48,47 +52,47 @@
     - title: 'CosmWasm'
       logo: '/logos/cosm-wasm.png'
       url: 'https://docs.cosmwasm.com/docs/'
-      description: null
+      description: 'CosmWasm is a smart contracting platform built for the Cosmos ecosystem.'
     - title: 'Dapp Tools'
       logo: '/logos/dapptools.png'
       url: 'https://dapp.tools/'
-      description: null
+      description: 'Command line tools and smart contract libraries for Ethereum smart contract development.'
     - title: 'Embark'
       logo: '/logos/embark.png'
       url: 'https://framework.embarklabs.io/'
-      description: null
+      description: 'Embark is a platform that enables easy development and deployment of decentralized applications.'
+    - title: 'Erigon'
+      logo: '/logos/logo.png'
+      url: 'https://github.com/ledgerwatch/erigon'
+      description: 'Erigon is an implementation of Ethereum (execution client), on the efficiency frontier.'
     - title: 'Foundry'
       logo: '/logos/foundry.png'
       url: 'https://github.com/foundry-rs'
-      description: null
+      description: 'Foundry is a blazing fast, portable and modular toolkit for Ethereum application development written in Rust.'
     - title: 'Ganache'
       logo: '/logos/ganache.png'
       url: 'https://trufflesuite.com/ganache/'
-      description: null
+      description: 'Quickly fire up a personal Ethereum blockchain which you can use to run tests, execute commands, and inspect state while controlling how the chain operates.'
     - title: 'HardHat'
       logo: '/logos/hardhat.png'
       url: 'https://hardhat.org/'
       description: 'Hardhat is an Ethereum development environment. Compile your contracts and run them on a development network. Get Solidity stack traces, console.log and more.'
-    - title: 'OpenEthereum'
+    - title: 'HardHat Template'
       logo: '/logos/logo.png'
-      url: 'https://github.com/openethereum/openethereum'
-      description: null
+      url: 'https://github.com/PaulRBerg/hardhat-template'
+      description: 'A Hardhat-based template for developing Solidity smart contracts, with sensible defaults.'
     - title: 'One Click Dapp'
       logo: '/logos/oneclickdapp.png'
       url: 'https://oneclickdapp.com/'
-      description: null
+      description: 'Turn any smart contract into a dapp.'
     - title: 'OpenZeppelin Contracts'
       logo: '/logos/openzeppelin.png'
       url: 'https://openzeppelin.com/contracts/'
-      description: null
+      description: 'Build Secure Smart Contracts in Solidity.'
     - title: 'Py-EVM'
       logo: '/logos/logo.png'
       url: 'https://github.com/ethereum/py-evm'
-      description: null
-    - title: 'Solidity Template'
-      logo: '/logos/logo.png'
-      url: 'https://github.com/paulrberg/solidity-template'
-      description: null
+      description: 'Python Implementation of the Ethereum protocol'
     - title: 'Truffle'
       logo: '/logos/truffle.png'
       url: 'https://trufflesuite.com/'
@@ -96,30 +100,30 @@
     - title: 'Waffle'
       logo: '/logos/waffle.png'
       url: 'https://getwaffle.io/'
-      description: null
+      description: 'The most advanced framework for testing smart contracts.'
 
 - name: 'IDEs'
   id: 'ides'
   items:
-    - title: 'Remix'
-      logo: '/logos/remix.png'
-      url: 'https://remix.ethereum.org/'
-      description: null
-    - title: 'VSCode'
-      logo: '/logos/vscode.png'
-      url: 'https://code.visualstudio.com/'
-      description: null
     - title: 'EthFiddle'
       logo: '/logos/ethfiddle.png'
       url: 'https://ethfiddle.com/'
-      description: null
+      description: 'Share Solidity code snippets with friends, or check out cool code snippets from around the web.'
+    - title: 'Remix'
+      logo: '/logos/remix.png'
+      url: 'https://remix.ethereum.org/'
+      description: 'Remix IDE is part of the Remix Project, a rich toolset that can be used for the entire journey of contract development by users of any knowledge level.'
+    - title: 'VSCode'
+      logo: '/logos/vscode.png'
+      url: 'https://code.visualstudio.com/'
+      description: 'Visual Studio Code is a lightweight but powerful source code editor.'
     
 - name: 'Frontend Frameworks'
   id: 'frontend-frameworks'
   items:
-    - title: 'Web3.js'
-      logo: '/logos/web3js.png'
-      url: 'https://web3js.readthedocs.io/'
+    - title: 'Angular'
+      logo: '/logos/angular.png'
+      url: 'https://angular.io/'
       description: null
     - title: 'Ether.js'
       logo: '/logos/etherjs.png'
@@ -129,60 +133,45 @@
       logo: '/logos/moralis.png'
       url: 'https://github.com/MoralisWeb3/react-moralis'
       description: null
-    - title: 'useDapp'
-      logo: '/logos/logo.png'
-      url: 'https://github.com/TrueFiEng/useDApp'
+    - title: 'Next.js'
+      logo: '/logos/nextjs.png'
+      url: 'https://nextjs.org/'
       description: null
     - title: 'One Click Dapp'
       logo: '/logos/oneclickdapp.png'
       url: 'https://github.com/oneclickdapp/oneclickdapp-v1'
       description: null
-    - title: 'Solana dApp Scaffold'
-      logo: '/logos/solana-dapp-scaffold.png'
-      url: 'https://github.com/solana-labs/dapp-scaffold'
-      description: null
     - title: 'React'
       logo: '/logos/react.png'
       url: 'https://reactjs.org/'
       description: null
-    - title: 'Next.js'
-      logo: '/logos/nextjs.png'
-      url: 'https://nextjs.org/'
-      description: null
-    - title: 'Angular'
-      logo: '/logos/angular.png'
-      url: 'https://angular.io/'
+    - title: 'Solana dApp Scaffold'
+      logo: '/logos/solana-dapp-scaffold.png'
+      url: 'https://github.com/solana-labs/dapp-scaffold'
       description: null
     - title: 'Scaffold-ETH'
       logo: '/logos/logo.png'
       url: 'https://github.com/scaffold-eth/scaffold-eth'
       description: null
-    - title: 'Terrain'
-      logo: '/logos/terrain.png'
-      url: 'https://github.com/iboss-ptk/terrain'
+    - title: 'useDapp'
+      logo: '/logos/logo.png'
+      url: 'https://github.com/TrueFiEng/useDApp'
+      description: null
+    - title: 'Web3.js'
+      logo: '/logos/web3js.png'
+      url: 'https://web3js.readthedocs.io/'
       description: null
 
 - name: 'Backend Frameworks'
   id: 'backend-frameworks'
   items:
-    - title: 'Alchemy'
-      logo: '/logos/alchemy.png'
-      url: 'https://www.alchemy.com/'
     - title: 'Anchor'
       logo: '/logos/anchor.png'
       url: 'https://github.com/project-serum/anchor'
       description: null
-    - title: 'Infura'
-      logo: '/logos/infura.png'
-      url: 'https://infura.io/'
-      description: null
     - title: 'Nethereum'
       logo: '/logos/nethereum.png'
       url: 'https://nethereum.com/'
-      description: null
-    - title: 'Quicknode'
-      logo: '/logos/quicknode.png'
-      url: 'https://www.quicknode.com/'
       description: null
     - title: 'Solana-web3.js'
       logo: '/logos/logo.png'
@@ -209,16 +198,27 @@
       url: 'https://github.com/paulrberg/create-eth-app'
       description: null
 
-- name: 'Blockchain Validators'
-  id: 'blockchain-validators'
+- name: 'Infrastructure Providers'
+  id: 'infrastructure-providers'
+  items:
+    - title: 'Alchemy'
+      logo: '/logos/alchemy.png'
+      url: 'https://www.alchemy.com/'
+    - title: 'Infura'
+      logo: '/logos/infura.png'
+      url: 'https://infura.io/'
+      description: null
+    - title: 'Quicknode'
+      logo: '/logos/quicknode.png'
+      url: 'https://www.quicknode.com/'
+      description: null
+
+- name: 'Blockchain Clients'
+  id: 'blockchain-clients'
   items:
     - title: 'Go Ethereum'
       logo: '/logos/go-ethereum.png'
       url: 'https://geth.ethereum.org/'
-      description: null
-    - title: 'Aleth'
-      logo: '/logos/logo.png'
-      url: 'https://github.com/ethereum/aleth'
       description: null
     - title: 'Erigon'
       logo: '/logos/logo.png'
@@ -230,11 +230,11 @@
       description: null
     - title: 'Nethermind'
       logo: '/logos/nethermind.png'
-      url: 'https://nethermind.io/'
+      url: 'https://docs.nethermind.io/nethermind/'
       description: null
     - title: 'Substrate'
       logo: '/logos/substrate.png'
-      url: 'https://substrate.io/'
+      url: 'https://docs.substrate.io/quick-start/'
       description: null
 
 - name: 'Wallets'
@@ -251,10 +251,6 @@
     - title: 'MyEtherWallet'
       logo: '/logos/myetherwallet.png'
       url: 'https://www.myetherwallet.com/'
-      description: null
-    - title: 'Terra Station'
-      logo: '/logos/terra-station.png'
-      url: 'https://chrome.google.com/webstore/detail/terra-station-wallet/aiifbnbfobpmeekipheeijimdpnlpgpp'
       description: null
     - title: 'Ledger'
       logo: '/logos/ledger.png'
@@ -275,10 +271,6 @@
     - title: 'Aragon'
       logo: '/logos/aragon.png'
       url: 'https://aragon.org/'
-      description: null
-    - title: 'DoraHacks'
-      logo: '/logos/dorahacks.png'
-      url: 'https://dorahacks.io/'
       description: null
     - title: 'Cosmos'
       logo: '/logos/cosmos.png'

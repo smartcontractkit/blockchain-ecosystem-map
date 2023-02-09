@@ -53,61 +53,76 @@
 - name: 'Grant Programs'
   id: 'grant-programs'
   items:
-    - title: 'Web3 Foundation'
-      logo: '/logos/web3-foundation.png'
-      url: 'https://web3.foundation/grants/'
-      description: null
     - title: 'Chainlink'
       logo: '/logos/chainlink.png'
-      url: 'https://chain.link/'
-      description: null
-    - title: 'Darwinia'
-      logo: '/logos/darwinia.png'
-      url: 'https://github.com/darwinia-network/collaboration/blob/master/grant/README.md'
-      description: null
-    - title: 'Moonbeam'
-      logo: '/logos/moonbeam.png'
-      url: 'https://moonbeam.foundation/grants/'
-      description: null
-    - title: 'HydraDX'
-      logo: '/logos/hydradx.png'
-      url: 'https://docs.hydradx.io/new_deal/'
-      description: null
-    - title: 'Solana'
-      logo: '/logos/solana.png'
-      url: 'https://solana.foundation/grants'
-      description: null
-    - title: 'Polkadot'
-      logo: '/logos/polkadot.png'
-      url: 'https://docs.google.com/document/d/1IZykdp2cyQavcRyZd_dgNj5DcgxgZR6kAqGdcNARu1w/edit'
-      description: null
-    - title: 'Edgeware Builders Guild'
-      logo: '/logos/edgeware-builders.png'
-      url: 'https://github.com/edgeware-builders/construction-projects'
+      url: 'https://chain.link/community/grants'
       description: null
     - title: 'Crust Network'
       logo: '/logos/crust.png'
       url: 'https://github.com/crustio/Crust-Grants-Program'
       description: null
-    - title: 'Astar'
-      logo: '/logos/astar.png'
-      url: 'https://github.com/AstarNetwork/builders-program'
+    - title: 'Darwinia'
+      logo: '/logos/darwinia.png'
+      url: 'https://github.com/darwinia-network/collaboration/blob/master/grant/README.md'
+      description: null
+    - title: 'Edgeware Builders Guild'
+      logo: '/logos/edgeware-builders.png'
+      url: 'https://github.com/edgeware-builders/construction-projects'
+      description: null
+    - title: 'HydraDX'
+      logo: '/logos/hydradx.png'
+      url: 'https://docs.hydradx.io/new_deal/'
+      description: null
+    - title: 'Moonbeam'
+      logo: '/logos/moonbeam.png'
+      url: 'https://moonbeam.foundation/grants/'
+      description: null
+    - title: 'Polkadot'
+      logo: '/logos/polkadot.png'
+      url: 'https://docs.google.com/document/d/1IZykdp2cyQavcRyZd_dgNj5DcgxgZR6kAqGdcNARu1w/edit'
+      description: null
+    - title: 'Solana'
+      logo: '/logos/solana.png'
+      url: 'https://solana.foundation/grants'
+      description: null
+    - title: 'Web3 Foundation'
+      logo: '/logos/web3-foundation.png'
+      url: 'https://web3.foundation/grants/'
       description: null
 
 - name: 'Venture Capital Funds'
   id: 'venture-capital-funds'
   items:
-    - title: 'Digital Currency Group'
-      logo: '/logos/dcg.png'
-      url: 'https://dcg.co/'
-      description: null
-    - title: 'NGC Ventures'
-      logo: '/logos/ngc.png'
-      url: 'https://ngc.fund/'
+    - title: 'Andreessen Horowitz'
+      logo: '/logos/andreessen-horowitz.png'
+      url: 'https://a16zcrypto.com/'
+    - title: 'Blockchain Capital'
+      logo: '/logos/blockchain-capital.png'
+      url: 'https://blockchain.capital/'
       description: null
     - title: 'Coinbase Ventures'
       logo: '/logos/coinbase.png'
       url: 'https://www.coinbase.com/ventures'
+      description: null
+    - title: 'Digital Currency Group'
+      logo: '/logos/dcg.png'
+      url: 'https://dcg.co/'
+      description: null
+    - title: 'Fenbushi Capital'
+      logo: '/logos/fenbushi-capital.png'
+      url: 'https://www.fenbushicapital.vc/index_en.html'
+      description: null
+    - title: 'Google Ventures'
+      logo: '/logos/gv.png'
+      url: 'https://www.gv.com/'
+      description: null
+    - title: 'Lightseed | Faction'
+      logo: '/logos/lightseed.png'
+      url: 'https://www.faction.vc/'
+      description: null
+    - title: 'NGC Ventures'
+      logo: '/logos/ngc.png'
+      url: 'https://ngc.fund/'
       description: null
     - title: 'Pantera Capital'
       logo: '/logos/pantera.png'
@@ -120,24 +135,4 @@
     - title: 'Plug and Play Tech Center'
       logo: '/logos/plug-and-play.png'
       url: 'https://www.plugandplaytechcenter.com/'
-      description: null
-    - title: 'Fenbushi Capital'
-      logo: '/logos/fenbushi-capital.png'
-      url: 'https://www.fenbushicapital.vc/index_en.html'
-      description: null
-    - title: 'Blockchain Capital'
-      logo: '/logos/blockchain-capital.png'
-      url: 'https://blockchain.capital/'
-      description: null
-    - title: 'Andreessen Horowitz'
-      logo: '/logos/andreessen-horowitz.png'
-      url: 'https://a16z.com/'
-      description: null
-    - title: 'Lightseed Venture Partners'
-      logo: '/logos/lightseed.png'
-      url: 'https://lsvp.com/'
-      description: null
-    - title: 'GV'
-      logo: '/logos/gv.png'
-      url: 'https://www.gv.com/'
       description: null
