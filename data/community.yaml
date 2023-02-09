@@ -10,8 +10,8 @@
       url: 'https://www.coindesk.com/'
       description: null
 
-- name: 'For Developers'
-  id: 'for-developers'
+- name: 'Developer Forums'
+  id: 'developer-forums'
   items:
     - title: 'DoraHacks'
       logo: '/logos/dorahacks.png'
