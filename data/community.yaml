@@ -5,17 +5,13 @@
       logo: '/logos/rekt.png'
       url: 'https://rekt.news/'
       description: null
-
-- name: 'For Enterprise'
-  id: 'for-enterprise'
-  items:
-    - title: 'DoraHacks'
-      logo: '/logos/dorahacks.png'
-      url: 'https://dorahacks.io/'
+    - title: 'Coindesk'
+      logo: '/logos/coindesk.png'
+      url: 'https://www.coindesk.com/'
       description: null
 
-- name: 'For Developers'
-  id: 'for-developers'
+- name: 'Developer Forums'
+  id: 'developer-forums'
   items:
     - title: 'DoraHacks'
       logo: '/logos/dorahacks.png'
@@ -28,10 +24,6 @@
     - title: 'OpenZeppelin Forum'
       logo: '/logos/openzeppelin.png'
       url: 'https://forum.openzeppelin.com/c/smart-contracts/39'
-      description: null
-    - title: 'EatTheBlocks Forum'
-      logo: '/logos/eattheblocks.png'
-      url: 'https://forum.eattheblocks.com/c/dapp-smart-contract-development'
       description: null
     - title: 'Cardano Forum'
       logo: '/logos/cardano.png'

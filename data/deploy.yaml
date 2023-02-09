@@ -1,22 +1,30 @@
 - name: 'Hosting Solutions'
   id: 'hosting-solutions'
   items:
-    - title: 'Etherscan'
-      logo: '/logos/etherscan.png'
-      url: 'https://etherscan.io/'
+    - title: 'Alchemy'
+      logo: '/logos/alchemy.png'
+      url: 'https://www.alchemy.com/'
       description: null
-    - title: 'OpenSea'
-      logo: '/logos/opensea.png'
-      url: 'https://opensea.io/'
-      description: null
-    - title: 'Infura'
-      logo: '/logos/infura.png'
-      url: 'https://infura.io/'
+    - title: 'AWS'
+      logo: '/logos/aws.png'
+      url: 'https://aws.amazon.com/blockchain/'
       description: null
     - title: 'Chainlinkstack'
       logo: '/logos/chainlinkstack.png'
       url: 'https://chainstack.com/'
       description: null
+    - title: 'Digital Ocean'
+      logo: '/logos/digitalocean.png'
+      url: 'https://www.digitalocean.com/solutions/blockchain'
+      description: null
+    - title: 'Infura'
+      logo: '/logos/infura.png'
+      url: 'https://infura.io/'
+      description: null
+    - title: 'OpenSea'
+      logo: '/logos/opensea.png'
+      url: 'https://opensea.io/'
+      description: null    
     - title: 'Quicknode'
       logo: '/logos/quicknode.png'
       url: 'https://www.quicknode.com/'
@@ -25,14 +33,6 @@
 - name: 'Deployment Tools'
   id: 'deployment-tools'
   items:
-  - title: 'Truffle'
-    logo: '/logos/truffle.png'
-    url: 'https://trufflesuite.com/'
-    description: null
-  - title: 'HardHat'
-    logo: '/logos/hardhat.png'
-    url: 'https://hardhat.org/'
-    description: null
   - title: 'Brownie'
     logo: '/logos/brownie.png'
     url: 'https://github.com/eth-brownie/brownie'
@@ -40,4 +40,12 @@
   - title: 'Dapp Tools'
     logo: '/logos/dapptools.png'
     url: 'https://dapp.tools/'
+    description: null
+  - title: 'HardHat'
+    logo: '/logos/hardhat.png'
+    url: 'https://hardhat.org/'
+    description: null
+  - title: 'Truffle'
+    logo: '/logos/truffle.png'
+    url: 'https://trufflesuite.com/'
     description: null
