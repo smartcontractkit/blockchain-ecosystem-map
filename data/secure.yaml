@@ -1,10 +1,6 @@
 - name: 'Security Tools'
   id: 'security-tools'
   items:
-    - title: 'Slither'
-      logo: '/logos/slither.png'
-      url: 'https://github.com/crytic/slither'
-      description: null
     - title: 'Manticore'
       logo: '/logos/manticore.png'
       url: 'https://github.com/trailofbits/manticore'
@@ -16,6 +12,10 @@
     - title: 'OpenZeppelin Defender'
       logo: '/logos/openzeppelin-defender.png'
       url: 'https://openzeppelin.com/defender/'
+      description: null
+    - title: 'Slither'
+      logo: '/logos/slither.png'
+      url: 'https://github.com/crytic/slither'
       description: null
 
 - name: 'Auditing'

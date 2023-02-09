@@ -204,6 +204,11 @@
     - title: 'Alchemy'
       logo: '/logos/alchemy.png'
       url: 'https://www.alchemy.com/'
+      description: null
+    - title: 'Chainlinkstack'
+      logo: '/logos/chainlinkstack.png'
+      url: 'https://chainstack.com/'
+      description: null
     - title: 'Infura'
       logo: '/logos/infura.png'
       url: 'https://infura.io/'
