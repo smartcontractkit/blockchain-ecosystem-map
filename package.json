@@ -41,7 +41,7 @@
     "@svgr/webpack": "^6.2.1",
     "babel-loader": "^8.2.4",
     "eslint": "8.23.1",
-    "eslint-config-next": "12.3.0",
+    "eslint-config-next": "13.4.4",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-storybook": "^0.6.4",
     "eslint-plugin-unused-imports": "^2.0.0",
